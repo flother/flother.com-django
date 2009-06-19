@@ -1,0 +1,18 @@
+Flother is the personal web site for Matt Riggott.  It's been through
+many interations — PHP, Django, App Engine, Rails, and now back to
+Django.  In fact it's now run on Python 2.5 and Django 1.0, and this is
+the code.
+
+For the moment it's an incredibly minimal and entirely uninteresting
+codebase. But over time it will turn into something more interesting.
+I promise.
+
+Requirements:
+
+    * Python 2.5 (http://www.python.org/)
+
+All other requirements (such as Django itself) are included in the
+repository, as Git submodules or otherwise.
+
+You can see the code in action at http://www.flother.com/.  For more
+information contact me: http://www.flother.com/contact/.
