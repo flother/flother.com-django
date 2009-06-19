@@ -1,0 +1,156 @@
+html {
+	background: #111 url(../img/core/bg.png);
+	color: #ddd;
+	font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body {
+	margin: 2.8em auto;
+	min-width: 508px;
+	padding: 0 4em;
+	width: 36.3em;
+}
+h1 {
+	background: url(../img/core/logo.png) no-repeat center;
+	font-size: 1em;
+	margin: 0;
+}
+h1 a {
+	background: url(../img/core/logo.png);
+	display: block;
+	height: 91px;
+	margin: 56px auto 0;
+	overflow: hidden;
+	text-indent: -9999px;
+	width: 120px;
+}
+#lede {
+	background: url(../img/core/lede.png) no-repeat top center;
+	height: 93px;
+	margin: 22px 0 70px;
+	min-width: 491px;
+	text-indent: -9999px;
+}
+p.flash {
+	background: #fff url(../img/core/bg.png);
+	border-bottom: .2em solid #000;
+	color: #111;
+	font-size: 1.2em;
+	left: 0;
+	margin: 0;
+	position: absolute;
+	padding: .4em 0;
+	text-align: center;
+	top: 0;
+	width: 100%;
+}
+p.flash_notice {
+	background: #9c0;
+}
+p.flash_error {
+	background: #900;
+}
+#photography {
+	margin: 2.8em 0;
+}
+#photography h2 {
+	background: url(../img/core/photography.png) no-repeat bottom right;
+	border-bottom: 1px solid #333;
+	font-size: 1em;
+	height: 15px;
+	margin: 1.4em 0;
+	text-indent: -9999px;
+}
+div.photograph {
+	background: #fff;
+	margin: 0 auto 2.8em;
+	position: relative;
+	padding: 4px;
+	width: 500px;
+}
+div.photograph img {
+	display: block;
+}
+div.photograph p {
+	background: url(../img/core/caption.png);
+	bottom: 0;
+	color: #fff;
+	left: 0;
+	margin: 0 4px 4px 4px;
+	padding: 1em;
+	position: absolute;
+	right: 0;
+}
+* html div.photograph p {
+	background: url(../img/core/caption_ie6.png);
+}
+div.photograph strong {
+	color: #fff;
+	font-size: 1em;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+#elsewhere h2 {
+	background: url(../img/core/elsewhere.png) no-repeat bottom right;
+	font-size: 1em;
+	height: 15px;
+	margin: 0;
+	text-indent: -9999px;
+}
+#elsewhere a {
+	background-position: center left;
+	background-repeat: no-repeat;
+	padding-left: 28px;
+}
+#twitter {
+	background-image: url(../img/core/twitter.png);
+}
+#flickr {
+	background-image: url(../img/core/flickr.png);
+}
+#delicious {
+	background-image: url(../img/core/delicious.png);
+}
+#footer {
+	background: url(../img/core/me.jpg) no-repeat;
+	color: #333;
+	margin: 2.8em 0;
+	padding-top: 46px;
+}
+
+a:link {
+	color: #fff;
+	text-decoration: none;
+}
+a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+a img {
+	border: 0;
+}
+abbr {
+	border: 0;
+}
+abbr.initialism {
+	font-size: .8em;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+}
+cite {
+	font-style: normal;
+}
+p {
+	margin: 1.4em 0;
+}
+ul {
+	border-bottom: 1px solid #333;
+	list-style: none;
+	margin: 0 0 1.4em;
+	padding: 0;
+}
+ul li {
+	border-top: .1em solid #333;
+	color: #333;
+	margin: 0;
+	padding: .4em 0;
+}
