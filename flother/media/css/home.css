@@ -89,6 +89,83 @@ div.photograph strong {
 	font-weight: bold;
 	text-transform: uppercase;
 }
+#contact {
+	margin: 2.8em 0;
+}
+#contact h2 {
+	background: url(../img/core/contact.png) no-repeat bottom right;
+	border-bottom: 1px solid #333;
+	font-size: 1em;
+	height: 12px;
+	margin: 1.4em 0;
+	text-indent: -9999px;
+}
+form {
+	margin: 1.4em 0;
+	position: relative;
+}
+#mandatorynotice {
+	bottom: 1.4em;
+	color: #333;
+	margin: 0;
+	position: absolute;
+	right: 0;
+}
+ul.errorlist {
+	background: url(../img/core/error_arrow.png) no-repeat bottom left;
+	border-bottom: 0;
+	margin: 1.4em 0 0;
+	padding-bottom: 7px;
+}
+ul.errorlist li {
+	background: #900;
+	border-top: 0;
+	color: #111;
+	display: block;
+	padding: .75em 1em;
+}
+form p {
+	margin: 0;
+}
+label {
+	display: block;
+	margin: .75em 0 0;
+}
+button, input, textarea {
+	font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+input {
+	border: .2em solid #fff;
+	padding: .5em .4em;
+	width: 22em;
+}
+input:focus {
+	border-color: #ccc;
+	outline: 0;
+}
+textarea {
+	border: .2em solid #fff;
+	margin: 0;
+	padding: .5em;
+	width: 34.9em;
+}
+textarea:focus {
+	border-color: #ccc;
+	outline: 0;
+}
+#field_ham_trap {
+	display: none;
+}
+button {
+	background: #222;
+	border: 0;
+	display: inline;
+	color: #fff;
+	cursor: pointer;
+	margin: .7em 0;
+	padding: .7em 1em;
+	width: 9.1em;
+}
 #elsewhere h2 {
 	background: url(../img/core/elsewhere.png) no-repeat bottom right;
 	font-size: 1em;

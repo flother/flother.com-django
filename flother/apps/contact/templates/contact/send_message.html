@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+	{% if form.errors %}
+		<p class="flash flash_error">Please correct the errors below.</p>
+	{% else %}
+		{% if sent %}
+			<p class="flash flash_notice">Thanks for your message. I’ll read it and respond as soon as I can.</p>
+		{% endif %}
+	{% endif %}
+	<div id="contact">
+		<h2>Contact me</h2>
+		{% include "contact/_form.html" %}
+	</div>
+{% endblock %}
