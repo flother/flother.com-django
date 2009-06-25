@@ -18,7 +18,7 @@ class Message(models.Model):
         ordering = ('-created_at',)
 
     def __unicode__(self):
-        return "%s: %s" % (self.sender_name, self.body_teaser)
+        return u'%s: %s' % (self.sender_name, self.body_teaser())
 
     def body_teaser(self):
         return truncate_words(self.body, 10)
