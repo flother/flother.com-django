@@ -1,3 +1,6 @@
 [submodule "vendor/django"]
 	path = vendor/django
 	url = git://github.com/django/django.git
+[submodule "vendor/south"]
+	path = vendor/south
+	url = git://github.com/andrewgodwin/south.git

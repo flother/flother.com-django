@@ -18,6 +18,8 @@ MONTH_DAY_FORMAT = 'j F'
 
 ROOT_URLCONF = 'flother.urls'
 
+SOUTH_AUTO_FREEZE_APP = True
+
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.auth',
     'django.core.context_processors.media',
@@ -44,6 +46,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
+
+    'south',
 
     'flother.apps.contact',
 )
