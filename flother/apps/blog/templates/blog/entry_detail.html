@@ -15,7 +15,7 @@
 		<ol>
 			{% for comment in comment_list %}
 				<li>
-					<p>{% if comment.is_removed %}<em>This comment has been removed.</em>{% else %}{{ comment.comment }}{% endif %}</p>
+					<p>{% if comment.is_removed %}<em>This comment has been removed.</em>{% else %}{{ comment.comment|linebreaks }}{% endif %}</p>
 					<p>{{ comment.user_name|title }}, {{ comment.submit_date|date }}</p>
 				</li>
 			{% endfor %}
