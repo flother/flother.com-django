@@ -16,7 +16,7 @@ class Entry(models.Model):
     STATUS_CHOICES = ((DRAFT_STATUS, 'Draft'), (PUBLISHED_STATUS, 'Published'))
 
     title = models.CharField(max_length=128)
-    slug = models.SlugField(unique_for_year='created_at')
+    slug = models.SlugField(unique_for_year='published_at')
     standfirst = models.CharField(max_length=256, blank=True)
     copy = models.TextField()
     author = models.ForeignKey(User)
