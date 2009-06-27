@@ -12,11 +12,18 @@
 		{% get_comment_list for entry as comment_list %}
 		<h2>Comments</h2>
 		<p>{{ comment_count }} comment{{ comment_count|pluralize }}</p>
-		<ol>
+		<ol id="comments">
 			{% for comment in comment_list %}
-				<li>
-					<p>{% if comment.is_removed %}<em>This comment has been removed.</em>{% else %}{{ comment.comment|linebreaks }}{% endif %}</p>
-					<p>{{ comment.user_name|title }}, {{ comment.submit_date|date }}</p>
+				<li{% if comment.user.is_staff %} class="{{ comment.user.username }}"{% endif %}>
+					{% if comment.is_removed %}<p><em>This comment has been removed.</em></p>{% else %}{{ comment.comment|linebreaks }}{% endif %}
+					<p>
+						{% if comment.user %}
+							{% if comment.user_url %}<a href="{{ comment.user_url }}">{{ comment.user.first_name|default:comment.user.username|capfirst }}</a>{% else %}{{ comment.user.first_name|default:comment.user.username|capfirst }}{% endif %},
+						{% else %}
+							{% if comment.user_url %}<a href="{{ comment.user_url }}">{{ comment.user_name|title }}</a>{% else %}{{ comment.user_name|title }}{% endif %},
+						{% endif %}
+						{{ comment.submit_date|date }}
+					</p>
 				</li>
 			{% endfor %}
 		</ol>
