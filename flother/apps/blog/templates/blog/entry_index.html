@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+	{% if entries %}
+		<ul>
+			{% for entry in entries %}
+				<li>
+					<strong><a href="{% url blog_entry_detail entry.published_at.year, entry.slug %}">{{ entry.title }}</a></strong>,
+					{{ entry.published_at|timesince }} ago
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% endblock %}

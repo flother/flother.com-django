@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>{{ entry.title }}</h1>
+	<p id="dateauthor">{{ entry.published_at|date}}</p>
+	<p id="standfirst">{{ entry.standfirst }}</p>
+	{{ entry.copy|safe }}
+{% endblock %}

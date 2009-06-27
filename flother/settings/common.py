@@ -49,5 +49,6 @@ INSTALLED_APPS = (
 
     'south',
 
+    'flother.apps.blog',
     'flother.apps.contact',
 )
