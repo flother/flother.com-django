@@ -1,8 +1,24 @@
 {% extends "base.html" %}
+{% load comments %}
 
 {% block content %}
 	<h1>{{ entry.title }}</h1>
 	<p id="dateauthor">{{ entry.published_at|date}}</p>
 	<p id="standfirst">{{ entry.standfirst }}</p>
 	{{ entry.copy|safe }}
+
+	{% get_comment_count for entry as comment_count %}
+	{% if comment_count %}
+		{% get_comment_list for entry as comment_list %}
+		<h2>Comments</h2>
+		<p>{{ comment_count }} comment{{ comment_count|pluralize }}</p>
+		<ol>
+			{% for comment in comment_list %}
+				<li>
+					<p>{% if comment.is_removed %}<em>This comment has been removed.</em>{% else %}{{ comment.comment }}{% endif %}</p>
+					<p>{{ comment.user_name|title }}, {{ comment.submit_date|date }}</p>
+				</li>
+			{% endfor %}
+		</ol>
+	{% endif %}
 {% endblock %}
