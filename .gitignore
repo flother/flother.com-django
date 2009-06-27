@@ -1,5 +1,6 @@
 *.pyc
 flother/manage.sh
+flother/fabfile.py
 flother/sqlite3.db
 flother/settings/development.py
 flother/settings/live.py
