@@ -1,6 +1,5 @@
 import django
 from django.db import models
-
 from south.db import db
 
 from flother.apps.contact.models import *
