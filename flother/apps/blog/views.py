@@ -27,7 +27,8 @@ def entry_detail(request, year, slug):
     """
     entry = get_object_or_404(Entry.objects.published(), published_at__year=year,
         slug=slug)
-    entry.number_of_views += 1
+    if not request.user:
+        entry.number_of_views += 1
     entry.save()
     context = {'entry': entry}
     return render_to_response('blog/entry_detail.html', context,
