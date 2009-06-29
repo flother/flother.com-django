@@ -17,15 +17,14 @@
 				<li{% if comment.user.is_staff %} class="{{ comment.user.username }}"{% endif %}>
 					{% if comment.is_removed %}<p><em>This comment has been removed.</em></p>{% else %}{{ comment.comment|safe|linebreaks }}{% endif %}
 					<p>
-						{% if comment.user %}
-							{% if comment.user_url %}<a href="{{ comment.user_url }}">{{ comment.user.first_name|default:comment.user.username|capfirst }}</a>{% else %}{{ comment.user.first_name|default:comment.user.username|capfirst }}{% endif %},
-						{% else %}
-							{% if comment.user_url %}<a href="{{ comment.user_url }}">{{ comment.user_name|title }}</a>{% else %}{{ comment.user_name|title }}{% endif %},
-						{% endif %}
+						{% if comment.userinfo.url %}<a href="{{ comment.userinfo.url }}">{{ comment.userinfo.name|title }}</a>{% else %}{{ comment.userinfo.name|title }}{% endif %},
 						{{ comment.submit_date|date }}
 					</p>
 				</li>
 			{% endfor %}
 		</ol>
+	{% endif %}
+	{% if entry.allow_new_comment %}
+		{% render_comment_form for entry %}
 	{% endif %}
 {% endblock %}

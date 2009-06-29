@@ -1,0 +1,10 @@
+A new comment has been left on "{{ entry.title }}" on {{ comment.site.name }}:
+
+Name:         {{ comment.userinfo.name }}
+Email:        {{ comment.userinfo.email|default:"[Not given]" }}
+URL:          {{ comment.userinfo.url|default:"[Not given]" }}
+IP address:   {{ comment.ip_address }}
+Submitted on: {{ comment.submit_date|time }}, {{ comment.submit_date|date }}
+
+Comment:
+{{ comment.comment|wordwrap:72 }}
