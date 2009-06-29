@@ -26,5 +26,9 @@
 	{% endif %}
 	{% if entry.allow_new_comment %}
 		{% render_comment_form for entry %}
+	{% else %}
+		{% if entry.enable_comments %}
+			<p>Commenting is now closed. Comments were accepted on this entry only for the first {{ entry.DAYS_COMMENTS_ENABLED }} days.</p>
+		{% endif %}
 	{% endif %}
 {% endblock %}
