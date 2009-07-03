@@ -4,7 +4,7 @@
 {% block headtitle %}Blog{% endblock %}
 {% block pagetitle %}<a href="{{ latest_entry.get_absolute_url }}">{{ latest_entry }}</a>{% endblock %}
 
-{% block headsupplement %}<link href="{% url blog_feeds "latest" %}" rel="alternate" type="application/rss+xml" />{% endblock %}
+{% block headsupplement %}<link href="http://feeds.feedburner.com/flother" rel="alternate" type="application/rss+xml" />{% endblock %}
 
 {% block content %}
 	<div id="entry">
