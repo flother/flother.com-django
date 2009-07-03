@@ -3,6 +3,7 @@
 	<head{% block headattrs %}{% endblock %}>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>{% block headtitle %}Untitled{% endblock %} — Flother</title>
+		<meta name="viewport" content="width=960" />
 		<meta http-equiv="imagetoolbar" content="false" />
 		{% load compressed %}{% compressed_css 'flother' %}
 		<link href="{{ MEDIA_URL }}img/core/favicon.png" rel="icon" type="image/png" />
