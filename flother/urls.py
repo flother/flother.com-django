@@ -3,16 +3,12 @@ from django.conf.urls.defaults import include, patterns, handler404, handler500
 from django.contrib import admin
 from django.views.generic.simple import direct_to_template
 
-from flother.apps.contact.forms import MessageForm
-
 
 admin.autodiscover()
-contact_form = MessageForm()
 
 
 urlpatterns = patterns('',
-    (r'^$', direct_to_template, {'template': 'home.html',
-        'extra_context': {'form': contact_form}}),
+    (r'^$', direct_to_template, {'template': 'home.html'}),
     (r'^blog/', include('flother.apps.blog.urls')),
     (r'^contact/', include('flother.apps.contact.urls')),
     (r'^comments/', include('django.contrib.comments.urls')),
