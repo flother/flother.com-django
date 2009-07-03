@@ -25,6 +25,8 @@ SOUTH_AUTO_FREEZE_APP = True
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.auth',
     'django.core.context_processors.media',
+    'flother.utils.context_processors.section',
+    'flother.utils.context_processors.current_year',
 )
 TEMPLATE_DIRS = (
     os.path.join(SITE_ROOT, 'templates'),
