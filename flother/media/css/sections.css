@@ -1,5 +1,8 @@
 /* Blog index.
    -------------------------------------------------------------------------- */
+#blog #metadata {
+	color: #999;
+}
 #recententries {
 	margin: 0;
 	overflow: hidden;
