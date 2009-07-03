@@ -1,0 +1,86 @@
+/* Structural elements.
+   -------------------------------------------------------------------------- */
+html {
+	background: #e8e7e5;
+	color: #333;
+	font: 14px/1.4 "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+body {
+	margin: 0 auto;
+	padding: 0 10px;
+	width: 940px;
+}
+
+/* Header.
+   -------------------------------------------------------------------------- */
+#header {
+	border-top: 6px solid #333;
+	border-bottom: 2px solid #333;
+	margin: 1.4em 0 0;
+	padding: 1.4em 0 1.4em;
+	position: relative;
+}
+#brand {
+	background: url(../img/core/brand.png);
+	height: 34px;
+	margin: 0;
+	text-indent: -9999px;
+	width: 289px;
+}
+#brand a {
+	border: 0;
+	display: block;
+	height: 100%;
+	padding: 0;
+}
+
+/* Navigation.
+   -------------------------------------------------------------------------- */
+#nav {
+	line-height: 34px;
+	margin: 0;
+	position: absolute;
+	right: -10px;
+	top: 1.4em;
+}
+#nav li {
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0 10px;
+}
+#nav li a {
+	color: #333;
+	font-size: 1.2em;
+}
+#nav li a:hover {
+	color: #3779b2;
+}
+body.blog #nav li#navblog a, body.contact #nav li#navcontact a {
+	font-weight: bold;
+}
+
+/* Columns.
+   -------------------------------------------------------------------------- */
+#content {
+	float: left;
+	width: 540px;
+}
+#supplement {
+	border-top: 1px solid #8e8d8c;
+	float: left;
+	margin: 7.9em 0 0 20px;
+	width: 380px;
+}
+#supplement h2 {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 1.4em 0 .1em;
+}
+
+/* Footer.
+   -------------------------------------------------------------------------- */
+#footer {
+	clear: both;
+	padding: 2.8em 0;
+}

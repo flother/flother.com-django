@@ -1,0 +1,93 @@
+/* Blog index.
+   -------------------------------------------------------------------------- */
+#recententries {
+	margin: 0;
+	overflow: hidden;
+}
+#recententries li {
+	border-top: 1px dotted #8e8d8c;
+	list-style: none;
+	margin: -1px 0 0 0;
+	padding: .75em 0;
+}
+#recententries li span {
+	display: block;
+}
+#yeararchives {
+	border-bottom: 1px dotted #8e8d8c;
+	border-top: 1px dotted #8e8d8c;
+	margin: 0 0 1.4em;
+	padding: .75em 0;
+	text-align: center;
+}
+#yeararchives li {
+	display: inline;
+	padding: 0 20px;
+}
+#yeararchives li a {
+	font-weight: bold;
+}
+
+/* Blog yearly archive.
+   -------------------------------------------------------------------------- */
+#blogarchive #content #entries {
+	float: left;
+}
+#blogarchive #content #entries ol {
+	margin: 0 -10px;
+	overflow: hidden;
+}
+#blogarchive #content #entries li {
+	border-top: 1px dotted #8e8d8c;
+	float: left;
+	list-style: none;
+	margin: -1px 10px 0;
+	padding: .75em 0;
+	width: 260px;
+}
+#blogarchive #content #entries li.odd {
+	clear: both;
+}
+#blogarchive #content #entries li.even {
+	clear: right;
+}
+#blogarchive #content #entries li strong {
+	display: block;
+}
+
+/* Blog entry detail.
+   -------------------------------------------------------------------------- */
+#blogentry #supplement {
+	padding-top: 2.8em;
+}
+#entry {
+	padding-top: 1.4em;
+}
+#entry p.illustration {
+	background: #fff;
+	float: right;
+	margin: 0 0 1.4em 1.4em;
+	padding: .75em;
+	width: 200px;
+}
+#entry p.illustration img {
+	display: block;
+	margin: 0 0 .75em;
+}
+#blogentry #metadata {
+	color: #999;
+	margin-bottom: 2.8em;
+}
+#entry #comments {
+	border-bottom: 1px dotted #8e8d8c;
+}
+#entry #comments li {
+	border-top: 1px dotted #8e8d8c;
+	margin: 1.4em 0;
+}
+#entry #comments li p.metadata {
+	color: #666;
+}
+#entry #commentsclosed {
+	margin: 4.2em 0 0;
+}

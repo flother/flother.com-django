@@ -1,14 +1,21 @@
 {% extends "base.html" %}
 
+{% block headtitle %}Blog entries in {{ year }}{% endblock %}
+{% block pagetitle %}Blog entries in {{ year }}{% endblock %}
+
+{% block bodyid %}blogarchive{% endblock %}
+
 {% block content %}
-	{% if entries %}
-		<ul>
-			{% for entry in entries %}
-				<li>
-					<strong><a href="{% url blog_entry_detail entry.published_at.year, entry.slug %}">{{ entry.title }}</a></strong>,
-					{{ entry.published_at|timesince }} ago
-				</li>
-			{% endfor %}
-		</ul>
-	{% endif %}
+	<div id="entries">
+		{% if entries %}
+			<ol>
+				{% for entry in entries %}
+					<li class="{% cycle odd,even %}">
+						<strong><a href="{% url blog_entry_detail entry.published_at.year, entry.slug %}">{{ entry.title }}</a></strong>
+						{{ entry.published_at|date:"jS F" }}
+					</li>
+				{% endfor %}
+			</ol>
+		{% endif %}
+	</div>
 {% endblock %}

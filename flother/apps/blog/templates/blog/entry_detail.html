@@ -1,34 +1,43 @@
 {% extends "base.html" %}
 {% load comments %}
 
-{% block content %}
-	<h1>{{ entry.title }}</h1>
-	<p id="dateauthor">{{ entry.published_at|date}}</p>
-	<p id="standfirst">{{ entry.standfirst }}</p>
-	{{ entry.copy|safe }}
+{% block headtitle %}{{ entry.title }}{% endblock %}
+{% block pagetitle %}{{ entry.title }}{% endblock %}
 
-	{% get_comment_count for entry as comment_count %}
-	{% if comment_count %}
-		{% get_comment_list for entry as comment_list %}
-		<h2>Comments</h2>
-		<p>{{ comment_count }} comment{{ comment_count|pluralize }}</p>
-		<ol id="comments">
-			{% for comment in comment_list %}
-				<li{% if comment.user.is_staff %} class="{{ comment.user.username }}"{% endif %}>
-					{% if comment.is_removed %}<p><em>This comment has been removed.</em></p>{% else %}{{ comment.comment|safe|linebreaks }}{% endif %}
-					<p>
-						{% if comment.userinfo.url %}<a href="{{ comment.userinfo.url }}">{{ comment.userinfo.name|title }}</a>{% else %}{{ comment.userinfo.name|title }}{% endif %},
-						{{ comment.submit_date|date }}
-					</p>
-				</li>
-			{% endfor %}
-		</ol>
-	{% endif %}
-	{% if entry.allow_new_comment %}
-		{% render_comment_form for entry %}
-	{% else %}
+{% block bodyid %}blogentry{% endblock %}
+
+{% block content %}
+	<div id="entry">
+		{% if entry.standfirst %}<p id="standfirst">{{ entry.standfirst }}</p>{% endif %}
+		{{ entry.copy|safe }}
 		{% if entry.enable_comments %}
-			<p>Commenting is now closed. Comments were accepted on this entry only for the first {{ entry.DAYS_COMMENTS_ENABLED }} days.</p>
+			{% get_comment_count for entry as comment_count %}
+			{% if comment_count or entry.allow_new_comment %}<h2>Comments</h2>{% endif %}
+			{% if comment_count %}
+				{% get_comment_list for entry as comment_list %}
+				<ol id="comments">
+					{% for comment in comment_list %}
+						<li{% if comment.user.is_staff %} class="{{ comment.user.username }}"{% endif %}>
+							{% if comment.is_removed %}<p><em>This comment has been removed.</em></p>{% else %}{{ comment.comment|safe|linebreaks }}{% endif %}
+							<p class="metadata">
+								{% if comment.userinfo.url %}<a href="{{ comment.userinfo.url }}">{{ comment.userinfo.name|title }}</a>{% else %}{{ comment.userinfo.name|title }}{% endif %},
+								{{ comment.submit_date|date }}
+							</p>
+						</li>
+					{% endfor %}
+				</ol>
+			{% endif %}
+			{% if entry.allow_new_comment %}
+				{% render_comment_form for entry %}
+			{% else %}
+				{% if entry.enable_comments %}
+					<p id="commentsclosed">Commenting is now closed. Comments were accepted on this entry only for the first {{ entry.DAYS_COMMENTS_ENABLED }} days.</p>
+				{% endif %}
+			{% endif %}
 		{% endif %}
-	{% endif %}
+	</div>
+{% endblock %}
+
+{% block supplement %}
+	<p id="metadata">Written by {{ entry.author.first_name|default:entry.author.username|title }} on {{ entry.published_at|date }}.</p>
 {% endblock %}

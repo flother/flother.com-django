@@ -1,23 +1,36 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
-	<head profile="http://gmpg.org/xfn/11">
-		<title>Flother</title>
+	<head{% block headattrs %}{% endblock %}>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="viewport" content="width=620" />
+		<title>{% block headtitle %}Untitled{% endblock %} — Flother</title>
 		<meta http-equiv="imagetoolbar" content="false" />
-		<link href="{{ MEDIA_URL }}css/home.css" media="screen,projection" rel="stylesheet" type="text/css" />
+		<link href="{{ MEDIA_URL }}css/reset.css" media="screen,projection" rel="stylesheet" type="text/css" />
+		<link href="{{ MEDIA_URL }}css/structure.css" media="screen,projection" rel="stylesheet" type="text/css" />
+		<link href="{{ MEDIA_URL }}css/typography.css" media="screen,projection" rel="stylesheet" type="text/css" />
+		<link href="{{ MEDIA_URL }}css/sections.css" media="screen,projection" rel="stylesheet" type="text/css" />
 		<link href="{{ MEDIA_URL }}img/core/favicon.png" rel="icon" type="image/png" />
-		<link href="http://api.flickr.com/services/feeds/photos_public.gne?id=42348675@N00&amp;lang=en-gb&amp;format=atom" rel="alternate" title="My photos on Flickr" type="application/atom+xml" />
-		<link href="http://feeds.delicious.com/v2/atom/mjr" rel="alternate" title="My bookmarks on Delicious" type="application/atom+xml" />
+		{% block headsupplement %}{% endblock %}
 	</head>
-	<body>
-		<div class="vcard" id="introduction">
-			<h1><a class="url" href="/">Flother</a></h1>
-			{%block introduction %}{% endblock %}
+	<body class="{{ section }}" id="{% block bodyid %}{{ section }}{% endblock %}">
+		<div id="header">
+			<p id="brand"><a href="/">Flother</a></p>
+			<ul id="nav">
+				<li id="navblog"><a href="{% url blog_entry_index %}">Blog</a></li>
+				<li id="navcontact"><a href="{% url contact_send_message %}">Contact</a></li>
+			</ul>
 		</div>
-		{% block content %}{% endblock %}
-		<p id="footer">All this lovely content is under my copyright, so don’t steal it. Thanks go to Henry Kunz for the logo&nbsp;design.</p>
-		<script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
-		<script type="text/javascript">_gat._getTracker("UA-264001-4")._trackPageview();</script>
+		<div id="content">
+			{% block title %}
+				<h1>{% block pagetitle %}Untitled{% endblock %}</h1>
+			{% endblock %}
+			{% block content %}{% endblock %}
+		</div>
+		<div id="supplement">
+			{% block supplement %}{% endblock %}
+		</div>
+		<div id="footer">
+			<p>Copyright 2005–{{ current_year }} Matt Riggott.</p>
+		</div>
+		{% block bodysupplement %}{% endblock %}
 	</body>
 </html>

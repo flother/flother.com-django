@@ -6,8 +6,14 @@ from flother.apps.blog.models import Entry
 
 def entry_index(request):
     """Output the latest ten published blog entries."""
-    entries = Entry.objects.published()[:10]
-    context = {'entries': entries}
+    latest_entry = Entry.objects.latest()
+    recent_entries = Entry.objects.published().exclude(id=latest_entry.id)[:10]
+    years_with_entries = Entry.objects.published().dates('published_at', 'year')
+    context = {
+        'latest_entry': latest_entry,
+        'recent_entries': recent_entries,
+        'years_with_entries': years_with_entries,
+    }
     return render_to_response('blog/entry_index.html', context,
         RequestContext(request))
 

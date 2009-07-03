@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 
+{% block headtitle %}Contact me{% endblock %}
+{% block pagetitle %}Contact me{% endblock %}
+
 {% block content %}
 	{% if form.errors %}
 		<p class="flash flash_error">Please correct the errors below.</p>
@@ -8,31 +11,33 @@
 			<p class="flash flash_notice">Thanks for your message. I’ll read it and respond as soon as I can.</p>
 		{% endif %}
 	{% endif %}
-	<div id="contact">
-		<h2>Contact me</h2>
-		<form action="{% url contact_send_message %}" method="post">
-			<p id="mandatorynotice">All fields are mandatory. Your details will be kept private.</p>
-			<p id="field_{{ form.sender_name.html_name }}">
-				{{ form.sender_name.errors }}
-				{{ form.sender_name.label_tag }}
-				{{ form.sender_name }}
-			</p>
-			<p id="field_{{ form.sender_email.html_name }}">
-				{{ form.sender_email.errors }}
-				{{ form.sender_email.label_tag }}
-				{{ form.sender_email }}
-			</p>
-			<p id="field_{{ form.body.html_name }}">
-				{{ form.body.errors }}
-				{{ form.body.label_tag }}
-				{{ form.body }}
-			</p>
-			<p id="field_{{ form.ham_trap.html_name }}">
-				{{ form.ham_trap.errors }}
-				{{ form.ham_trap.label_tag }}
-				{{ form.ham_trap }}
-			</p>
-			<button type="submit">Send message</button>
-		</form>
-	</div>
+	<form action="{% url contact_send_message %}" method="post">
+		<p id="mandatorynotice">All fields are mandatory. Your details will be kept private.</p>
+		<p id="field_{{ form.sender_name.html_name }}">
+			{{ form.sender_name.errors }}
+			{{ form.sender_name.label_tag }}
+			{{ form.sender_name }}
+		</p>
+		<p id="field_{{ form.sender_email.html_name }}">
+			{{ form.sender_email.errors }}
+			{{ form.sender_email.label_tag }}
+			{{ form.sender_email }}
+		</p>
+		<p id="field_{{ form.body.html_name }}">
+			{{ form.body.errors }}
+			{{ form.body.label_tag }}
+			{{ form.body }}
+		</p>
+		<p id="field_{{ form.ham_trap.html_name }}">
+			{{ form.ham_trap.errors }}
+			{{ form.ham_trap.label_tag }}
+			{{ form.ham_trap }}
+		</p>
+		<button type="submit">Send message</button>
+	</form>
+{% endblock %}
+
+{% block supplement %}
+	<p>If Twitter’s your thing you can contact me there. Just send a message to <a href="http://twitter.com/riggbot">@riggbot</a>.</p>
+	<p>If you’d like to send me an email rather than use the form, send an email to <em>matt dot riggott at gmail dot com</em>.</p>
 {% endblock %}
