@@ -16,7 +16,9 @@ class Entry(models.Model):
 
     DRAFT_STATUS = 1
     PUBLISHED_STATUS = 2
-    STATUS_CHOICES = ((DRAFT_STATUS, 'Draft'), (PUBLISHED_STATUS, 'Published'))
+    PRIVATE_STATUS = 3
+    STATUS_CHOICES = ((DRAFT_STATUS, 'Draft'), (PUBLISHED_STATUS, 'Published'),
+        (PRIVATE_STATUS, 'Private'))
 
     DAYS_COMMENTS_ENABLED = 60
 
