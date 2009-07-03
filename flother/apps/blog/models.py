@@ -47,7 +47,7 @@ class Entry(models.Model):
     def get_absolute_url(self):
         """Return the canonical URL for a blog entry."""
         from flother.apps.blog.views import entry_detail
-        return (entry_detail, (self.created_at.year, self.slug))
+        return (entry_detail, (self.published_at.year, self.slug))
 
     def allow_new_comment(self):
         """
