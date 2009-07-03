@@ -15,7 +15,10 @@ def entry_index(request):
 def entry_archive_year(request, year):
     """Output the published blog entries for a given year."""
     entries = get_list_or_404(Entry.objects.published(), published_at__year=year)
-    context = {'entries': entries}
+    context = {
+        'year': year,
+        'entries': entries,
+    }
     return render_to_response('blog/entry_archive_year.html', context,
         RequestContext(request))
 
