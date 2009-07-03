@@ -22,6 +22,21 @@ COMMENTS_HIDE_REMOVED = False
 
 SOUTH_AUTO_FREEZE_APP = True
 
+COMPRESS_VERSION = True
+COMPRESS_AUTO = False
+COMPRESS_CSS = {
+    'flother': {
+        'source_filenames': ('css/reset.css', 'css/structure.css',
+            'css/typography.css', 'css/sections.css'),
+        'output_filename': 'css/flother.r?.css',
+        'extra_context': {
+            'media': 'screen,projection',
+        },
+    },
+}
+COMPRESS_JS = {}
+CSSTIDY_ARGUMENTS = '--remove_last_\;=true --lowercase_s=true --sort_properties=true --template=highest'
+
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.auth',
     'django.core.context_processors.media',
@@ -53,6 +68,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 
     'south',
+    'compress',
 
     'flother.apps.blog',
     'flother.apps.contact',

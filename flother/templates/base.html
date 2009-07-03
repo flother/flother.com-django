@@ -4,10 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>{% block headtitle %}Untitled{% endblock %} — Flother</title>
 		<meta http-equiv="imagetoolbar" content="false" />
-		<link href="{{ MEDIA_URL }}css/reset.css" media="screen,projection" rel="stylesheet" type="text/css" />
-		<link href="{{ MEDIA_URL }}css/structure.css" media="screen,projection" rel="stylesheet" type="text/css" />
-		<link href="{{ MEDIA_URL }}css/typography.css" media="screen,projection" rel="stylesheet" type="text/css" />
-		<link href="{{ MEDIA_URL }}css/sections.css" media="screen,projection" rel="stylesheet" type="text/css" />
+		{% load compressed %}{% compressed_css 'flother' %}
 		<link href="{{ MEDIA_URL }}img/core/favicon.png" rel="icon" type="image/png" />
 		{% block headsupplement %}{% endblock %}
 	</head>

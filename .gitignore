@@ -1,6 +1,7 @@
 *.pyc
 flother/manage.sh
 flother/fabfile.py
+flother/media/css/flother.r*.css
 flother/media/img/pages/
 flother/sqlite3.db
 flother/settings/development.py

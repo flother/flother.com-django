@@ -4,3 +4,6 @@
 [submodule "vendor/south"]
 	path = vendor/south
 	url = git://github.com/andrewgodwin/south.git
+[submodule "vendor/django-compress"]
+	path = vendor/django-compress
+	url = git://github.com/paltman/django-compress.git
