@@ -83,6 +83,11 @@
 	margin: 0 0 .75em;
 }
 #entry #comments {
+	border-top: 1px solid #8e8d8c;
+	margin-top: 4.2em;
+	padding-top: 1.4em;
+}
+#entry #comments ol {
 	border-bottom: 1px dotted #8e8d8c;
 }
 #entry #comments li {
@@ -101,4 +106,15 @@
 #blogentry #metadata {
 	color: #999;
 	margin-bottom: 2.8em;
+}
+
+/* Comment preview.
+   -------------------------------------------------------------------------- */
+#comments blockquote {
+	color: #333;
+	font-size: 1.4em;
+	margin: 2em 0 1em;
+}
+#comments #content h2 {
+	margin-top: 1.71em;
 }

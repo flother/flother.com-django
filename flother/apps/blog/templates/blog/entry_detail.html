@@ -13,29 +13,31 @@
 		{% if entry.standfirst %}<p id="standfirst">{{ entry.standfirst }}</p>{% endif %}
 		{{ entry.copy|safe }}
 		{% if entry.enable_comments %}
-			{% get_comment_count for entry as comment_count %}
-			{% if comment_count or entry.allow_new_comment %}<h2>Comments</h2>{% endif %}
-			{% if comment_count %}
-				{% get_comment_list for entry as comment_list %}
-				<ol id="comments">
-					{% for comment in comment_list %}
-						<li{% if comment.user.is_staff %} class="{{ comment.user.username }}"{% endif %}>
-							{% if comment.is_removed %}<p><em>This comment has been removed.</em></p>{% else %}{{ comment.comment|safe|linebreaks }}{% endif %}
-							<p class="metadata">
-								{% if comment.userinfo.url %}<a href="{{ comment.userinfo.url }}">{{ comment.userinfo.name|title }}</a>{% else %}{{ comment.userinfo.name|title }}{% endif %},
-								{{ comment.submit_date|date }}
-							</p>
-						</li>
-					{% endfor %}
-				</ol>
-			{% endif %}
-			{% if entry.allow_new_comment %}
-				{% render_comment_form for entry %}
-			{% else %}
-				{% if entry.enable_comments %}
-					<p id="commentsclosed">Commenting is now closed. Comments were accepted on this entry only for the first {{ entry.DAYS_COMMENTS_ENABLED }} days.</p>
+			<div id="comments">
+				<h2>Commentary</h2>
+				{% get_comment_count for entry as comment_count %}
+				{% if comment_count %}
+					{% get_comment_list for entry as comment_list %}
+					<ol>
+						{% for comment in comment_list %}
+							<li{% if comment.user.is_staff %} class="{{ comment.user.username }}"{% endif %}>
+								{% if comment.is_removed %}<p><em>This comment has been removed.</em></p>{% else %}{{ comment.comment|safe|linebreaks }}{% endif %}
+								<p class="metadata">
+									{% if comment.userinfo.url %}<a href="{{ comment.userinfo.url }}">{{ comment.userinfo.name|title }}</a>{% else %}{{ comment.userinfo.name|title }}{% endif %},
+									{{ comment.submit_date|date }}
+								</p>
+							</li>
+						{% endfor %}
+					</ol>
 				{% endif %}
-			{% endif %}
+				{% if entry.allow_new_comment %}
+					{% render_comment_form for entry %}
+				{% else %}
+					{% if entry.enable_comments %}
+						<p id="commentsclosed">Commenting is now closed. Comments were accepted on this entry only for the first {{ entry.DAYS_COMMENTS_ENABLED }} days.</p>
+					{% endif %}
+				{% endif %}
+			</div>
 		{% endif %}
 	</div>
 {% endblock %}

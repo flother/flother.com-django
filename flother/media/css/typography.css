@@ -8,6 +8,7 @@ h1 {
 }
 h2 {
 	font-size: 1.4em;
+	margin: 1em 0;
 }
 
 /* Links.
@@ -127,6 +128,10 @@ button:hover, button:focus, button:active {
 
 /* Miscellaneous block elements.
    -------------------------------------------------------------------------- */
+blockquote {
+	color: #8e8d8c;
+	margin: 1.4em 2em;
+}
 p {
 	margin: 1.4em 0;
 }

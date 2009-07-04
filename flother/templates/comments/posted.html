@@ -1,0 +1,16 @@
+{% extends "comments/base.html" %}
+{% load comments i18n %}
+
+{% block headtitle %}Thanks for your comment{% endblock %}
+{% block pagetitle %}Thanks for your comment{% endblock %}
+
+{% block content %}
+	<p>Thanks for your comment. It will appear straight away, although I reserve the right to remove your comment if you’ve said something naughty.</p>
+	<p>Your comment looks like this:</p>
+	<blockquote>{{ comment.comment|linebreaks }}</blockquote>
+{% endblock %}
+
+{% block supplement %}
+	{% get_comment_count for comment.content_object as comment_count %}
+	<p>You’ve left a comment on <a href="{{ comment.content_object.get_absolute_url }}">{{ comment.content_object }}</a>, which was written {{ comment.content_object.published_at|timesince }} ago. There{{ comment_count|pluralize:"’s, are" }} now {{ comment_count }} comment{{ comment_count|pluralize}}.</p>
+{% endblock %}

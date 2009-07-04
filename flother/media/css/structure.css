@@ -84,3 +84,11 @@ body.blog #nav li#navblog a, body.contact #nav li#navcontact a {
 	clear: both;
 	padding: 2.8em 0;
 }
+
+/* Flash messages.
+   -------------------------------------------------------------------------- */
+p.flasherror {
+	background: #900;
+	color: #000;
+	padding: .75em 1em;
+}
