@@ -93,6 +93,7 @@
 #entry #comments li {
 	border-top: 1px dotted #8e8d8c;
 	margin: 1.4em 0;
+	overflow: auto;
 }
 #entry #comments li p.metadata {
 	color: #666;
@@ -114,6 +115,7 @@
 	color: #333;
 	font-size: 1.4em;
 	margin: 2em 0 1em;
+	overflow: auto;
 }
 #comments #content h2 {
 	margin-top: 1.71em;
