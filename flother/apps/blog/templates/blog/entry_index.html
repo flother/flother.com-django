@@ -11,7 +11,7 @@
 		{% if latest_entry.standfirst %}<p id="standfirst">{{ latest_entry.standfirst }}</p>{% endif %}
 		{{ latest_entry.copy|safe }}
 		{% if latest_entry.enable_comments %}{% get_comment_count for latest_entry as comment_count %}{% endif %}
-		<p id="metadata"><a href="{{ latest_entry.get_absolute_url }}#comments">{% if comment_count %}{{ comment_count }} comment{{ comment_count|pluralize }}{% else %}No comments{% endif %}</a>. Written by {{ latest_entry.author.first_name|default:latest_entry.author.username|title }} on {{ latest_entry.published_at|date }}.</p>
+		<p id="metadata">{% if latest_entry.enable_comments %}{% if comment_count %}<a href="{{ latest_entry.get_absolute_url }}#comments">{{ comment_count }} comment{{ comment_count|pluralize }}</a>. {% else %}No comments. {% endif %}{% endif %}Written by {{ latest_entry.author.first_name|default:latest_entry.author.username|title }} on {{ latest_entry.published_at|date }}.</p>
 	</div>
 {% endblock %}
 
