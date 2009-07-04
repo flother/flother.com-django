@@ -12,8 +12,10 @@ Requirements:
     * Python 2.5 (http://www.python.org/)
     * Django (http://www.djangoproject.com/)
     * South (http://south.aeracode.org/)
+    * Django Compress (http://code.google.com/p/django-compress/)
 
-Django and South (used for database migrations) are included in the
+Django, South (used for database migrations), and Django Compress (used to
+compress CSS and Javascript into many files from many) are included in the
 repository within the vendor directory as Git submodules.
 
 You can see the code in action at http://www.flother.com/.  For more
