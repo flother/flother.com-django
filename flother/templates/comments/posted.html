@@ -7,7 +7,7 @@
 {% block content %}
 	<p>Thanks for your comment. It will appear straight away, although I reserve the right to remove your comment if you’ve said something naughty.</p>
 	<p>Your comment looks like this:</p>
-	<blockquote>{{ comment.comment|linebreaks }}</blockquote>
+	<blockquote>{{ comment.comment|urlizetrunc:60|linebreaks }}</blockquote>
 {% endblock %}
 
 {% block supplement %}

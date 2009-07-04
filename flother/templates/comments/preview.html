@@ -5,10 +5,10 @@
 {% block pagetitle %}Preview your comment{% endblock %}
 
 {% block content %}
+	<blockquote>{{ comment|urlizetrunc:60|linebreaks }}</blockquote>
 	<form action="{% comment_form_target %}" method="post">
 		{% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
 		{% if not form.errors %}
-			<blockquote>{{ comment|linebreaks }}</blockquote>
 			<button name="submit" type="submit" value="Post your comment">Post</button>
 		{% endif %}
 		<h2>Change your comment</h2>

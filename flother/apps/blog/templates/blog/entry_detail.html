@@ -21,7 +21,7 @@
 					<ol>
 						{% for comment in comment_list %}
 							<li{% if comment.user.is_staff %} class="{{ comment.user.username }}"{% endif %}>
-								{% if comment.is_removed %}<p><em>This comment has been removed.</em></p>{% else %}{{ comment.comment|safe|linebreaks }}{% endif %}
+								{% if comment.is_removed %}<p><em>This comment has been removed.</em></p>{% else %}{{ comment.comment|urlizetrunc:60|linebreaks }}{% endif %}
 								<p class="metadata">
 									{% if comment.userinfo.url %}<a href="{{ comment.userinfo.url }}">{{ comment.userinfo.name|title }}</a>{% else %}{{ comment.userinfo.name|title }}{% endif %},
 									{{ comment.submit_date|date }}
