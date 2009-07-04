@@ -112,7 +112,7 @@ textarea:focus {
 	display: none;
 }
 button {
-	background: #333;
+	background: #8e8d8c;
 	border: 0;
 	display: inline;
 	color: #fff;
@@ -120,6 +120,9 @@ button {
 	margin: .7em 0;
 	padding: .7em 1em;
 	width: 9.1em;
+}
+button:hover, button:focus, button:active {
+	background: #333;
 }
 
 /* Miscellaneous block elements.
