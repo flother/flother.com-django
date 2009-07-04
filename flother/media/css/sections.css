@@ -1,5 +1,9 @@
 /* Blog index.
    -------------------------------------------------------------------------- */
+#blog #standfirst {
+	font-size: 1.2em;
+	margin: .86em 0;
+}
 #blog #metadata {
 	color: #999;
 }
@@ -60,11 +64,12 @@
 
 /* Blog entry detail.
    -------------------------------------------------------------------------- */
-#blogentry #supplement {
-	padding-top: 2.8em;
-}
 #entry {
 	padding-top: 1.4em;
+}
+#entry #standfirst {
+	font-size: 1.2em;
+	margin: .86em 0;
 }
 #entry p.illustration {
 	background: #fff;
@@ -76,10 +81,6 @@
 #entry p.illustration img {
 	display: block;
 	margin: 0 0 .75em;
-}
-#blogentry #metadata {
-	color: #999;
-	margin-bottom: 2.8em;
 }
 #entry #comments {
 	border-bottom: 1px dotted #8e8d8c;
@@ -93,4 +94,11 @@
 }
 #entry #commentsclosed {
 	margin: 4.2em 0 0;
+}
+#blogentry #supplement {
+	padding-top: 2.6em;
+}
+#blogentry #metadata {
+	color: #999;
+	margin-bottom: 2.8em;
 }
