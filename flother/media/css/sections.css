@@ -12,7 +12,7 @@
 	overflow: hidden;
 }
 #recententries li {
-	border-top: 1px dotted #8e8d8c;
+	border-top: 1px dotted #999;
 	list-style: none;
 	margin: -1px 0 0 0;
 	padding: .75em 0;
@@ -21,8 +21,8 @@
 	display: block;
 }
 #yeararchives {
-	border-bottom: 1px dotted #8e8d8c;
-	border-top: 1px dotted #8e8d8c;
+	border-bottom: 1px dotted #999;
+	border-top: 1px dotted #999;
 	margin: 0 0 1.4em;
 	padding: .75em 0;
 	text-align: center;
@@ -45,7 +45,7 @@
 	overflow: hidden;
 }
 #blogarchive #content #entries li {
-	border-top: 1px dotted #8e8d8c;
+	border-top: 1px dotted #999;
 	float: left;
 	list-style: none;
 	margin: -1px 10px 0;
@@ -83,15 +83,15 @@
 	margin: 0 0 .75em;
 }
 #entry #comments {
-	border-top: 1px solid #8e8d8c;
+	border-top: 1px solid #999;
 	margin-top: 4.2em;
 	padding-top: 1.4em;
 }
 #entry #comments ol {
-	border-bottom: 1px dotted #8e8d8c;
+	border-bottom: 1px dotted #999;
 }
 #entry #comments li {
-	border-top: 1px dotted #8e8d8c;
+	border-top: 1px dotted #999;
 	margin: 1.4em 0;
 	overflow: auto;
 }

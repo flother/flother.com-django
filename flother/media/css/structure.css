@@ -67,7 +67,7 @@ body.blog #nav li#navblog a, body.contact #nav li#navcontact a {
 	width: 540px;
 }
 #supplement {
-	border-top: 1px solid #8e8d8c;
+	border-top: 1px solid #999;
 	float: left;
 	margin: 7.9em 0 0 20px;
 	width: 380px;
