@@ -120,3 +120,12 @@
 #comments #content h2 {
 	margin-top: 1.71em;
 }
+
+/* Contact
+   -------------------------------------------------------------------------- */
+#contact #supplement {
+	background: url(../img/core/bluebird.png) no-repeat 0 1.4em;
+}
+#twitter {
+	padding-left: 44px;
+}
