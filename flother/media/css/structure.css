@@ -87,8 +87,8 @@ body.blog #nav li#navblog a, body.contact #nav li#navcontact a {
 
 /* Flash messages.
    -------------------------------------------------------------------------- */
-p.flasherror {
-	background: #900;
-	color: #000;
+p.flashnotice {
+	background: #263B39;
+	color: #fff;
 	padding: .75em 1em;
 }
