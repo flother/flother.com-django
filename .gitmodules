@@ -7,3 +7,6 @@
 [submodule "vendor/django-compress"]
 	path = vendor/django-compress
 	url = git://github.com/paltman/django-compress.git
+[submodule "vendor/django-debug-toolbar"]
+	path = vendor/django-debug-toolbar
+	url = git://github.com/robhudson/django-debug-toolbar.git
