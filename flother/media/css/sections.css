@@ -74,7 +74,14 @@
 	padding: .75em;
 	width: 200px;
 }
-#entry p.illustration img {
+#entry p.illustration {
+	background: #fff;
+	float: right;
+	margin: 0 0 1.4em 1.4em;
+	padding: .75em;
+	width: 240px;
+}
+#entry p.illustration img, #entry p.oldillustration img {
 	display: block;
 	margin: 0 0 .75em;
 }
