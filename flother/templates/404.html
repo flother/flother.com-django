@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang=en-gb>
-<head>
-<meta charset=utf-8>
-<title>Flother: page not found</title>
-<meta name="viewport" content="width=620">
-<link href="{{ MEDIA_URL }}css/home.css" media="screen,projection" rel="stylesheet" type="text/css">
-<link href="{{ MEDIA_URL }}img/core/favicon.png" rel="icon" type="image.png">
-<h1><a href="/">Flother</a></h1>
-<p id="lede" style="background-image:url({{ MEDIA_URL }}img/core/pagenotfound.png)">Page not found
-<script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
-<script type="text/javascript">_gat._getTracker("UA-264001-4")._trackPageview();</script>
+{% extends "base.html" %}
+
+{% block headtitle %}Page not found{% endblock %}
+{% block pagetitle %}Page not found{% endblock %}</h1>
+
+{% block bodyid %}404{% endblock %}
+
+{% block content %}
+	<p>Sorry, but the page you’re looking for doesn’t exist.</p>
+	<p>If you’re looking for something in particular you might find it either on the <a href="/">home page</a> or the <a href="{% url blog_entry_index %}">blog</a>.</p>
+	<p>If you’re exceedingly annoyed that you’ve not only waited for a page that doesn’t exist but that you’ve also read all this without learning the secret to a happy life, you can <a href="{% url contact_send_message %}">send me a strongly-worded email</a> if you like.</p>
+{% endblock %}
