@@ -54,6 +54,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.http.ConditionalGetMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.gzip.GZipMiddleware',
@@ -66,6 +67,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
+    'django.contrib.redirects',
 
     'south',
     'compress',
