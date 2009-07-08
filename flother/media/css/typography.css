@@ -1,9 +1,8 @@
 /* Headings.
    -------------------------------------------------------------------------- */
 h1 {
-	border-bottom: 1px solid #999;
 	font-size: 1.8em;
-	margin: 1.54em 0 .78em;
+	margin: 1.54em 400px .78em 0;
 	padding: .78em 0;
 }
 h2 {

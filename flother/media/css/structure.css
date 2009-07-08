@@ -63,13 +63,14 @@ body.blog #nav li#navblog a, body.contact #nav li#navcontact a {
 /* Columns.
    -------------------------------------------------------------------------- */
 #content {
+	border-top: 1px solid #999;
 	float: left;
 	width: 540px;
 }
 #supplement {
 	border-top: 1px solid #999;
 	float: left;
-	margin: 7.9em 0 0 20px;
+	margin: 0 0 0 20px;
 	width: 380px;
 }
 #supplement h2 {

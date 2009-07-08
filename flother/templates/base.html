@@ -17,10 +17,8 @@
 				<li id="navcontact"><a href="{% url contact_send_message %}">Contact</a></li>
 			</ul>
 		</div>
+		<h1>{% block pagetitle %}Untitled{% endblock %}</h1>
 		<div id="content">
-			{% block title %}
-				<h1>{% block pagetitle %}Untitled{% endblock %}</h1>
-			{% endblock %}
 			{% block content %}{% endblock %}
 		</div>
 		<div id="supplement">
