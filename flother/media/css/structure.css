@@ -65,18 +65,20 @@ body.blog #nav li#navblog a, body.contact #nav li#navcontact a {
 #content {
 	border-top: 1px solid #999;
 	float: left;
+	padding-top: 1.4em;
 	width: 540px;
 }
 #supplement {
 	border-top: 1px solid #999;
 	float: left;
 	margin: 0 0 0 20px;
+	padding-top: 1.4em;
 	width: 380px;
 }
 #supplement h2 {
 	font-size: 1.2em;
 	font-weight: bold;
-	margin: 1.4em 0 .1em;
+	margin: .86em 0 0;
 }
 
 /* Footer.

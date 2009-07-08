@@ -64,12 +64,8 @@
 
 /* Blog entry detail.
    -------------------------------------------------------------------------- */
-#entry {
-	padding-top: 1.4em;
-}
 #entry #standfirst {
-	font-size: 1.2em;
-	margin: .86em 0;
+	color: #999;
 }
 #entry p.illustration {
 	background: #fff;
@@ -102,7 +98,7 @@
 	margin: 4.2em 0 0;
 }
 #blogentry #supplement {
-	padding-top: 2.6em;
+	text-align: right;
 }
 #blogentry #metadata {
 	color: #999;
@@ -124,7 +120,7 @@
 /* Contact
    -------------------------------------------------------------------------- */
 #contact #supplement {
-	background: url(../img/core/bluebird.png) no-repeat 0 1.4em;
+	background: url(../img/core/bluebird.png) no-repeat 0 2.8em;
 }
 #twitter {
 	padding-left: 44px;
