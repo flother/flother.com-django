@@ -95,13 +95,32 @@
 }
 #entry #comments li {
 	border-top: 1px dotted #999;
-	margin: 1.4em 0;
+	margin: 0;
 	overflow: auto;
+}
+#entry #comments li div {
+	float: left;
+	width: 380px;
 }
 #entry #comments li p.metadata {
 	color: #666;
+	float: right;
+	text-align: right;
+	width: 140px;
+}
+#entry #comments li p.metadata img {
+	background: #fff;
+	float: right;
+	margin: 0 0 0 1em;
+	padding: 4px;
+}
+#entry #comments li p.metadata span, #entry #comments li p.metadata a {
+	display: block;
+	font-size: .8em;
+	line-height: 1.75em;
 }
 #entry #commentsclosed {
+	color: #999;
 	margin: 4.2em 0 0;
 }
 #blogentry #supplement {

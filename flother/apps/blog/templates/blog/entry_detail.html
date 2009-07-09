@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load comments %}
+{% load comments gravatar %}
 
 {% block headtitle %}{{ entry.title }}{% endblock %}
 {% block pagetitle %}{{ entry.title }}{% endblock %}
@@ -12,19 +12,20 @@
 	<div id="entry">
 		{% if entry.standfirst %}<p id="standfirst">{{ entry.standfirst }}</p>{% endif %}
 		{{ entry.copy|safe }}
-		{% if entry.enable_comments %}
+		{% get_comment_count for entry as comment_count %}
+		{% if comment_count or entry.enable_comments %}
 			<div id="comments">
 				<h2>Commentary</h2>
-				{% get_comment_count for entry as comment_count %}
 				{% if comment_count %}
 					{% get_comment_list for entry as comment_list %}
 					<ol>
 						{% for comment in comment_list %}
 							<li{% if comment.user.is_staff %} class="{{ comment.user.username }}"{% endif %}>
-								{% if comment.is_removed %}<p><em>This comment has been removed.</em></p>{% else %}{{ comment.comment|urlizetrunc:60|linebreaks }}{% endif %}
+								<div>{% if comment.is_removed %}<p><em>This comment has been removed.</em></p>{% else %}{{ comment.comment|urlizetrunc:60|linebreaks }}{% endif %}</div>
 								<p class="metadata">
-									{% if comment.userinfo.url %}<a href="{{ comment.userinfo.url }}">{{ comment.userinfo.name|title }}</a>{% else %}{{ comment.userinfo.name|title }}{% endif %},
-									{{ comment.submit_date|date }}
+									{% gravatarimg comment.userinfo.email %}
+									{% if comment.userinfo.url %}<a href="{{ comment.userinfo.url }}">{{ comment.userinfo.name|title }}</a>{% else %}<span>{{ comment.userinfo.name|title }}</span>{% endif %}
+									<span>{{ comment.submit_date|date:"jS F Y" }}</span>
 								</p>
 							</li>
 						{% endfor %}
