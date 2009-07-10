@@ -13,7 +13,7 @@
 		{% if entry.standfirst %}<p id="standfirst">{{ entry.standfirst }}</p>{% endif %}
 		{{ entry.copy|safe }}
 		{% get_comment_count for entry as comment_count %}
-		{% if comment_count or entry.enable_comments %}
+		{% if comment_count or entry.allow_new_comment %}
 			<div id="comments">
 				<h2>Commentary</h2>
 				{% if comment_count %}
@@ -24,7 +24,7 @@
 								<div>{% if comment.is_removed %}<p><em>This comment has been removed.</em></p>{% else %}{{ comment.comment|urlizetrunc:60|linebreaks }}{% endif %}</div>
 								<p class="metadata">
 									{% gravatarimg comment.userinfo.email %}
-									{% if comment.userinfo.url %}<a href="{{ comment.userinfo.url }}">{{ comment.userinfo.name|title }}</a>{% else %}<span>{{ comment.userinfo.name|title }}</span>{% endif %}
+									<span>{% if comment.userinfo.url %}<a href="{{ comment.userinfo.url }}" title="{{ comment.name|title }}’s website">{{ comment.userinfo.name|title }}</a>{% else %}{{ comment.userinfo.name|title }}{% endif %}</span>
 									<span>{{ comment.submit_date|date:"jS F Y" }}</span>
 								</p>
 							</li>
