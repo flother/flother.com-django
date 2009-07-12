@@ -1,18 +1,35 @@
-/* Blog yearly archive.
+/* IE 6 and 7.
    -------------------------------------------------------------------------- */
+input, button, textarea, select {
+	font-size: 100%;
+}
 #blogarchive #content #entries li.even {
 	float: none;
 }
-
-/* Contact
-   -------------------------------------------------------------------------- */
 #contact #supplement {
 	background-position: 0 1.4em;
 }
 
-
-/* Forms.
+/* IE 6 only.
    -------------------------------------------------------------------------- */
-input, button, textarea, select {
-	font-size: 100%;
+* html #nav {
+	right: 0;
+}
+* html #blogarchive #content #entries li.odd {
+	display: inline;
+}
+* html #entry #comments ol {
+	float: left;
+}
+* html #entry #comments li {
+	float: left;
+}
+* html #entry #comments li div {
+	overflow: hidden;
+}
+* html #contact #supplement {
+	background-image: url(../img/core/bluebird.gif);
+}
+* html #mandatorynotice {
+	bottom: 4.2em;
 }
