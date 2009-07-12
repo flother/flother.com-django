@@ -60,6 +60,10 @@
 #blogarchive #content #entries li strong {
 	display: block;
 }
+#blogarchive #entriesbymonth {
+	margin: .75em 0 0;
+	text-align: center;
+}
 
 /* Blog entry detail.
    -------------------------------------------------------------------------- */
