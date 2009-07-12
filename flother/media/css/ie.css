@@ -1,3 +1,18 @@
+/* Blog yearly archive.
+   -------------------------------------------------------------------------- */
+#blogarchive #content #entries li.even {
+	float: none;
+}
+
+/* Contact
+   -------------------------------------------------------------------------- */
+#contact #supplement {
+	background-position: 0 1.4em;
+}
+
+
+/* Forms.
+   -------------------------------------------------------------------------- */
 input, button, textarea, select {
 	font-size: 100%;
 }
