@@ -1,14 +1,14 @@
 from django.conf import settings
 from django.conf.urls.defaults import include, patterns, handler404, handler500
 from django.contrib import admin
-from django.views.generic.simple import direct_to_template
+from django.views.generic.simple import redirect_to
 
 
 admin.autodiscover()
 
 
 urlpatterns = patterns('',
-    (r'^$', direct_to_template, {'template': 'home.html'}),
+    (r'^$', redirect_to, {'url': '/blog/', 'permanent': False}),
     (r'^blog/', include('flother.apps.blog.urls')),
     (r'^contact/', include('flother.apps.contact.urls')),
     (r'^comments/', include('django.contrib.comments.urls')),
