@@ -12,9 +12,9 @@
 	overflow: hidden;
 }
 #recententries li {
-	border-top: 1px dotted #999;
+	border-bottom: 1px dotted #999;
 	list-style: none;
-	margin: -1px 0 0 0;
+	margin: 0;
 	padding: .75em 0;
 }
 #recententries li span {
@@ -22,7 +22,6 @@
 }
 #yeararchives {
 	border-bottom: 1px dotted #999;
-	border-top: 1px dotted #999;
 	margin: 0 0 1.4em;
 	padding: .75em 0;
 	text-align: center;
@@ -130,6 +129,12 @@
 #blogentry #metadata {
 	color: #999;
 	margin-bottom: 2.8em;
+}
+#blogentry p.anotherentry {
+	color: #999;
+}
+#blogentry p.anotherentry span {
+	display: block;
 }
 
 /* Comment preview.

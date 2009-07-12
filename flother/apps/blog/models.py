@@ -62,6 +62,22 @@ class Entry(models.Model):
         return bool(self.enable_comments and (datetime.datetime.now() <=
             date_for_comments))
 
+    def get_previous_published_entry(self):
+        """
+        Return the previous public entry published before the current
+        time and date.
+        """
+        return self.get_previous_by_published_at(status=self.PUBLISHED_STATUS,
+            published_at__lte=datetime.datetime.now)
+
+    def get_next_published_entry(self):
+        """
+        Return the next public entry published before the current time
+        and date.
+        """
+        return self.get_next_by_published_at(status=self.PUBLISHED_STATUS,
+            published_at__lte=datetime.datetime.now)
+
 
 class EntryModerator(CommentModerator):
 

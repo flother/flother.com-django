@@ -45,4 +45,10 @@
 
 {% block supplement %}
 	<p id="metadata">Written by {{ entry.author.first_name|default:entry.author.username|title }} on {{ entry.published_at|date }}.</p>
+	{% with entry.get_next_published_entry as next_published_entry %}
+		{% if next_published_entry %}<p class="anotherentry">Next: <a href="{{ next_published_entry.get_absolute_url }}">{{ next_published_entry.title }}</a> <span>{{ next_published_entry.published_at|timeuntil:entry.published_at }} later</span></p>{% endif %}
+	{% endwith %}
+	{% with entry.get_previous_published_entry as previous_published_entry %}
+		{% if previous_published_entry %}<p class="anotherentry">Previously: <a href="{{ previous_published_entry.get_absolute_url }}">{{ previous_published_entry.title }}</a> <span>{{ previous_published_entry.published_at|timesince:entry.published_at }} earlier</span></p>{% endif %}
+	{% endwith %}
 {% endblock %}
