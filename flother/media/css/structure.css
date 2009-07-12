@@ -95,3 +95,9 @@ p.flashnotice {
 	color: #fff;
 	padding: .75em 1em;
 }
+p.flasherror {
+	background: #eb7456;
+	color: #000;
+	margin: 0;
+	padding: .75em 1em;
+}
