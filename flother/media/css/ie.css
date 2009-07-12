@@ -19,7 +19,7 @@ input, button, textarea, select {
 /* IE 6 only.
    -------------------------------------------------------------------------- */
 * html #nav {
-	right: 10px;
+	right: 0;
 	top: 6px;
 }
 * html #nav li a {
