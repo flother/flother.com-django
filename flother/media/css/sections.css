@@ -64,6 +64,10 @@
 	margin: .75em 0 0;
 	text-align: center;
 }
+#blogarchive #yeararchives {
+	border-top: 1px dotted #999;
+	margin-top: 1.4em;
+}
 
 /* Blog entry detail.
    -------------------------------------------------------------------------- */

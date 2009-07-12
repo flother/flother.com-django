@@ -23,5 +23,12 @@
 {% endblock %}
 
 {% block supplement %}
-	<p id="entriesbymonth"><img alt="" height="100" src="http://chart.apis.google.com/chart?cht=bvs&amp;chtt=Posts+per+month&amp;chts=999999,14&amp;chs=350x100&amp;chco=999999&amp;chf=bg,s,e8e7e5&amp;chds=0,{{ max_entries_per_month }}&amp;chd=t:{% for month, month_entries in entries_by_month.items %}{{ month_entries }}{% if not forloop.last %},{% endif %}{% endfor %}&amp;chxs=0,999999,11,0,l|1,999999,11,0,l&amp;chxt=x,y&amp;chxl=0:|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|1:|0|{{ max_entries_per_month }}" width="350" /></p>
+	<p id="entriesbymonth"><img alt="Graph showing number of posts per month for {{ year }}" height="81" src="http://chart.apis.google.com/chart?cht=bvs&amp;chs=350x81&amp;chco=999999&amp;chf=bg,s,e8e7e5&amp;chds=0,{{ max_entries_per_month }}&amp;chd=t:{% for month, month_entries in entries_by_month.items %}{{ month_entries }}{% if not forloop.last %},{% endif %}{% endfor %}&amp;chxs=0,999999,11,0,l|1,999999,11,0,l&amp;chxt=x,y&amp;chxl=0:|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|1:|0|{{ max_entries_per_month }}" title="Posts per month for {{ year }}" width="350" /></p>
+	{% if years_with_entries %}
+		<ol id="yeararchives">
+			{% for otheryear in years_with_entries %}
+				<li><a href="{% url blog_entry_archive_year otheryear|date:"Y" %}">{{ otheryear|date:"Y" }}</a></li>
+			{% endfor %}
+		</ol>
+	{% endif %}
 {% endblock %}
