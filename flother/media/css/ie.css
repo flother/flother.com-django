@@ -10,10 +10,20 @@ input, button, textarea, select {
 	background-position: 0 1.4em;
 }
 
+/* IE 7 only.
+   -------------------------------------------------------------------------- */
+#nav {
+	top: 2px;
+}
+
 /* IE 6 only.
    -------------------------------------------------------------------------- */
 * html #nav {
-	right: 0;
+	right: 10px;
+	top: 6px;
+}
+* html #nav li a {
+	line-height: 74px;
 }
 * html #blogarchive #content #entries li.odd {
 	display: inline;

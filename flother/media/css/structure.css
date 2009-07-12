@@ -37,11 +37,11 @@ body {
 /* Navigation.
    -------------------------------------------------------------------------- */
 #nav {
-	line-height: 34px;
 	margin: 0;
+	height: 100%;
 	position: absolute;
-	right: -10px;
-	top: 1.4em;
+	right: 0;
+	top: 0;
 }
 #nav li {
 	float: left;
@@ -50,14 +50,19 @@ body {
 	padding: 0 10px;
 }
 #nav li a {
+	background: no-repeat center bottom;
+	border-bottom: 0;
 	color: #333;
+	float: left;
 	font-size: 1.2em;
+	height: 100%;
+	line-height: 71px;
 }
 #nav li a:hover {
 	color: #3779b2;
 }
 body.blog #nav li#navblog a, body.contact #nav li#navcontact a {
-	font-weight: bold;
+	background-image: url(../img/core/navli.png);
 }
 
 /* Columns.
