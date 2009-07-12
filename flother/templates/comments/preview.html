@@ -13,7 +13,7 @@
 		{% endif %}
 		<h2>Change your comment</h2>
 		{% if form.errors %}
-			<p class="flash flasherror">Please correct the error{{ field.errors|pluralize }} below.</p>
+			<p class="flash flasherror">Please correct the errors below.</p>
 		{% endif %}
 		{% for field in form %}
 			{% if field.is_hidden %}
