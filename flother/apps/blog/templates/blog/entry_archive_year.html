@@ -27,7 +27,13 @@
 	{% if years_with_entries %}
 		<ol id="yeararchives">
 			{% for otheryear in years_with_entries %}
-				<li><a href="{% url blog_entry_archive_year otheryear|date:"Y" %}">{{ otheryear|date:"Y" }}</a></li>
+				<li>
+					{% ifnotequal year otheryear|date:"Y" %}
+						<a href="{% url blog_entry_archive_year otheryear|date:"Y" %}">{{ otheryear|date:"Y" }}</a>
+					{% else %}
+						{{ otheryear|date:"Y" }}
+					{% endifnotequal %}
+				</li>
 			{% endfor %}
 		</ol>
 	{% endif %}

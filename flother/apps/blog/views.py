@@ -21,8 +21,7 @@ def entry_index(request):
 def entry_archive_year(request, year):
     """Output the published blog entries for a given year."""
     entries = get_list_or_404(Entry.objects.published(), published_at__year=year)
-    years_with_entries = Entry.objects.published().exclude(
-        published_at__year=year).dates('published_at', 'year')
+    years_with_entries = Entry.objects.published().dates('published_at', 'year')
     entries_by_month = dict.fromkeys(range(1, 13), 0)
     for entry in entries:
         entries_by_month[entry.published_at.month] += 1
