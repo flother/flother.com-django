@@ -134,9 +134,23 @@ blockquote {
 p {
 	margin: 1.4em 0;
 }
+pre {
+	font-family: Consolas, Menlo, "Deja Vu Sans Mono", Monaco, monospace;
+	margin: 1.4em 2em;
+	overflow: auto;
+	width: 100%;
+}
 
 /* Miscellaneous inline elements.
    -------------------------------------------------------------------------- */
+code {
+	background: #eee;
+	color: #666;
+	font: 13px/1.4 Consolas, Menlo, "Deja Vu Sans Mono", Monaco, monospace;
+}
+pre code {
+	background: #e8e7e5;
+}
 em {
 	font-style: italic;
 }

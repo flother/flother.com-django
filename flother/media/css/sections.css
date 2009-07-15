@@ -74,6 +74,18 @@
 #entry #standfirst {
 	color: #999;
 }
+#entry p.figure {
+	background: #fff;
+	border: 6px solid #999;
+	color: #999;
+	font-size: .8em;
+	padding: 1.4em;
+	text-align: center;
+}
+#entry p.figure img {
+	display: block;
+	margin: 0 auto 1.4em;
+}
 #entry p.illustration {
 	background: #fff;
 	float: right;
