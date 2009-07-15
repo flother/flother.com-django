@@ -5,8 +5,16 @@ from flother.apps.blog.models import Entry
 
 
 def entry_index(request):
-    """Output the latest ten published blog entries."""
+    """
+    Output the latest eleven published blog entries, with the most recent
+    of those output in full.  I count this as a visitor having viewed the
+    most recent entry, so its ``number_of_views`` field is incremented
+    by one as long as the visitor isn't a logged-in staff member.
+    """
     latest_entry = Entry.objects.latest()
+    if not request.user.is_staff:
+        latest_entry.number_of_views += 1
+        latest_entry.save()
     recent_entries = Entry.objects.published().exclude(id=latest_entry.id)[:10]
     years_with_entries = Entry.objects.published().dates('published_at', 'year')
     context = {
@@ -39,7 +47,9 @@ def entry_archive_year(request, year):
 def entry_detail(request, year, slug):
     """
     Output a full individual entry; this is the view for an entry's
-    permalink.
+    permalink.  The entry's ``number_of_views`` field is incrememnted
+    by one each time this view is called, as long is the visitor isn't
+    a logged-in member of staff.
     """
     entry = get_object_or_404(Entry.objects.published(), published_at__year=year,
         slug=slug)
