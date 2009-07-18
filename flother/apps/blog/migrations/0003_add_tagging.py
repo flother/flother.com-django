@@ -12,7 +12,7 @@ class Migration:
         the Django Tagging app.
         """
         # Adding field 'Entry.tags'
-        db.add_column('blog_entry', 'tags', models.CharField(default=''))
+        db.add_column('blog_entry', 'tags', models.CharField(max_length=255, default=''))
 
     def backwards(self, orm):
         """Remove Django Tagging support from the Entry model."""
