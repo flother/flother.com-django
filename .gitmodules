@@ -10,3 +10,6 @@
 [submodule "vendor/django-debug-toolbar"]
 	path = vendor/django-debug-toolbar
 	url = git://github.com/robhudson/django-debug-toolbar.git
+[submodule "vendor/django-tagging"]
+	path = vendor/django-tagging
+	url = git://github.com/clones/django-tagging.git
