@@ -1,3 +1,4 @@
+from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404
 from django.template import RequestContext
 
@@ -56,6 +57,21 @@ def entry_detail(request, year, slug):
     if not request.user.is_staff:
         entry.number_of_views += 1
         entry.save()
+    context = {'entry': entry}
+    return render_to_response('blog/entry_detail.html', context,
+        RequestContext(request))
+
+
+@staff_member_required
+def entry_preview(request, year, slug):
+    """
+    Allows draft entries to be viewed as if they were publicly available
+    on the site.  Draft entries with a ``published_at`` date in the
+    future are visible too.  The same template as the ``entry_detail``
+    view is used.
+    """
+    entry = get_object_or_404(Entry.objects.filter(status=Entry.DRAFT_STATUS),
+        published_at__year=year, slug=slug)
     context = {'entry': entry}
     return render_to_response('blog/entry_detail.html', context,
         RequestContext(request))

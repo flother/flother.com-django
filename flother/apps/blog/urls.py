@@ -16,5 +16,7 @@ urlpatterns = patterns('',
         name='blog_entry_archive_year'),
     url(r'^(?P<year>\d{4})/(?P<slug>[a-z0-9\-]+)/$', views.entry_detail,
         name='blog_entry_detail'),
+    url(r'^(?P<year>\d{4})/(?P<slug>[a-z0-9\-]+)/preview/$', views.entry_preview,
+        name='blog_entry_preview'),
     url(r'^feeds/(.*)/$', feed, {'feed_dict': feeds}, name='blog_feeds'),
 )

@@ -1,0 +1,14 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+
+{% block object-tools %}
+	{% if change and not is_popup %}
+		<ul class="object-tools">
+			<li><a href="history/" class="historylink">{% trans "History" %}</a></li>
+			<li><a href="{% url blog_entry_preview original.published_at.year original.slug %}" class="viewsitelink">{% trans "Preview" %}</a></li>
+			{% if has_absolute_url %}
+				<li><a href="../../../r/{{ content_type_id }}/{{ object_id }}/" class="viewsitelink">{% trans "View on site" %}</a></li>
+			{% endif%}
+		</ul>
+	{% endif %}
+{% endblock %}
