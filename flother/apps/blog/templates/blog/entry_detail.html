@@ -24,7 +24,7 @@
 								<div>{% if comment.is_removed %}<p><em>This comment has been removed.</em></p>{% else %}{{ comment.comment|urlizetrunc:60|linebreaks }}{% endif %}</div>
 								<p class="metadata">
 									{% gravatarimg comment.userinfo.email %}
-									<span>{% if comment.userinfo.url %}<a href="{{ comment.userinfo.url }}" title="{{ comment.name|title }}’s website">{{ comment.userinfo.name|title }}</a>{% else %}{{ comment.userinfo.name|title }}{% endif %}</span>
+									<span>{% if comment.userinfo.url and not comment.is_removed %}<a href="{{ comment.userinfo.url }}" title="{{ comment.name|title }}’s website">{{ comment.userinfo.name|title }}</a>{% else %}{{ comment.userinfo.name|title }}{% endif %}</span>
 									<span>{{ comment.submit_date|date:"jS F Y" }}</span>
 								</p>
 							</li>
