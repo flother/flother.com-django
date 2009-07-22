@@ -93,7 +93,15 @@ class EntryModerator(CommentModerator):
     auto_close_field = 'published_at'
     close_after = Entry.DAYS_COMMENTS_ENABLED
     email_notification = True
-    enable_field = 'enable_comments'
+
+    def allow(self, comment, content_object, request):
+        """
+        Only allow the comment if the entry's ``enable_comments`` field
+        is set to True and the entry is published (i.e. not draft or
+        private).
+        """
+        return (content_object.enable_comments and
+            content_object.status == Entry.PUBLISHED_STATUS)
 
     def email(self, comment, content_object, request):
         """
