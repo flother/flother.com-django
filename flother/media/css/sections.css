@@ -1,9 +1,5 @@
 /* Blog index.
    -------------------------------------------------------------------------- */
-#blog #standfirst {
-	font-size: 1.2em;
-	margin: .86em 0;
-}
 #blog #metadata {
 	color: #999;
 }
