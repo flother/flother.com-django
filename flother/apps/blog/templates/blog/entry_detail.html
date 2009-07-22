@@ -20,7 +20,7 @@
 					{% get_comment_list for entry as comment_list %}
 					<ol>
 						{% for comment in comment_list %}
-							<li{% if comment.user.is_staff %} class="{{ comment.user.username }}"{% endif %}>
+							<li{% if comment.user.is_staff %} class="{{ comment.user.username }}"{% endif %} id="comment{{ comment.id }}">
 								<div>{% if comment.is_removed %}<p><em>This comment has been removed.</em></p>{% else %}{{ comment.comment|urlizetrunc:60|linebreaks }}{% endif %}</div>
 								<p class="metadata">
 									{% gravatarimg comment.userinfo.email %}
