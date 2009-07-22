@@ -113,14 +113,16 @@ body.blog #nav li#navblog a, body.contact #nav li#navcontact a {
 	border: 0;
 	float: left;
 	padding: 0 0 0 20px;
-	width: 220px;
+	width: 300px;
 }
 #footer #latestentries li {
-	margin: 0 0 1.4em;
+	margin: 0;
 }
 #footer #latestentries span {
 	color: #999;
+	display: block;
 	font-size: .8em;
+	line-height: 1.75em;
 }
 #footer #elsewhere {
 	border: 0;
@@ -148,10 +150,11 @@ body.blog #nav li#navblog a, body.contact #nav li#navcontact a {
 }
 #footer #elsewhere #github {
 	background-position: 0 -215px;
-	padding-bottom: 9px;
+	padding-bottom: 5px;
 }
 #footer #elsewhere #northatlanticradio {
 	background-position: 0 -164px;
+	margin-top: -2px;
 }
 #footer h2 {
 	font-size: 1em;
