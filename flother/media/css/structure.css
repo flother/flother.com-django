@@ -89,8 +89,79 @@ body.blog #nav li#navblog a, body.contact #nav li#navcontact a {
 /* Footer.
    -------------------------------------------------------------------------- */
 #footer {
+	border-bottom: 1.4em solid #e8e7e5;
 	clear: both;
-	padding: 2.8em 0;
+	float: left;
+	padding: 2.8em 0 0;
+	width: 100%;
+}
+#footer div {
+	border-bottom: 2px solid #333;
+	border-top: 6px solid #333;
+	float: left;
+	padding: 1.4em 0;
+}
+#footer #about {
+	background: url(../img/core/uk_map.png) no-repeat;
+	border: 0;
+	float: left;
+	min-height: 185px;
+	padding: 0 20px 0 160px;
+	width: 200px;
+}
+#footer #latestentries {
+	border: 0;
+	float: left;
+	padding: 0 0 0 20px;
+	width: 220px;
+}
+#footer #latestentries li {
+	margin: 0 0 1.4em;
+}
+#footer #latestentries span {
+	color: #999;
+	font-size: .8em;
+}
+#footer #elsewhere {
+	border: 0;
+	float: left;
+	margin: 0 0 0 20px;
+	padding: 0;
+	width: 220px;
+}
+#footer #elsewhere ul {
+	margin-top: -3px;
+}
+#footer #elsewhere li {
+	background: url(../img/core/elsewhere.png) no-repeat;
+	border-bottom: 12px solid #e8e7e5;
+	float: left;
+	margin: 0;
+	padding: 3px 0 3px 35px;
+	width: 75px;
+}
+#footer #elsewhere #flickr {
+	background-position: 0 -53px;
+}
+#footer #elsewhere #delicious {
+	background-position: 0 -107px;
+}
+#footer #elsewhere #github {
+	background-position: 0 -215px;
+	padding-bottom: 9px;
+}
+#footer #elsewhere #northatlanticradio {
+	background-position: 0 -164px;
+}
+#footer h2 {
+	font-size: 1em;
+	font-weight: bold;
+}
+#footer p, #footer ul, #footer ol, #footer li {
+	margin: 0;
+}
+#footer li {
+	list-style: none;
 }
 
 /* Flash messages.

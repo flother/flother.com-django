@@ -40,6 +40,7 @@ CSSTIDY_ARGUMENTS = '--remove_last_\;=true --lowercase_s=true --sort_properties=
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.auth',
     'django.core.context_processors.media',
+    'flother.apps.blog.context_processors.latest_entries',
     'flother.utils.context_processors.section',
     'flother.utils.context_processors.current_year',
 )

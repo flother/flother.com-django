@@ -26,7 +26,30 @@
 			{% block supplement %}{% endblock %}
 		</div>
 		<div id="footer">
-			<p>Copyright 2005–{{ current_year }} Matt Riggott.</p>
+			<div>
+				<div id="about">
+					<h2>Who’s this?</h2>
+					<p>Matt Riggott is an Englishman in permanent exile in Glasgow, Scotland. He’s loved the internet since at least 1995, although it resolutely refuses to love him back.</p>
+				</div>
+				<div id="latestentries">
+					<h2>From the blog</h2>
+					<ol>
+						{% for entry in latest_entries %}
+							<li><a href="{{ entry.get_absolute_url }}">{{ entry }}</a> <span>{{ entry.published_at|timesince}} ago</span></li>
+						{% endfor %}
+					</ol>
+				</div>
+				<div id="elsewhere">
+					<h2>Elsewhere on the internet</h2>
+					<ul>
+						<li id="flickr"><a href="http://www.flickr.com/photos/riggott">Flickr</a></li>
+						<li id="twitter"><a href="http://twitter.com/riggbot">Twitter</a></li>
+						<li id="delicious"><a href="http://delicious.com/mjr">Delicious</a></li>
+						<li id="github"><a href="http://github.com/flother">Github</a></li>
+						<li id="northatlanticradio"><a href="http://www.northatlanticradio.com/">Podcast</a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
 		{% block bodysupplement %}{% endblock %}
 		<script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
