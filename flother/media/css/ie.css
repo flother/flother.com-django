@@ -25,6 +25,9 @@ input, button, textarea, select {
 * html #nav li a {
 	line-height: 74px;
 }
+* html #supplement {
+	width: 334px;
+}
 * html #blogarchive #content #entries li.odd {
 	display: inline;
 }
