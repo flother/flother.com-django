@@ -4,6 +4,7 @@ html {
 	background: #e8e7e5;
 	color: #333;
 	font: 14px/1.4 "Helvetica Neue", Arial, Helvetica, sans-serif;
+	text-shadow: 0 1px 1px #eee;
 }
 body {
 	margin: 0 auto;
