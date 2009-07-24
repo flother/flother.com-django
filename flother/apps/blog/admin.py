@@ -12,4 +12,8 @@ class EntryAdmin(admin.ModelAdmin):
     radio_fields = {'status': admin.HORIZONTAL}
     search_fields = ('title', 'standfirst', 'copy')
 
+    class Media:
+        js = ('js/jquery.js', 'js/wymeditor/jquery.wymeditor.pack.js', 'js/wymeditor/run.js')
+
+
 admin.site.register(Entry, EntryAdmin)
