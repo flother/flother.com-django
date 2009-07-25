@@ -2,6 +2,11 @@
 
 {% block title %}{{ title }} | Flother{% endblock %}
 
+{% block extrastyle %}
+	{{ block.super }}
+	<link href="{{ MEDIA_URL }}css/admin.css" media="screen,projection" rel="stylesheet" type="text/css" />
+{% endblock %}
+
 {% block branding %}<h1 id="site-name">Flother</h1>{% endblock %}
 
 {% block nav-global %}{% endblock %}
