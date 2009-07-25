@@ -13,7 +13,8 @@ class EntryAdmin(admin.ModelAdmin):
     search_fields = ('title', 'standfirst', 'copy')
 
     class Media:
-        js = ('js/jquery.js', 'js/wymeditor/jquery.wymeditor.pack.js', 'js/wymeditor/run.js')
+        js = ('js/jquery.js', 'js/wymeditor/jquery.wymeditor.pack.js',
+            'js/wymeditor.js')
 
 
 admin.site.register(Entry, EntryAdmin)
