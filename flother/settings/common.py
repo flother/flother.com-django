@@ -71,7 +71,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.redirects',
 
-    'tagging',
     'south',
     'compress',
 

@@ -6,8 +6,6 @@ from django.core.mail import mail_managers
 from django.db import models
 from django.db.models import permalink
 from django.template.loader import render_to_string
-import tagging
-from tagging.fields import TagField
 
 from flother.apps.blog.managers import EntryManager
 
@@ -29,7 +27,6 @@ class Entry(models.Model):
     standfirst = models.CharField(max_length=256, blank=True)
     copy = models.TextField()
     author = models.ForeignKey(User)
-    tags = TagField()
     created_at = models.DateTimeField(auto_now_add=True)
     published_at = models.DateTimeField(default=datetime.datetime.now)
     updated_at = models.DateTimeField(auto_now=True)
@@ -116,7 +113,4 @@ class EntryModerator(CommentModerator):
         mail_managers(u'New comment on %s' % content_object, email_body)
 
 
-# See http://code.google.com/p/django-tagging/issues/detail?id=95 for
-# details of why the descriptor needs to be set here.
-tagging.register(Entry, tag_descriptor_attr='entry_tags')
 moderator.register(Entry, EntryModerator)
