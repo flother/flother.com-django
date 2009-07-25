@@ -1,4 +1,5 @@
 from django.contrib.admin.views.decorators import staff_member_required
+from django.db.models import F
 from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404
 from django.template import RequestContext
 
@@ -14,7 +15,7 @@ def entry_index(request):
     """
     latest_entry = Entry.objects.latest()
     if not request.user.is_staff:
-        latest_entry.number_of_views += 1
+        latest_entry.number_of_views = F('number_of_views') + 1
         latest_entry.save()
     recent_entries = Entry.objects.published().exclude(id=latest_entry.id)[:10]
     years_with_entries = Entry.objects.published().dates('published_at', 'year')
@@ -55,8 +56,8 @@ def entry_detail(request, year, slug):
     entry = get_object_or_404(Entry.objects.published(), published_at__year=year,
         slug=slug)
     if not request.user.is_staff:
-        entry.number_of_views += 1
-        entry.save()
+        latest_entry.number_of_views = F('number_of_views') + 1
+        latest_entry.save()
     context = {'entry': entry}
     return render_to_response('blog/entry_detail.html', context,
         RequestContext(request))
