@@ -26,6 +26,7 @@ class Entry(models.Model):
     slug = models.SlugField(unique_for_year='published_at')
     standfirst = models.CharField(max_length=256, blank=True)
     copy = models.TextField()
+    copy_html = models.TextField(blank=True)
     author = models.ForeignKey(User)
     created_at = models.DateTimeField(auto_now_add=True)
     published_at = models.DateTimeField(default=datetime.datetime.now)
@@ -44,6 +45,11 @@ class Entry(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def save(self, force_insert=False, force_update=False):
+        from markdown import markdown
+        self.copy_html = markdown(self.copy)
+        super(Entry, self).save()
 
     @permalink
     def get_absolute_url(self):

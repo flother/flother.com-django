@@ -11,7 +11,7 @@
 {% block content %}
 	<div id="entry">
 		{% if entry.standfirst %}<p id="standfirst">{{ entry.standfirst }}</p>{% endif %}
-		{{ entry.copy|safe }}
+		{{ entry.copy_html|safe }}
 		{% get_comment_count for entry as comment_count %}
 		{% if comment_count or entry.allow_new_comment %}
 			<div id="comments">

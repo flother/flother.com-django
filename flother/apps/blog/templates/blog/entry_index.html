@@ -9,7 +9,7 @@
 {% block content %}
 	<div id="entry">
 		{% if latest_entry.standfirst %}<p id="standfirst">{{ latest_entry.standfirst }}</p>{% endif %}
-		{{ latest_entry.copy|safe }}
+		{{ latest_entry.copy_html|safe }}
 		{% if latest_entry.enable_comments %}{% get_comment_count for latest_entry as comment_count %}{% endif %}
 		<p id="metadata">{% if latest_entry.enable_comments %}<a href="{{ latest_entry.get_absolute_url }}#comments">{% if comment_count %}{{ comment_count }} comment{{ comment_count|pluralize }}{% else %}Leave a comment{% endif %}</a>.{% endif %} Written by {{ latest_entry.author.first_name|default:latest_entry.author.username|title }} on {{ latest_entry.published_at|date }}.</p>
 	</div>

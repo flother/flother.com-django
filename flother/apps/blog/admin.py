@@ -5,6 +5,7 @@ from flother.apps.blog.models import Entry
 
 class EntryAdmin(admin.ModelAdmin):
     date_hierarchy = 'published_at'
+    exclude = ('copy_html',)
     list_display = ('title', 'author', 'published_at', 'number_of_views',
         'status')
     list_filter = ('author', 'status')

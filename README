@@ -13,10 +13,11 @@ Requirements:
     * Django (http://www.djangoproject.com/)
     * South (http://south.aeracode.org/)
     * Django Compress (http://code.google.com/p/django-compress/)
+    * Markdown (http://www.freewisdom.org/projects/python-markdown/)
 
 Django, South (used for database migrations), and Django Compress (used to
 compress CSS and Javascript into many files from many) are included in the
-repository within the vendor directory as Git submodules.
+repository within the vendor directory as Git submodules.  You'll need to include Markdown on your Python path.
 
 Additionally, the Django Debug Toolbar is included as a Git submodule, but
 isn't included in INSTALLED_APPS by default.
