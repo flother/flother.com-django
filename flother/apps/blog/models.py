@@ -47,9 +47,14 @@ class Entry(models.Model):
         return self.title
 
     def save(self, force_insert=False, force_update=False):
+        """
+        Use Markdown to convert the ``copy`` field from plain-text to
+        HTMl.  Smartypants is also used to bring in curly quotes.
+        """
         from markdown import markdown
         from smartypants import smartyPants
-        self.copy_html = smartyPants(markdown(self.copy))
+        self.copy_html = smartyPants(markdown(self.copy, ['abbr',
+            'headerid(level=2)']))
         super(Entry, self).save()
 
     @permalink
