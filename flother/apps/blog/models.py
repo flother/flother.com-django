@@ -48,7 +48,8 @@ class Entry(models.Model):
 
     def save(self, force_insert=False, force_update=False):
         from markdown import markdown
-        self.copy_html = markdown(self.copy)
+        from smartypants import smartyPants
+        self.copy_html = markdown(smartyPants(self.copy))
         super(Entry, self).save()
 
     @permalink
