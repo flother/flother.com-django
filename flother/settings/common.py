@@ -74,7 +74,6 @@ INSTALLED_APPS = (
     'tagging',
     'south',
     'compress',
-    'wymeditor',
 
     'flother.apps.blog',
     'flother.apps.contact',

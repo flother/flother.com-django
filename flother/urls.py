@@ -12,7 +12,6 @@ urlpatterns = patterns('',
     (r'^blog/', include('flother.apps.blog.urls')),
     (r'^contact/', include('flother.apps.contact.urls')),
     (r'^comments/', include('django.contrib.comments.urls')),
-    (r'^wymeditor/', include('wymeditor.urls')),
     (r'^admin/', include(admin.site.urls)),
 )
 
