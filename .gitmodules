@@ -13,6 +13,3 @@
 [submodule "vendor/django-tagging"]
 	path = vendor/django-tagging
 	url = git://github.com/clones/django-tagging.git
-[submodule "vendor/wymeditor"]
-	path = vendor/wymeditor
-	url = git://github.com/flother/wymeditor.git
