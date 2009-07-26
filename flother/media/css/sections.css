@@ -170,6 +170,55 @@
 	margin-top: 1.71em;
 }
 
+/* About
+   -------------------------------------------------------------------------- */
+#about #content {
+	border: 0;
+	float: none;
+	padding: 0;
+	width: 100%;
+}
+#about #content h1 {
+	background: url(../img/core/matt_banner.jpg) no-repeat;
+	border-bottom: 3px solid #333;
+	height: 229px;
+	margin: 0;
+	padding: 0;
+	text-indent: -9999px;
+	width: 100%;
+}
+#about #content div {
+	float: left;
+	margin: 0 20px 0 0;
+	width: 300px;
+}
+#about #gitgraph {
+	background: #fff;
+	border: 6px solid #c0c0c0;
+	padding: 6px;
+}
+#about #gitgraph img {
+	display: block;
+}
+#about #content #everythingelse {
+	margin: 0;
+}
+#about #everythingelse ul {
+	margin: -1.4em 0 0;
+}
+#about #everythingelse li {
+	border-bottom: 1px solid #999;
+	list-style: none;
+	margin: 0 0 -1px;
+	padding: 1.4em 0;
+}
+#about #everythingelse li.last {
+	border-bottom: 0;
+}
+#about #everythingelse span {
+	display: block;
+}
+
 /* Contact
    -------------------------------------------------------------------------- */
 #contact #supplement {

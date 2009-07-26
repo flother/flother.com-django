@@ -62,7 +62,8 @@ body {
 #nav li a:hover {
 	color: #3779b2;
 }
-body.blog #nav li#navblog a, body.contact #nav li#navcontact a, body.search #nav li#navsearch a {
+body.blog #nav li#navblog a, body.contact #nav li#navcontact a,
+body.search #nav li#navsearch a, body.about #nav li#navabout a {
 	background-image: url(../img/core/navli.png);
 }
 
