@@ -15,4 +15,4 @@
 	url = git://github.com/clones/django-tagging.git
 [submodule "vendor/participationgraphs"]
 	path = vendor/participationgraphs
-	url = git@github.com:flother/participationgraphs.git
+	url = git://github.com/flother/participationgraphs.git
