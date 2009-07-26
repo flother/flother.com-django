@@ -19,13 +19,15 @@
 				<li id="navcontact"><a href="{% url contact_send_message %}">Contact</a></li>
 			</ul>
 		</div>
-		<h1>{% block pagetitle %}Untitled{% endblock %}</h1>
-		<div id="content">
-			{% block content %}{% endblock %}
-		</div>
-		<div id="supplement">
-			{% block supplement %}{% endblock %}
-		</div>
+		{% block page %}
+			<h1>{% block pagetitle %}Untitled{% endblock %}</h1>
+			<div id="content">
+				{% block content %}{% endblock %}
+			</div>
+			<div id="supplement">
+				{% block supplement %}{% endblock %}
+			</div>
+		{% endblock %}
 		<div id="footer">
 			<div>
 				<div id="about">
