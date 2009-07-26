@@ -76,4 +76,5 @@ INSTALLED_APPS = (
 
     'flother.apps.blog',
     'flother.apps.contact',
+    'flother.apps.search',
 )

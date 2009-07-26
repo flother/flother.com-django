@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     (r'^$', redirect_to, {'url': '/blog/', 'permanent': False}),
     (r'^blog/', include('flother.apps.blog.urls')),
     (r'^contact/', include('flother.apps.contact.urls')),
+    (r'^search/', include('flother.apps.search.urls')),
     (r'^comments/', include('django.contrib.comments.urls')),
     (r'^admin/', include(admin.site.urls)),
 )

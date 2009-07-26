@@ -178,3 +178,38 @@
 #twitterme {
 	padding-left: 44px;
 }
+
+/* Search results.
+   -------------------------------------------------------------------------- */
+#search #content input {
+	width: 28em;
+}
+#search #content ol li a {
+	font-size: 2em;
+}
+#search #content ol li span {
+	display: block;
+}
+#search #supplement p {
+	display: inline;
+}
+#search #supplement input {
+	width: 16.5em;
+}
+#search #supplement button {
+	margin: 0;
+}
+#searchpagination {
+	color: #999;
+	margin: 2.8em 0 1.4em;
+	text-align: center;
+}
+#searchpagination p, #searchpagination ul {
+	margin: 0;
+}
+#searchpagination li {
+	float: left;
+	list-style: none;
+	margin-top: -1.4em;
+	width: 50%;
+}
