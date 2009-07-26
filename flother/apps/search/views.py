@@ -51,7 +51,8 @@ def search_results(request):
         # Loop through each result and strip ' — Flother' from the titles.
         for result in raw_search_results:
             title = result['titleNoFormatting'].rsplit(u'—', 1)[0].strip()
-            search_results.append({'title': title, 'content': result['content']})
+            search_results.append({'title': title, 'url': result['url'],
+                'content': result['content']})
     context = {
         'search_query': search_query,
         'search_results': search_results,
