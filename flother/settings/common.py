@@ -73,6 +73,7 @@ INSTALLED_APPS = (
 
     'south',
     'compress',
+    'participationgraphs',
 
     'flother.apps.blog',
     'flother.apps.contact',
