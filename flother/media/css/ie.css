@@ -3,11 +3,29 @@
 input, button, textarea, select {
 	font-size: 100%;
 }
+button {
+	line-height: 1;
+	padding-bottom: .5em;
+	padding-top: .5em;
+}
 #blogarchive #content #entries li.even {
 	float: none;
 }
 #contact #supplement {
 	background-position: 0 1.4em;
+}
+#search #supplement input {
+	float: left;
+}
+#search #supplement button {
+	float: right;
+}
+#search #content input {
+	float: left;
+}
+#search #content button {
+	float: right;
+	margin: 0;
 }
 
 /* IE 7 only.
