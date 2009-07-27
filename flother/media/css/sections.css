@@ -192,6 +192,9 @@
 	margin: 0 20px 0 0;
 	width: 300px;
 }
+#about #theman li {
+	list-style: none;
+}
 #about #gitgraph {
 	background: #fff;
 	border: 6px solid #c0c0c0;
