@@ -43,8 +43,11 @@ button {
 * html #nav li a {
 	line-height: 74px;
 }
-* html #supplement {
-	width: 334px;
+* html #footer #about {
+	height: 185px;
+}
+* html #footer #latestentries li {
+	zoom: 1;
 }
 * html #blogarchive #content #entries li.odd {
 	display: inline;
