@@ -46,7 +46,7 @@ def search_results(request):
             current_page = json['responseData']['cursor']['currentPageIndex'] + 1
             next_page = current_page + 1 if current_page != total_pages else False
             previous_page = current_page - 1 if current_page > 1 else False
-        except urllib2.HTTPError, AttributeError:
+        except (urllib2.HTTPError, KeyError):
             raw_search_results = {}
         # Loop through each result and strip ' — Flother' from the titles.
         for result in raw_search_results:
