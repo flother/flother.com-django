@@ -78,6 +78,7 @@ ul.errorlist li {
 	display: block;
 	margin: 0;
 	padding: .75em 1em;
+	text-shadow: none;
 }
 form p {
 	margin: 0;

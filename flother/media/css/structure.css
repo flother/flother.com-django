@@ -175,10 +175,12 @@ p.flashnotice {
 	background: #263b39;
 	color: #fff;
 	padding: .75em 1em;
+	text-shadow: none;
 }
 p.flasherror {
 	background: #eb7456;
 	color: #000;
 	margin: 0;
 	padding: .75em 1em;
+	text-shadow: none;
 }
