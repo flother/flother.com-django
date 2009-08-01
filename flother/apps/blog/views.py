@@ -1,4 +1,5 @@
-from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import permission_required
+
 from django.db.models import F
 from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404
 from django.template import RequestContext
@@ -63,7 +64,7 @@ def entry_detail(request, year, slug):
         RequestContext(request))
 
 
-@staff_member_required
+@permission_required('blog.change_entry', '/admin/')
 def entry_preview(request, year, slug):
     """
     Allows draft entries to be viewed as if they were publicly available
