@@ -1,6 +1,5 @@
 from django.db import models
 from south.db import db
-from tagging.fields import TagField
 
 from flother.apps.blog.models import Entry
 
@@ -31,7 +30,7 @@ class Migration:
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'db_index': 'True'}),
             'standfirst': ('django.db.models.fields.CharField', [], {'max_length': '256', 'blank': 'True'}),
             'status': ('django.db.models.fields.SmallIntegerField', [], {'default': '1'}),
-            'tags': ('TagField', [], {}),
+            'tags': ('django.db.models.fields.CharField', [], {}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'})
         },
