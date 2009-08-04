@@ -20,7 +20,7 @@ class Entry(models.Model):
     STATUS_CHOICES = ((DRAFT_STATUS, 'Draft'), (PUBLISHED_STATUS, 'Published'),
         (PRIVATE_STATUS, 'Private'))
 
-    DAYS_COMMENTS_ENABLED = 60
+    DAYS_COMMENTS_ENABLED = 30
 
     title = models.CharField(max_length=128)
     slug = models.SlugField(unique_for_year='published_at')
