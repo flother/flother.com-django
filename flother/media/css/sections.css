@@ -242,15 +242,6 @@
 #search #content ol li span {
 	display: block;
 }
-#search #supplement p {
-	display: inline;
-}
-#search #supplement input {
-	width: 16.5em;
-}
-#search #supplement button {
-	margin: 0;
-}
 #searchpagination {
 	color: #999;
 	margin: 2.8em 0 1.4em;
@@ -264,4 +255,16 @@
 	list-style: none;
 	margin-top: -1.4em;
 	width: 50%;
+}
+#search #supplement p {
+	display: inline;
+}
+#search #supplement input {
+	width: 16.5em;
+}
+#search #supplement button {
+	margin: 0;
+}
+#search #supplement #poweredbygoogle {
+	color: #999;
 }
