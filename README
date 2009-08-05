@@ -1,16 +1,16 @@
 Flother is the personal web site for Matt Riggott.  It's been through
-many iterations: PHP (a long time ago; don't judge me), Django, App Engine,
-Rails, and now back to Django.  In fact it's now run on Python 2.5 and
-Django 1.0, and this is the code.
+many iterations: but now it runs on Python 2.5 and Django 1.1.  This is the
+complete source code, released under the GPL v3.0.
 
-For the moment it's an incredibly minimal and entirely uninteresting
-codebase. But over time it will turn into something more interesting.
-I promise.
+For the moment it includes a blog including Akismet-moderated comments,
+Google-powered search, and a contact app.  It's fairly specific to my needs but
+you may find it useful either as a base for your own site or to help you learn
+Django.
 
 Requirements:
 
     * Python 2.5 (http://www.python.org/)
-    * Django (http://www.djangoproject.com/)
+    * Django 1.1 (http://www.djangoproject.com/)
     * South (http://south.aeracode.org/)
     * Django Compress (http://code.google.com/p/django-compress/)
     * Markdown (http://www.freewisdom.org/projects/python-markdown/)
@@ -18,7 +18,8 @@ Requirements:
 
 Django, South (used for database migrations), and Django Compress (used to
 compress CSS and Javascript into many files from many) are included in the
-repository within the vendor directory as Git submodules.  You'll need to include Markdown and Smartypants on your Python path.
+repository within the vendor directory as Git submodules.  You'll need to
+include Markdown and Smartypants on your Python path.
 
 Additionally, the Django Debug Toolbar is included as a Git submodule, but
 isn't included in INSTALLED_APPS by default.
