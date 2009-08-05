@@ -1,5 +1,6 @@
 import datetime
 
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.comments.moderation import CommentModerator, moderator
 from django.core.mail import mail_managers
@@ -8,6 +9,7 @@ from django.db.models import permalink
 from django.template.loader import render_to_string
 
 from flother.apps.blog.managers import EntryManager
+from flother.utils.akismet import Akismet
 
 
 class Entry(models.Model):
@@ -111,6 +113,22 @@ class EntryModerator(CommentModerator):
         """
         return (content_object.enable_comments and
             content_object.status == Entry.PUBLISHED_STATUS)
+
+    def moderate(self, comment, content_object, request):
+        """
+        Return True or False, True indicating that the Akismet
+        spam-checking service thinks the comment is spam.
+        """
+        api = Akismet(key=settings.AKISMET_API_KEY)
+        comment_data = {
+            'user_ip': comment.ip_address,
+            'user_agent': '',
+            'comment_author': comment.userinfo['name'],
+            'comment_author_email': comment.userinfo['email'],
+            'comment_author_url': comment.userinfo['url'],
+            'permalink': comment.get_absolute_url(),
+        }
+        return api.comment_check(comment.comment, comment_data)
 
     def email(self, comment, content_object, request):
         """

@@ -19,10 +19,14 @@
 			{% if field.is_hidden %}
 				{{ field }}
 			{% else %}
-				{% if field.errors %}{{ field.errors }}{% endif %}
-				<p{% if field.errors %} class="error"{% endif %}{% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
-					{{ field.label_tag }} {{ field }}
-				</p>
+				{% ifequal field.name "honeypot" %}
+					<input id="id_honeypot" name="honeypot" value="" type="hidden" />
+				{% else %}
+					{% if field.errors %}{{ field.errors }}{% endif %}
+					<p{% if field.errors %} class="error"{% endif %}{% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+						{{ field.label_tag }} {{ field }}
+					</p>
+				{% endifequal %}
 			{% endif %}
 		{% endfor %}
 		<button name="preview" type="submit" value="Preview">Preview</button>
