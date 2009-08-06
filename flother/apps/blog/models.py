@@ -125,7 +125,6 @@ class EntryModerator(CommentModerator):
             'user_ip': comment.ip_address,
             'user_agent': '',
             'comment_author': comment.userinfo['name'],
-            'comment_author_email': comment.userinfo['email'],
             'comment_author_url': comment.userinfo['url'],
             'permalink': comment.get_absolute_url(),
         }
