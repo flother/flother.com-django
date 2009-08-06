@@ -1,4 +1,5 @@
 import datetime
+import urllib2
 
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -128,7 +129,12 @@ class EntryModerator(CommentModerator):
             'comment_author_url': comment.userinfo['url'],
             'permalink': comment.get_absolute_url(),
         }
-        return api.comment_check(comment.comment, comment_data)
+        try:
+            return api.comment_check(comment.comment, comment_data)
+        except (urllib2.HTTPError, urllib2.URLError):
+            # If Akismet is down the safest option is to assume the
+            # comment needs moderating.
+            return True
 
     def email(self, comment, content_object, request):
         """
