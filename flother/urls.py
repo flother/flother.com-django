@@ -6,6 +6,8 @@ from django.conf.urls.defaults import url, include, patterns, handler404, \
 from django.contrib import admin
 from django.views.generic.simple import direct_to_template, redirect_to
 
+import flother
+
 
 admin.autodiscover()
 
@@ -17,8 +19,8 @@ urlpatterns = patterns('',
     (r'^search/', include('flother.apps.search.urls')),
     (r'^comments/', include('django.contrib.comments.urls')),
     url(r'^about/$', direct_to_template, {'template': 'about.html',
-        'extra_context': {'birthday': datetime.date(1979, 8, 19)}},
-        name='about'),
+        'extra_context': {'birthday': datetime.date(1979, 8, 19),
+        'version': flother.version()}}, name='about'),
     (r'^admin/', include(admin.site.urls)),
 )
 
