@@ -83,6 +83,10 @@ ul.errorlist li {
 form p {
 	margin: 0;
 }
+form p.note {
+	color: #666;
+	margin: 1.4em 0;
+}
 label {
 	display: block;
 	margin: 1.4em 0 .2em;
