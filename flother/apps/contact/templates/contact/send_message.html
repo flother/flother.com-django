@@ -8,28 +8,30 @@
 		<p class="flash flashnotice">Thanks for your message. I’ll read it and respond as soon as I can.</p>
 	{% endif %}
 	<form action="{% url contact_send_message %}" method="post">
-		<p id="mandatorynotice">All fields are mandatory. Your details will be kept private.</p>
-		<p id="field_{{ form.sender_name.html_name }}">
+		<fieldset>
+			<p id="mandatorynotice">All fields are mandatory. Your details will be kept private.</p>
 			{{ form.sender_name.errors }}
-			{{ form.sender_name.label_tag }}
-			{{ form.sender_name }}
-		</p>
-		<p id="field_{{ form.sender_email.html_name }}">
+			<p id="field_{{ form.sender_name.html_name }}">
+				{{ form.sender_name.label_tag }}
+				{{ form.sender_name }}
+			</p>
 			{{ form.sender_email.errors }}
-			{{ form.sender_email.label_tag }}
-			{{ form.sender_email }}
-		</p>
-		<p id="field_{{ form.body.html_name }}">
+			<p id="field_{{ form.sender_email.html_name }}">
+				{{ form.sender_email.label_tag }}
+				{{ form.sender_email }}
+			</p>
 			{{ form.body.errors }}
-			{{ form.body.label_tag }}
-			{{ form.body }}
-		</p>
-		<p id="field_{{ form.ham_trap.html_name }}">
+			<p id="field_{{ form.body.html_name }}">
+				{{ form.body.label_tag }}
+				{{ form.body }}
+			</p>
 			{{ form.ham_trap.errors }}
-			{{ form.ham_trap.label_tag }}
-			{{ form.ham_trap }}
-		</p>
-		<button type="submit">Send message</button>
+			<p id="field_{{ form.ham_trap.html_name }}">
+				{{ form.ham_trap.label_tag }}
+				{{ form.ham_trap }}
+			</p>
+			<button type="submit">Send message</button>
+		</fieldset>
 	</form>
 {% endblock %}
 
