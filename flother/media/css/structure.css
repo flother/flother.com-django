@@ -4,15 +4,6 @@ html {
 	background: #e8e7e5;
 	color: #333;
 	font: 14px/1.4 "Helvetica Neue", Arial, Helvetica, sans-serif;
-	text-shadow: 0 1px 1px #eee;
-}
-@-moz-document url-prefix() {
-	/* Gecko doesn't handle text-shadow well when overflow: auto is set — it
-	   thinks the shadow overflows the box and adds scroll bars.  I've gone for
-	   the nuclear option and turned it off for that rendering engine entirely.
-	   It also invalidates my CSS so thanks, Gecko.
-	 */
-	html { text-shadow: none; }
 }
 body {
 	margin: 0 auto;
@@ -183,12 +174,10 @@ p.flashnotice {
 	background: #263b39;
 	color: #fff;
 	padding: .75em 1em;
-	text-shadow: none;
 }
 p.flasherror {
 	background: #eb7456;
 	color: #000;
 	margin: 0;
 	padding: .75em 1em;
-	text-shadow: none;
 }
