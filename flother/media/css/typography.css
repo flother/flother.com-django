@@ -38,6 +38,36 @@ h6 a:hover {
 	color: #3779b2;
 }
 
+/* Tables.
+   -------------------------------------------------------------------------- */
+table {
+	margin: 1.4em 0;
+	width: 100%;
+}
+caption {
+	color: #999;
+	font-size: .8em;
+	text-align: center;
+}
+thead th, thead td {
+	border-bottom: 1px solid #999;
+	font-weight: bold;
+	padding: .275em 0;
+}
+tbody tr.odd {
+	background: #ebebeb;
+}
+tbody tr:hover {
+	background: #f3f3f3;
+}
+tbody th, tbody td {
+	border-bottom: .1em solid #ccc;
+	padding: .275em 0;
+}
+th.numeric, td.numeric {
+	text-align: right;
+}
+
 /* Lists.
    -------------------------------------------------------------------------- */
 ol, ul {
