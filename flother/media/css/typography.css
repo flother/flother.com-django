@@ -44,12 +44,6 @@ table {
 	margin: 1.4em 0;
 	width: 100%;
 }
-caption {
-	color: #999;
-	font-size: .8em;
-	margin: 1.75em 0;
-	text-align: center;
-}
 thead th, thead td {
 	border-bottom: 1px solid #999;
 	font-weight: bold;
