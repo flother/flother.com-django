@@ -180,7 +180,7 @@ code {
 pre code {
 	background: #e8e7e5;
 }
-em {
+cite, em {
 	font-style: italic;
 }
 strong {
