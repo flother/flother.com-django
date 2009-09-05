@@ -1,9 +1,8 @@
 Flother is the personal web site for Matt Riggott.  It's been through
-many iterations: but now it runs on Python 2.5 and Django 1.1.  This is the
+many iterations but now it runs on Python 2.5 and Django 1.1.  This is the
 complete source code, released under the GPL v3.0.
 
-For the moment it includes a blog including Akismet-moderated comments,
-Google-powered search, and a contact app.  It's fairly specific to my needs but
+For the moment it includes a blog with Akismet-moderated comments, Google-powered search, and a contact app.  It's fairly specific to my needs but
 you may find it useful either as a base for your own site or to help you learn
 Django.
 
@@ -17,14 +16,14 @@ Requirements:
     * Smartypants (http://web.chad.org/projects/smartypants.py/)
 
 Django, South (used for database migrations), and Django Compress (used to
-compress CSS and Javascript into many files from many) are included in the
+reduce CSS and Javascript from many files to one) are included in the
 repository within the vendor directory as Git submodules.  You'll need to
 include Markdown and Smartypants on your Python path.
 
-Additionally, the Django Debug Toolbar is included as a Git submodule, but
+Additionally, the Django Debug Toolbar is included as a Git submodule but
 isn't included in INSTALLED_APPS by default.
 
     * Django Debug Toolbar (http://github.com/robhudson/django-debug-toolbar)
 
 You can see the code in action at http://www.flother.com/.  For more
-information contact me: http://www.flother.com/contact/.
+information, contact me: http://www.flother.com/contact/.
