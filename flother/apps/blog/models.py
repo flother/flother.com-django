@@ -1,4 +1,5 @@
 import datetime
+import unicodedata
 import urllib2
 
 from django.conf import settings
@@ -118,9 +119,14 @@ class EntryModerator(CommentModerator):
     def moderate(self, comment, content_object, request):
         """
         Return True or False, True indicating that the Akismet
-        spam-checking service thinks the comment is spam.
+        spam-checking service thinks the comment is spam.  As the
+        Akismet library doesn't handle Unicode all user-input is
+        converted to ASCII before it's passed to the library.
         """
         api = Akismet(key=settings.AKISMET_API_KEY)
+        for k in comment.userinfo:
+            comment.userinfo[k] = unicodedata.normalize('NFKD',
+                comment.userinfo[k]).encode('ascii', 'ignore')
         comment_data = {
             'user_ip': comment.ip_address,
             'user_agent': '',
@@ -129,7 +135,8 @@ class EntryModerator(CommentModerator):
             'permalink': comment.get_absolute_url(),
         }
         try:
-            return api.comment_check(comment.comment, comment_data)
+            return api.comment_check(unicodedata.normalize('NFKD',
+                comment.comment).encode('ascii', 'ignore'), comment_data)
         except (urllib2.HTTPError, urllib2.URLError):
             # If Akismet is down the safest option is to assume the
             # comment needs moderating.
