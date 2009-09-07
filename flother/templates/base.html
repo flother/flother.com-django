@@ -8,6 +8,7 @@
 		{% load compressed %}{% compressed_css 'flother' %}
 		<!--[if lte IE 7]><link href="{{ MEDIA_URL }}css/ie.css" media="screen" rel="stylesheet" type="text/css"><![endif]-->
 		<link href="{{ MEDIA_URL }}img/core/favicon.png" rel="icon" type="image/png" />
+		<link href="{{ MEDIA_URL }}img/core/mobile_icon.png" rel="apple-touch-icon" type="image/png" />
 		{% block headsupplement %}{% endblock %}
 	</head>
 	<body class="{{ section }}" id="{% block bodyid %}{{ section }}{% endblock %}">
