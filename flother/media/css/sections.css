@@ -150,10 +150,20 @@
 	color: #999;
 	margin-bottom: 2.8em;
 }
-#blogentry p.anotherentry {
+#blogentry #nextentry, #blogentry #previousentry {
 	color: #999;
 }
-#blogentry p.anotherentry span {
+#blogentry #nextentry {
+	background: url(../img/core/right_arrow.png) no-repeat center right;
+	padding: 0 31px 0 0;
+}
+#blogentry #previousentry {
+	background: url(../img/core/left_arrow.png) no-repeat center left;
+	float: right;
+	margin: 0;
+	padding: 0 0 0 31px;
+}
+#blogentry #nextentry span, #blogentry #previousentry span {
 	display: block;
 }
 
