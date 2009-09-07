@@ -36,6 +36,9 @@ button {
 
 /* IE 6 only.
    -------------------------------------------------------------------------- */
+* html {
+	background-image: none;
+}
 * html #nav {
 	right: 0;
 	top: 6px;
