@@ -49,11 +49,8 @@ thead th, thead td {
 	font-weight: bold;
 	padding: .275em 0;
 }
-tbody tr.odd {
-	background: #ebebeb;
-}
 tbody tr:hover {
-	background: #f3f3f3;
+	background: #e6e3dc;
 }
 tbody th, tbody td {
 	border-bottom: .1em solid #ccc;
@@ -178,7 +175,7 @@ code {
 	font: 13px/1.4 Consolas, Menlo, "Deja Vu Sans Mono", Monaco, monospace;
 }
 pre code {
-	background: #e8e7e5;
+	background: #e6e3dc;
 }
 cite, em {
 	font-style: italic;

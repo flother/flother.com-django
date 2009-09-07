@@ -1,7 +1,7 @@
 /* Structural elements.
    -------------------------------------------------------------------------- */
 html {
-	background: #e8e7e5;
+	background: #e6e3dc url(../img/core/bg.png) no-repeat top center fixed;
 	color: #333;
 	font: 14px/1.4 "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
@@ -90,7 +90,7 @@ body.search #nav li#navsearch a, body.about #nav li#navabout a {
 /* Footer.
    -------------------------------------------------------------------------- */
 #footer {
-	border-bottom: 1.4em solid #e8e7e5;
+	border-bottom: 1.4em solid #e6e3dc;
 	clear: both;
 	float: left;
 	padding: 2.8em 0 0;
@@ -137,9 +137,8 @@ body.search #nav li#navsearch a, body.about #nav li#navabout a {
 }
 #footer #elsewhere li {
 	background: url(../img/core/elsewhere.png) no-repeat;
-	border-bottom: 12px solid #e8e7e5;
 	float: left;
-	margin: 0;
+	margin: 0 0 12px;
 	padding: 3px 0 3px 35px;
 	width: 75px;
 }
