@@ -145,14 +145,16 @@ class EntryModerator(CommentModerator):
     def email(self, comment, content_object, request):
         """
         Email the details of the newly-submitted comment to the site
-        managers.
+        managers.  An email is only sent if the comments ``is_public``
+        field is set to True (i.e. not spam).
         """
-        context = {
-            'comment': comment,
-            'entry': content_object,
-        }
-        email_body = render_to_string('blog/new_comment_email.txt', context)
-        mail_managers(u'New comment on %s' % content_object, email_body)
+        if comment.is_public:
+            context = {
+                'comment': comment,
+                'entry': content_object,
+            }
+            email_body = render_to_string('blog/new_comment_email.txt', context)
+            mail_managers(u'Comment on "%s"' % content_object, email_body)
 
 
 moderator.register(Entry, EntryModerator)
