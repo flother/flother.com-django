@@ -1,7 +1,7 @@
 /* Structural elements.
    -------------------------------------------------------------------------- */
 html {
-	background: #e6e3dc url(../img/core/bg.png) no-repeat top center fixed;
+	background: #e6e3dc url(../img/core/bg.png);
 	color: #333;
 	font: 14px/1.4 "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
@@ -22,7 +22,7 @@ body {
 }
 #brand {
 	background: url(../img/core/brand.png);
-	height: 34px;
+	height: 33px;
 	margin: 0;
 	text-indent: -9999px;
 	width: 289px;
