@@ -1,10 +1,13 @@
-A new comment has been left on "{{ entry.title }}" on {{ comment.site.name }}:
-
-Name:         {{ comment.userinfo.name }}
-Email:        {{ comment.userinfo.email|default:"[Not given]" }}
-URL:          {{ comment.userinfo.url|default:"[Not given]" }}
-Akismet said: {% if comment.is_public %}Good{% else %}Spam{% endif %}
-
-Comment:
+Entry:    "{{ entry.title }}", {{ comment.site.name }}
+Name:     {{ comment.userinfo.name }}
+Email:    {{ comment.userinfo.email|default:"[Not given]" }}
+URL:      {{ comment.userinfo.url|default:"[Not given]" }}
 
 {{ comment.comment|wordwrap:72 }}
+
+This comment is publicly visible on the site as Akismet doesn't think
+it's spam.
+
+-- 
+{{ comment.site.name }}
+<http://{{ comment.site.domain }}/>
