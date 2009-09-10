@@ -3,6 +3,7 @@ flother/manage.sh
 flother/fabfile.py
 flother/media/css/flother.r*.css
 flother/media/img/pages/
+flother/media/img/thumbnails/
 flother/sqlite3.db
 flother/settings/development.py
 flother/settings/live.py

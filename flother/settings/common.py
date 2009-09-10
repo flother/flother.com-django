@@ -78,6 +78,7 @@ INSTALLED_APPS = (
     'participationgraphs',
 
     'flother.apps.blog',
+    'flother.apps.files',
     'flother.apps.contact',
     'flother.apps.search',
 )
