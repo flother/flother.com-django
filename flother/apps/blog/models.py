@@ -59,7 +59,7 @@ class Entry(models.Model):
         from smartypants import smartyPants
         self.copy_html = smartyPants(markdown(self.copy, ['abbr',
             'headerid(level=2)']))
-        super(Entry, self).save()
+        super(Entry, self).save(force_insert=False, force_update=False)
 
     @permalink
     def get_absolute_url(self):
