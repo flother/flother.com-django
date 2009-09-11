@@ -14,6 +14,6 @@ class FileAdmin(admin.ModelAdmin):
     list_display = ('thumbnail_html', 'title', 'uploaded_at', 'is_visible')
     list_display_links = ('thumbnail_html', 'title')
     list_filter = ('is_visible',)
-    search_fields = ('title', 'description')
+    search_fields = ('title',)
 
 admin.site.register(File, FileAdmin)
