@@ -35,7 +35,7 @@ class File(models.Model):
 
     class Meta:
         get_latest_by = 'uploaded_at'
-        ordering = ('title',)
+        ordering = ('-uploaded_at', 'title',)
 
     def __unicode__(self):
         return self.title
@@ -49,7 +49,7 @@ class File(models.Model):
         """
         # If this is a new File the file itself won't yet be properly
         # referenced, so the File object needs to be saved first.
-        if not os.path.exists(self.item.path):
+        if not self.id:
             super(File, self).save(force_insert, force_update)
         # If the uploaded file is an image, create a thumbnail based on
         # the image itself.  If it's not an image, use the default
