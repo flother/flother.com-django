@@ -36,6 +36,7 @@ class File(models.Model):
     class Meta:
         get_latest_by = 'uploaded_at'
         ordering = ('-uploaded_at', 'title',)
+        permissions = (('can_use', 'Can use files'),)
 
     def __unicode__(self):
         return self.title
@@ -80,6 +81,9 @@ class File(models.Model):
             # The uploaded file isn't an image format supported by PIL.
             self.thumbnail = File.DEFAULT_ICON_FILE
         super(File, self).save(force_insert, force_update)
+
+    def get_absolute_url(self):
+        return self.item.url
 
     def thumbnail_html(self):
         """Return an XHTML image element for the file's thumbnail."""
