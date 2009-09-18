@@ -18,5 +18,5 @@ class FileManager(Manager):
         Return a QuerySet that contains only those files that are 
         visible, i.e. files with a status of "visible".
         """
-        from flother.apps.blog.models import File
-        return self.get_query_set().filter(status=File.VISIBLE_STATUS, **kwargs)
+        from flother.apps.files.models import File
+        return self.get_query_set().filter(is_visible=True, **kwargs)
