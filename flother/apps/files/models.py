@@ -25,8 +25,9 @@ class File(models.Model):
     item = models.FileField(upload_to=FILE_UPLOAD_DIRECTORY,
         verbose_name='file')
     uploaded_at = models.DateTimeField(default=datetime.datetime.now,
-        editable=False)
-    updated_at = models.DateTimeField(auto_now=True, editable=False)
+        editable=False, verbose_name='date uploaded')
+    updated_at = models.DateTimeField(auto_now=True, editable=False,
+        verbose_name='date updated')
     is_visible = models.BooleanField(default=True, verbose_name="visible")
     thumbnail = models.ImageField(upload_to=THUMBNAIL_UPLOAD_DIRECTORY,
         editable=False)
@@ -48,10 +49,9 @@ class File(models.Model):
         pretty border.  Any file other than an image just gets a default
         icon.
         """
-        # If this is a new File the file itself won't yet be properly
-        # referenced, so the File object needs to be saved first.
-        if not self.id:
-            super(File, self).save(force_insert, force_update)
+        # The file model object needs to be saved first before the file 
+        # itself can be accessed.
+        super(File, self).save(force_insert, force_update)
         # If the uploaded file is an image, create a thumbnail based on
         # the image itself.  If it's not an image, use the default
         # thumbnail.

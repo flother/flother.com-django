@@ -32,9 +32,12 @@ class Entry(models.Model):
     copy = models.TextField()
     copy_html = models.TextField(blank=True)
     author = models.ForeignKey(User)
-    created_at = models.DateTimeField(auto_now_add=True)
-    published_at = models.DateTimeField(default=datetime.datetime.now)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True,
+        verbose_name='date_created')
+    published_at = models.DateTimeField(default=datetime.datetime.now,
+        verbose_name='date published')
+    updated_at = models.DateTimeField(auto_now=True,
+        verbose_name='date updated')
     number_of_views = models.PositiveIntegerField(default=0, editable=False)
     status = models.SmallIntegerField(choices=STATUS_CHOICES,
         default=DRAFT_STATUS)

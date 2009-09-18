@@ -10,8 +10,10 @@ class Message(models.Model):
     sender_email = models.EmailField()
     body = models.TextField()
     is_spam = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True,
+        verbose_name='date sent')
+    updated_at = models.DateTimeField(auto_now=True,
+        verbose_name='date updated')
 
     class Meta:
         get_latest_by = 'created_at'
