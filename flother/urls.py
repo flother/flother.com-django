@@ -22,6 +22,7 @@ urlpatterns = patterns('',
         'extra_context': {'birthday': datetime.date(1979, 8, 19),
         'version': flother.version()}}, name='about'),
     (r'^admin/', include(admin.site.urls)),
+    (r'^', include('flother.apps.files.urls')),
 )
 
 
