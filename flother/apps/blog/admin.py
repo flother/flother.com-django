@@ -15,7 +15,7 @@ class EntryAdmin(admin.ModelAdmin):
     exclude = ('copy_html',)
     list_display = ('title', 'author', 'published_at', 'number_of_views',
         'status')
-    list_filter = ('author', 'status')
+    list_filter = ('published_at', 'author', 'status')
     prepopulated_fields = {'slug': ('title',)}
     radio_fields = {'status': admin.HORIZONTAL}
     search_fields = ('title', 'standfirst', 'copy')
