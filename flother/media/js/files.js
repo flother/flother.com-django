@@ -21,8 +21,8 @@ flother.apps.files = {
 		var filesList = '<div id="files_list_wrapper"><ul id="files_list">';
 		for (var fileIndex in data) {
 			var file = data[fileIndex];
-			filesList += '<li id="file_' + file['id'] + '" title="' +
-				file['url'] + '">' +
+			filesList += '<li ' + (fileIndex % 4 == 0 ? 'class="rowstart" ' : '') +
+				'id="file_' + file['id'] + '" title="' + file['url'] + '">' +
 				'<a onclick="return flother.apps.files.addFileToTextArea(this);" href="#">' +
 				file['thumbnail_html'] + file['title'] + '</a></li>';
 		}

@@ -19,6 +19,10 @@ a.add_file {
 	text-align: center;
 	width: 120px;
 }
+#files_list li.rowstart {
+	clear: left;
+	outline: 1px solid red;
+}
 #files_list li img {
 	display: block;
 	margin: 0 auto 10px;
