@@ -20,6 +20,15 @@ class EntryAdmin(admin.ModelAdmin):
     radio_fields = {'status': admin.HORIZONTAL}
     search_fields = ('title', 'standfirst', 'copy')
 
+    class Media:
+        css = {
+            'all': ('css/files.css',),
+        }
+        js = (
+            'js/jquery/jquery.js', 'js/jquery/fancyzoom/fancyzoom.js',
+            'js/jquery/fieldselection.js', 'js/files.js'
+        )
+
     def queryset(self, request):
         """
         Return the queryset to use in the admin list view.  Superusers

@@ -1,0 +1,29 @@
+a.add_file {
+	background: url(../admin/img/admin/icon_addlink.gif) no-repeat;
+	padding: 0 0 0 14px;
+}
+#files_list_wrapper #files_list{
+	display: none;
+}
+#files_list {
+	height: 400px;
+	margin: 0;
+	overflow: auto;
+	padding: 0;
+}
+#files_list li {
+	float: left;
+	list-style: none;
+	margin: 12px 6px;
+	padding: 0;
+	text-align: center;
+	width: 120px;
+}
+#files_list li img {
+	display: block;
+	margin: 0 auto 10px;
+}
+#zoom td {
+	border: 0;
+	padding: 0;
+}
