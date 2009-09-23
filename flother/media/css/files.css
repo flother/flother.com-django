@@ -21,7 +21,6 @@ a.add_file {
 }
 #files_list li.rowstart {
 	clear: left;
-	outline: 1px solid red;
 }
 #files_list li img {
 	display: block;
