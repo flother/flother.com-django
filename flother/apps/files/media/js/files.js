@@ -10,7 +10,7 @@ flother.apps.files = {
 		linkPara.find('a').click(function () {
 			flother.apps.files.chosenTextArea = $(this).parent().prev('textarea');
 		}).fancyZoom({
-			directory: 'http://media.flother.com/js/jquery/fancyzoom/images',
+			directory: 'http://media.flother.com/apps/files/js/fancyzoom/images',
 			height: 400,
 			width: 555
 		});

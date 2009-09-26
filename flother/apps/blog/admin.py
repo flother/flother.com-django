@@ -22,11 +22,11 @@ class EntryAdmin(admin.ModelAdmin):
 
     class Media:
         css = {
-            'all': ('css/files.css',),
+            'all': ('apps/files/css/files.css',),
         }
         js = (
-            'js/jquery/jquery.js', 'js/jquery/fancyzoom/fancyzoom.js',
-            'js/jquery/fieldselection.js', 'js/files.js'
+            'core/js/jquery.js', 'apps/files/js/fancyzoom/fancyzoom.js',
+            'apps/files/js/fieldselection.js', 'apps/files/js/files.js'
         )
 
     def queryset(self, request):

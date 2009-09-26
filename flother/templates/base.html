@@ -6,12 +6,12 @@
 		<meta name="viewport" content="width=960" />
 		<meta http-equiv="imagetoolbar" content="false" />
 		{% load compressed %}{% compressed_css 'flother' %}
-		<!--[if lte IE 7]><link href="{{ MEDIA_URL }}css/ie.css" media="screen" rel="stylesheet" type="text/css"><![endif]-->
+		<!--[if lte IE 7]><link href="{{ MEDIA_URL }}core/css/ie.css" media="screen" rel="stylesheet" type="text/css"><![endif]-->
 		<meta name="Author" content="Matt Riggott" />
 		<meta name="Copyright" content="Copyright 2005–{{ current_year }} Matt Riggott" />
 		<meta name="ICBM" content="55.867, -4.270" />
-		<link href="{{ MEDIA_URL }}img/core/favicon.png" rel="icon" type="image/png" />
-		<link href="{{ MEDIA_URL }}img/core/mobile_icon.png" rel="apple-touch-icon" type="image/png" />
+		<link href="{{ MEDIA_URL }}core/img/favicon.png" rel="icon" type="image/png" />
+		<link href="{{ MEDIA_URL }}core/img/mobile_icon.png" rel="apple-touch-icon" type="image/png" />
 		{% block headsupplement %}{% endblock %}
 	</head>
 	<body class="{{ section }}" id="{% block bodyid %}{{ section }}{% endblock %}">

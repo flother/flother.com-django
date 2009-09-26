@@ -7,7 +7,7 @@ from django.utils.hashcompat import md5_constructor
 register = template.Library()
 
 
-DEFAULT_GRAVATAR_IMAGE = '%simg/core/avatar.png' % settings.MEDIA_URL
+DEFAULT_GRAVATAR_IMAGE = '%score/img/avatar.png' % settings.MEDIA_URL
 GRAVATAR_RATING = 'r'
 
 

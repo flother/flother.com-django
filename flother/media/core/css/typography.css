@@ -88,7 +88,7 @@ form {
 	right: 0;
 }
 ul.errorlist {
-	background: url(../img/core/error_arrow.png) no-repeat bottom left;
+	background: url(../img/error_arrow.png) no-repeat bottom left;
 	border-bottom: 0;
 	margin: 1.4em 0 -.75em;
 	padding-bottom: 7px;

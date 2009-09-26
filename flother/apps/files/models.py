@@ -16,10 +16,10 @@ class File(models.Model):
     """An individual file and its metadata."""
 
     THUMBNAIL_SIZE = (80, 80)
-    IMAGE_FRAME_FILE = 'img/core/frame.png'
-    DEFAULT_ICON_FILE = 'img/core/document.png'
-    FILE_UPLOAD_DIRECTORY = 'img/pages'
-    THUMBNAIL_UPLOAD_DIRECTORY = 'img/thumbnails'
+    IMAGE_FRAME_FILE = 'core/img/frame.png'
+    DEFAULT_ICON_FILE = 'core/img/document.png'
+    FILE_UPLOAD_DIRECTORY = 'apps/files/uploads/originals'
+    THUMBNAIL_UPLOAD_DIRECTORY = 'apps/files/uploads/thumbnails'
 
     title = models.CharField(max_length=64)
     item = models.FileField(upload_to=FILE_UPLOAD_DIRECTORY,

@@ -1,7 +1,7 @@
 /* Structural elements.
    -------------------------------------------------------------------------- */
 html {
-	background: #e6e3dc url(../img/core/bg.png);
+	background: #e6e3dc url(../img/bg.png);
 	color: #333;
 	font: 14px/1.4 "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
@@ -21,7 +21,7 @@ body {
 	position: relative;
 }
 #brand {
-	background: url(../img/core/brand.png);
+	background: url(../img/brand.png);
 	height: 33px;
 	margin: 0;
 	text-indent: -9999px;
@@ -63,7 +63,7 @@ body {
 }
 body.blog #nav li#navblog a, body.contact #nav li#navcontact a,
 body.search #nav li#navsearch a, body.about #nav li#navabout a {
-	background-image: url(../img/core/navli.png);
+	background-image: url(../img/navli.png);
 }
 
 /* Columns.
@@ -103,7 +103,7 @@ body.search #nav li#navsearch a, body.about #nav li#navabout a {
 	padding: 1.4em 0;
 }
 #footer #whoisthis {
-	background: url(../img/core/uk_map.png) no-repeat;
+	background: url(../img/uk_map.png) no-repeat;
 	border: 0;
 	float: left;
 	min-height: 185px;
@@ -136,7 +136,7 @@ body.search #nav li#navsearch a, body.about #nav li#navabout a {
 	margin-top: -3px;
 }
 #footer #elsewhere li {
-	background: url(../img/core/elsewhere.png) no-repeat;
+	background: url(../img/elsewhere.png) no-repeat;
 	float: left;
 	margin: 0 0 12px;
 	padding: 3px 0 3px 35px;

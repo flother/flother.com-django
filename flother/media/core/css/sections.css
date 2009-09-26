@@ -154,11 +154,11 @@
 	color: #999;
 }
 #blogentry #nextentry {
-	background: url(../img/core/right_arrow.png) no-repeat center right;
+	background: url(../img/right_arrow.png) no-repeat center right;
 	padding: 0 31px 0 0;
 }
 #blogentry #previousentry {
-	background: url(../img/core/left_arrow.png) no-repeat center left;
+	background: url(../img/left_arrow.png) no-repeat center left;
 	float: right;
 	margin: 0;
 	padding: 0 0 0 31px;
@@ -188,7 +188,7 @@
 	width: 100%;
 }
 #about #content h1 {
-	background: url(../img/core/matt_banner.jpg) no-repeat;
+	background: url(../img/matt_banner.jpg) no-repeat;
 	border-bottom: 3px solid #333;
 	height: 229px;
 	margin: 0;
@@ -237,7 +237,7 @@
 /* Contact
    -------------------------------------------------------------------------- */
 #contact #supplement {
-	background: url(../img/core/bluebird.png) no-repeat 0 2.8em;
+	background: url(../img/bluebird.png) no-repeat 0 2.8em;
 }
 #twitterme {
 	padding-left: 44px;

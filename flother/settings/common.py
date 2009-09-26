@@ -28,9 +28,9 @@ COMPRESS_VERSION = True
 COMPRESS_AUTO = False
 COMPRESS_CSS = {
     'flother': {
-        'source_filenames': ('css/reset.css', 'css/structure.css',
-            'css/typography.css', 'css/sections.css'),
-        'output_filename': 'css/flother.r?.css',
+        'source_filenames': ('core/css/reset.css', 'core/css/structure.css',
+            'core/css/typography.css', 'core/css/sections.css'),
+        'output_filename': 'core/css/flother.r?.css',
         'extra_context': {
             'media': 'screen,projection',
         },
