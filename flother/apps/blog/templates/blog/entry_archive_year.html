@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load typogrify %}
 
 {% block headtitle %}Blog entries in {{ year }}{% endblock %}
 {% block pagetitle %}Blog entries in {{ year }}{% endblock %}
@@ -13,7 +14,7 @@
 			<ol>
 				{% for entry in entries %}
 					<li class="{% cycle odd,even %}">
-						<strong><a href="{% url blog_entry_detail entry.published_at.year, entry.slug %}">{{ entry.title }}</a></strong>
+						<strong><a href="{% url blog_entry_detail entry.published_at.year, entry.slug %}">{{ entry.title|widont|smartypants }}</a></strong>
 						{{ entry.published_at|date:"jS F" }}
 					</li>
 				{% endfor %}

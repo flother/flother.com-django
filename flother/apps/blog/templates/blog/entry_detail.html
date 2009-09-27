@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% load comments gravatar %}
+{% load comments gravatar typogrify %}
 
-{% block headtitle %}{{ entry.title }}{% endblock %}
-{% block pagetitle %}{{ entry.title }}{% endblock %}
+{% block headtitle %}{{ entry.title|smartypants }}{% endblock %}
+{% block pagetitle %}{{ entry.title|smartypants|widont }}{% endblock %}
 
 {% block headsupplement %}<link href="http://feeds.feedburner.com/flother" rel="alternate" type="application/rss+xml" />{% endblock %}
 
@@ -10,7 +10,7 @@
 
 {% block content %}
 	<div id="entry">
-		{% if entry.standfirst %}<p id="standfirst">{{ entry.standfirst }}</p>{% endif %}
+		{% if entry.standfirst %}<p id="standfirst">{{ entry.standfirst|widont|smartypants }}</p>{% endif %}
 		{{ entry.copy_html|safe }}
 		{% get_comment_count for entry as comment_count %}
 		{% if comment_count or entry.allow_new_comment %}
@@ -21,7 +21,7 @@
 					<ol>
 						{% for comment in comment_list %}
 							<li{% if comment.user.is_staff %} class="{{ comment.user.username }}"{% endif %} id="comment{{ comment.id }}">
-								<div>{% if comment.is_removed %}<p><em>This comment has been removed.</em></p>{% else %}{{ comment.comment|urlizetrunc:60|linebreaks }}{% endif %}</div>
+								<div>{% if comment.is_removed %}<p><em>This comment has been removed.</em></p>{% else %}{{ comment.comment|urlizetrunc:60|linebreaks|widont|smartypants }}{% endif %}</div>
 								<p class="metadata">
 									{% gravatarimg comment.userinfo.email %}
 									<span>{% if comment.userinfo.url and not comment.is_removed %}<a href="{{ comment.userinfo.url }}" title="{{ comment.name|title }}’s website">{{ comment.userinfo.name|title }}</a>{% else %}{{ comment.userinfo.name|title }}{% endif %}</span>

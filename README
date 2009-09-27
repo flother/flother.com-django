@@ -38,17 +38,21 @@ site-wide search and return results on the site itself.
 Requirements
 ==============
 
+You'll need to use at least Python 2.5 and you'll need to include Markdown and
+Smartypants on your Python path.
+
     * Python 2.5 (http://www.python.org/)
-    * Django 1.1 (http://www.djangoproject.com/)
-    * South (http://south.aeracode.org/)
-    * Django Compress (http://code.google.com/p/django-compress/)
     * Markdown (http://www.freewisdom.org/projects/python-markdown/)
     * Smartypants (http://web.chad.org/projects/smartypants.py/)
 
-Django, South (used for database migrations), and Django Compress (used to
-reduce CSS and Javascript from many files to one) are included in the
-repository within the vendor directory as Git submodules.  You'll need to
-include Markdown and Smartypants on your Python path.
+The following third-party libraries are included within the Git repository as
+submodules:
+
+    * Django 1.1 (http://www.djangoproject.com/)
+    * South (http://south.aeracode.org/)
+    * Django Compress (http://code.google.com/p/django-compress/)
+    * Typogrify (http://code.google.com/p/typogrify/)
+    * Participation Graphs (http://github.com/flother/participationgraphs)
 
 Additionally, the Django Debug Toolbar is included as a Git submodule but
 isn't included in INSTALLED_APPS by default.

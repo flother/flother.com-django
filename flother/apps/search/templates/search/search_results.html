@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load typogrify %}
 
-{% block headtitle %}Search{% if search_query %} for ‘{{ search_query }}’{% endif %}{% endblock %}
-{% block pagetitle %}Search{% if search_query %} results for ‘{{ search_query }}’{% endif %}{% endblock %}
+{% block headtitle %}Search{% if search_query %} for ‘{{ search_query|smartypants }}’{% endif %}{% endblock %}
+{% block pagetitle %}Search{% if search_query %} results for ‘{{ search_query|widont|smartypants }}’{% endif %}{% endblock %}
 
 {% block content %}
 	{% if search_query %}
@@ -22,7 +23,7 @@
 				</ul>
 			</div>
 		{% else %}
-			<p>No results found for ‘{{ search_query }}’.</p>
+			<p>No results found for ‘{{ search_query|smartypants }}’.</p>
 		{% endif %}
 	{% else %}
 		<form action="{% url search_search_results %}">

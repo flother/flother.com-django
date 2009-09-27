@@ -76,6 +76,7 @@ INSTALLED_APPS = (
     'south',
     'compress',
     'participationgraphs',
+    'typogrify',
 
     'flother.apps.blog',
     'flother.apps.files',

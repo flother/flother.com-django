@@ -1,11 +1,11 @@
 {% extends "comments/base.html" %}
-{% load comments i18n %}
+{% load comments i18n typogrify %}
 
 {% block headtitle %}Preview your comment{% endblock %}
 {% block pagetitle %}Preview your comment{% endblock %}
 
 {% block content %}
-	{% if comment %}<blockquote>{{ comment|urlizetrunc:60|linebreaks }}</blockquote>{% endif %}
+	{% if comment %}<blockquote>{{ comment|urlizetrunc:60|linebreaks|widont|smartypants }}</blockquote>{% endif %}
 	<form action="{% comment_form_target %}" method="post">
 		<fieldset>
 			{% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}

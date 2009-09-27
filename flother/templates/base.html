@@ -5,7 +5,7 @@
 		<title>{% block headtitle %}Untitled{% endblock %} — Flother</title>
 		<meta name="viewport" content="width=960" />
 		<meta http-equiv="imagetoolbar" content="false" />
-		{% load compressed %}{% compressed_css 'flother' %}
+		{% load compressed typogrify %}{% compressed_css 'flother' %}
 		<!--[if lte IE 7]><link href="{{ MEDIA_URL }}core/css/ie.css" media="screen" rel="stylesheet" type="text/css"><![endif]-->
 		<meta name="Author" content="Matt Riggott" />
 		<meta name="Copyright" content="Copyright 2005–{{ current_year }} Matt Riggott" />
@@ -43,7 +43,7 @@
 					<h2>From the blog</h2>
 					<ol>
 						{% for entry in latest_entries %}
-							<li><a href="{{ entry.get_absolute_url }}">{{ entry }}</a> <span>{{ entry.published_at|timesince}} ago</span></li>
+							<li><a href="{{ entry.get_absolute_url }}">{{ entry.title|widont|smartypants }}</a> <span>{{ entry.published_at|timesince}} ago</span></li>
 						{% endfor %}
 					</ol>
 				</div>

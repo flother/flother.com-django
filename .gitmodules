@@ -13,3 +13,6 @@
 [submodule "vendor/participationgraphs"]
 	path = vendor/participationgraphs
 	url = git://github.com/flother/participationgraphs.git
+[submodule "vendor/typogrify"]
+	path = vendor/typogrify
+	url = git://github.com/flother/typogrify.git
