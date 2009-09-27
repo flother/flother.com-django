@@ -47,10 +47,11 @@ Future work
 Requirements
 ==============
 
-You'll need to use at least Python 2.5 and you'll need to include Markdown and
-Smartypants on your Python path.
+You'll need to use at least Python 2.5 and you'll need to include
+StaticGenerator, Markdown, and Smartypants on your Python path.
 
     * Python 2.5 (http://www.python.org/)
+    * StaticGenerator (http://superjared.com/projects/static-generator/)
     * Markdown (http://www.freewisdom.org/projects/python-markdown/)
     * Smartypants (http://web.chad.org/projects/smartypants.py/)
 

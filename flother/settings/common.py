@@ -39,6 +39,10 @@ COMPRESS_CSS = {
 COMPRESS_JS = {}
 CSSTIDY_ARGUMENTS = '--remove_last_\;=true --lowercase_s=true --sort_properties=true --template=highest'
 
+STATIC_GENERATOR_URLS = (
+    r'^/(blog|about)',
+)
+
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.auth',
     'django.core.context_processors.media',
@@ -57,6 +61,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.http.ConditionalGetMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'staticgenerator.middleware.StaticGeneratorMiddleware',
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
