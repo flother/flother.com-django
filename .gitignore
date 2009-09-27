@@ -2,7 +2,7 @@
 flother/manage.sh
 flother/fabfile.py
 flother/media/core/css/flother.r*.css
-flother/media/apps/files/uploads/
+flother/apps/files/media/uploads/
 flother/sqlite3.db
 flother/settings/development.py
 flother/settings/live.py
