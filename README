@@ -48,10 +48,9 @@ Requirements
 ==============
 
 You'll need to use at least Python 2.5 and you'll need to include
-StaticGenerator, Markdown, and Smartypants on your Python path.
+Markdown and Smartypants on your Python path.
 
     * Python 2.5 (http://www.python.org/)
-    * StaticGenerator (http://superjared.com/projects/static-generator/)
     * Markdown (http://www.freewisdom.org/projects/python-markdown/)
     * Smartypants (http://web.chad.org/projects/smartypants.py/)
 
@@ -61,8 +60,12 @@ submodules:
     * Django 1.1 (http://www.djangoproject.com/)
     * South (http://south.aeracode.org/)
     * Django Compress (http://code.google.com/p/django-compress/)
+    * StaticGenerator (http://github.com/flother/staticgenerator)
     * Typogrify (http://code.google.com/p/typogrify/)
     * Participation Graphs (http://github.com/flother/participationgraphs)
+
+Note that StaticGenerator is a fork of Jared Kuolt's original, to allow
+Nginx to up pre-compressed version of the cache.
 
 Additionally, the Django Debug Toolbar is included as a Git submodule but
 isn't included in INSTALLED_APPS by default.

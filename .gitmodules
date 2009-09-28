@@ -16,3 +16,6 @@
 [submodule "vendor/typogrify"]
 	path = vendor/typogrify
 	url = git://github.com/flother/typogrify.git
+[submodule "vendor/staticgenerator"]
+	path = vendor/staticgenerator
+	url = git://github.com/flother/staticgenerator.git
