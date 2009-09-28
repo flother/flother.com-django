@@ -60,9 +60,7 @@
 			</div>
 		</div>
 		{% block bodysupplement %}{% endblock %}
-		{% if not user.is_staff %}
-			<script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
-			<script type="text/javascript">var t = _gat._getTracker("UA-264001-4");t._setDomainName("{{ site_domain }}");t._trackPageview();</script>
-		{% endif %}
+		<script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
+		<script type="text/javascript">var t = _gat._getTracker("UA-264001-4");t._setDomainName("{{ site_domain }}");t._trackPageview();</script>
 	</body>
 </html>
