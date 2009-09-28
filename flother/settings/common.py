@@ -61,11 +61,11 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.http.ConditionalGetMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'staticgenerator.middleware.StaticGeneratorMiddleware',
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.gzip.GZipMiddleware',
+    'staticgenerator.middleware.StaticGeneratorMiddleware',
     'flother.utils.middleware.http.SetRemoteAddrFromForwardedFor',
 )
 
