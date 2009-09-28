@@ -33,3 +33,26 @@ def delete_blog_index(sender, instance, **kwargs):
     except ObjectDoesNotExist:
         pass
     quick_delete(*stagnant_cache_urls)
+
+
+def clear_stagnant_cache_on_comment_change(sender, instance, **kwargs):
+    """
+    Delete the files in the StaticGenerator cache that will be
+    out-of-date after a comment is saved or deleted.  These are:
+
+      * Blog index (if this is dealing with the most recent entry)
+      * Blog entry page
+
+    Note however that if this is a new comment marked as spam (i.e. the
+    ``is_public`` field is False) the cache will not be deleted
+    """
+    created = kwargs.get('created', False)
+    if (not created) or (created and instance.is_public):
+        stagnant_cache_urls = [instance.content_object.get_absolute_url()]
+        try:
+            instance.content_object.get_next_published_entry()
+        except ObjectDoesNotExist:
+            # This is the most recent entry in the blog so the blog
+            # index will need to be removed from the cache.
+            stagnant_cache_urls.append(reverse('blog_entry_index'))
+        quick_delete(*stagnant_cache_urls)

@@ -4,6 +4,7 @@ import urllib2
 
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.contrib.comments.models import Comment
 from django.contrib.comments.moderation import CommentModerator, moderator
 from django.core.mail import mail_managers
 from django.db import models
@@ -12,7 +13,8 @@ from django.db.models import signals
 from django.template.loader import render_to_string
 
 from flother.apps.blog.managers import EntryManager
-from flother.apps.blog.signals import delete_blog_index
+from flother.apps.blog.signals import delete_blog_index,\
+    clear_stagnant_cache_on_comment_change
 from flother.utils.akismet import Akismet
 
 
@@ -164,4 +166,8 @@ class EntryModerator(CommentModerator):
 
 signals.post_delete.connect(delete_blog_index, sender=Entry)
 signals.post_save.connect(delete_blog_index, sender=Entry)
+signals.post_delete.connect(clear_stagnant_cache_on_comment_change,
+    sender=Comment)
+signals.post_save.connect(clear_stagnant_cache_on_comment_change,
+    sender=Comment)
 moderator.register(Entry, EntryModerator)
