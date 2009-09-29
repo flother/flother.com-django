@@ -20,7 +20,7 @@
 		<h2>Earlier entries</h2>
 		<ol id="recententries">
 			{% for entry in recent_entries %}
-				<li><a href="{{ entry.get_absolute_url }}">{{ entry.title|widont|smartypants }}</a> <span>{{ entry.published_at|timesince }} ago</span></li>
+				<li><a href="{{ entry.get_absolute_url }}">{{ entry.title|widont|smartypants }}</a> <span>{{ entry.published_at|date }}</span></li>
 			{% endfor %}
 		</ol>
 	{% endif %}

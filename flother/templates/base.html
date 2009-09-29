@@ -43,7 +43,7 @@
 					<h2>From the blog</h2>
 					<ol>
 						{% for entry in latest_entries %}
-							<li><a href="{{ entry.get_absolute_url }}">{{ entry.title|widont|smartypants }}</a> <span>{{ entry.published_at|timesince}} ago</span></li>
+							<li><a href="{{ entry.get_absolute_url }}">{{ entry.title|widont|smartypants }}</a> <span>{{ entry.published_at|date }}</span></li>
 						{% endfor %}
 					</ol>
 				</div>
