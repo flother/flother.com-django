@@ -8,6 +8,7 @@ def delete_blog_index(sender, instance, **kwargs):
     Delete all files in the StaticGenerator cache that will be
     out-of-date after a blog entry is saved.  These are:
 
+      * About page (it has links to the three most-recent entries)
       * Blog index
       * Archive page for the year the entry was published
       * Admin users' preview page
@@ -17,6 +18,7 @@ def delete_blog_index(sender, instance, **kwargs):
       * Next published entry's page
     """
     stagnant_cache_urls = [
+        '/about/',
         reverse('blog_entry_index'),
         reverse('blog_entry_archive_year', args=[instance.published_at.year]),
         reverse('blog_entry_preview', args=[instance.published_at.year,
