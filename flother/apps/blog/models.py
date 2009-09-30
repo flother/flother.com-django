@@ -42,7 +42,6 @@ class Entry(models.Model):
         verbose_name='date published')
     updated_at = models.DateTimeField(auto_now=True,
         verbose_name='date updated')
-    number_of_views = models.PositiveIntegerField(default=0, editable=False)
     status = models.SmallIntegerField(choices=STATUS_CHOICES,
         default=DRAFT_STATUS)
     enable_comments = models.BooleanField(default=False)
