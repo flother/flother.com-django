@@ -15,6 +15,7 @@ class LatestEntries(Feed):
     feed_type = Atom1Feed
     title = u'%s: latest entries' % site.name
     subtitle = 'More than a hapax legomenon.'
+    title_template = 'feeds/latest_title.html'
     description_template = 'blog/feed_latest_description.html'
 
     def link(self):
