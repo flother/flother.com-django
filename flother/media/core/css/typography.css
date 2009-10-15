@@ -37,6 +37,10 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover,
 h6 a:hover {
 	color: #3779b2;
 }
+p.enlarge {
+	background: url(../img/magnifying_glass.png) no-repeat left center;
+	padding: 0 0 0 22px;
+}
 
 /* Tables.
    -------------------------------------------------------------------------- */
