@@ -84,7 +84,10 @@ INSTALLED_APPS = (
     'typogrify',
 
     'flother.apps.blog',
+    'flother.apps.comments',
     'flother.apps.files',
     'flother.apps.contact',
     'flother.apps.search',
 )
+
+COMMENTS_APP = 'flother.apps.comments'
