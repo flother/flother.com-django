@@ -13,7 +13,7 @@ class EntryAdmin(admin.ModelAdmin):
 
     date_hierarchy = 'published_at'
     exclude = ('copy_html',)
-    list_display = ('title', 'author', 'published_at', 'status')
+    list_display = ('title', 'author', 'published_at', 'status', 'allow_new_comment')
     list_filter = ('published_at', 'author', 'status')
     prepopulated_fields = {'slug': ('title',)}
     radio_fields = {'status': admin.HORIZONTAL}

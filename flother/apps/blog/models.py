@@ -75,14 +75,19 @@ class Entry(models.Model):
 
     def allow_new_comment(self):
         """
-        Return True if a new comment can be posted for this entry,
-        False otherwise.  Comments can be posted if the the final date
-        for comments has not yet been reached.
+        Return True if a new comment can be posted for this entry, False
+        otherwise.  Comments can be posted if the entry is published
+        (i.e. ``status`` isn't draft or private), the
+        ``enable_comments`` field is True, and the final date for for
+        comments has not yet been reached.
         """
         date_for_comments = self.published_at + datetime.timedelta(
             days=Entry.DAYS_COMMENTS_ENABLED)
-        return bool(self.enable_comments and (datetime.datetime.now() <=
+        return bool(self.status == self.PUBLISHED_STATUS and
+            self.enable_comments and (datetime.datetime.now() <=
             date_for_comments))
+    allow_new_comment.short_description = 'Comments allowed'
+    allow_new_comment.boolean = True
 
     def get_previous_published_entry(self):
         """
