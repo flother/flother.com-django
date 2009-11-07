@@ -103,6 +103,17 @@
 #entry p.oldillustration img {
 	vertical-align: bottom;
 }
+#entry blockquote.pullquote {
+	color: #333;
+	float: right;
+	font-size: 1.4em;
+	font-style: italic;
+	margin: 0 0 1em 1.4em;
+	width: 14em;
+}
+#entry blockquote.pullquote p {
+	margin: 0;
+}
 #entry #comments {
 	border-top: 1px solid #999;
 	margin-top: 4.2em;
