@@ -5,7 +5,7 @@ flother.apps.files = {
 	chosenTextArea: null,
 
 	init: function () {
-		$.getJSON('/admin/files/file.json', flother.apps.files.appendFilesList);
+		$.getJSON('/admin/files/json/', flother.apps.files.appendFilesList);
 		var linkPara = $('<p class="help"><a class="add_file" href="#files_list_wrapper">Insert file</a></p>');
 		linkPara.find('a').click(function () {
 			flother.apps.files.chosenTextArea = $(this).parent().prev('textarea');
