@@ -10,7 +10,7 @@
 			<ol start="{{ first_result }}">
 				{% for result in search_results %}
 					<li>
-						<a href="{{ result.url }}">{{ result.title }}</a>
+						<a href="{{ result.url }}">{{ result.title|safe }}</a>
 						<span>{{ result.content|striptags|safe }}</span>
 					</li>
 				{% endfor %}
