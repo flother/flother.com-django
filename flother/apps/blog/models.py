@@ -73,6 +73,15 @@ class Entry(models.Model):
         from flother.apps.blog.views import entry_detail
         return (entry_detail, (self.published_at.year, self.slug))
 
+    def is_published(self):
+        """
+        Return true if this entry is published on the site, -- that is,
+        the status is "published" and the publishing date is today or
+        earlier.
+        """
+        return (self.status == self.PUBLISHED_STATUS and
+            self.published_at <= datetime.datetime.now())
+
     def allow_new_comment(self):
         """
         Return True if a new comment can be posted for this entry, False
@@ -84,9 +93,8 @@ class Entry(models.Model):
         """
         date_for_comments = self.published_at + datetime.timedelta(
             days=Entry.DAYS_COMMENTS_ENABLED)
-        return bool(self.status == self.PUBLISHED_STATUS and
-            self.enable_comments and (datetime.datetime.now() <=
-            date_for_comments) and self.published_at <= datetime.datetime.now())
+        return (self.is_published() and self.enable_comments and
+            datetime.datetime.now() <= date_for_comments)
     allow_new_comment.short_description = 'Comments allowed'
     allow_new_comment.boolean = True
 
