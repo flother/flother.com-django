@@ -20,6 +20,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     (r'^$', redirect_to, {'url': '/blog/', 'permanent': False}),
     (r'^blog/', include('flother.apps.blog.urls')),
+    (r'^photos/', include('flother.apps.photos.urls')),
     (r'^contact/', include('flother.apps.contact.urls')),
     (r'^search/', include('flother.apps.search.urls')),
     (r'^comments/', include('django.contrib.comments.urls')),

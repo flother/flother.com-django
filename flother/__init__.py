@@ -1,4 +1,4 @@
-VERSION = (3, 0, 6, '')
+VERSION = (3, 1, 0, 'beta')
 
 def version():
     return (u'%s.%s.%s %s' % VERSION).strip(' .')
