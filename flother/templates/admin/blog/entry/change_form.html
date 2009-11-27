@@ -9,7 +9,9 @@
 				{% ifequal original.status 1 %}
 					<li><a href="{% url blog_entry_preview original.published_at.year original.slug %}" class="viewsitelink">{% trans "Preview" %}</a></li>
 				{% endifequal %}
-				<li><a href="../../../r/{{ content_type_id }}/{{ object_id }}/" class="viewsitelink">{% trans "View on site" %}</a></li>
+				{% if original.is_published %}
+					<li><a href="../../../r/{{ content_type_id }}/{{ object_id }}/" class="viewsitelink">{% trans "View on site" %}</a></li>
+				{% endif %}
 			{% endif%}
 		</ul>
 	{% endif %}
