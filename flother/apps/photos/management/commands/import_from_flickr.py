@@ -29,11 +29,11 @@ class Command(NoArgsCommand):
         page = 0
         last_page = 1
         new_photo_on_this_page = True
-        while page < last_page and new_photo_on_this_page:
+        while page < last_page and (new_photo_on_this_page or page == 1):
             new_photo_on_this_page = False
             page = page + 1
             photos_json = self.call(method='flickr.people.getPublicPhotos',
-                args={'user_id': settings.FLICKR_NSID}).read()
+                args={'user_id': settings.FLICKR_NSID, 'page': page}).read()
             photos = simplejson.loads(photos_json)
             last_page = photos['photos']['pages']
             for photo_data in photos['photos']['photo']:
@@ -69,6 +69,7 @@ class Command(NoArgsCommand):
                         photo.camera, camera_created = Camera.objects.get_or_create(
                             name=camera, slug=slugify(camera))
                     photo.save()
+                    new_photo_on_this_page = True
                     if not flickr_photo.photo:
                         flickr_photo.photo = photo
                         flickr_photo.save()
@@ -116,7 +117,7 @@ class Command(NoArgsCommand):
                 except AttributeError:
                     return None
                 country, created = Country.objects.get_or_create(
-                    short_name=place.countryName)
+                    name=place.countryName, country_code=place.countryCode)
                 location, created = Location.objects.get_or_create(
                     name=place.name, slug=slugify(place.name), country=country)
                 location.country = country

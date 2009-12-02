@@ -166,6 +166,7 @@ class Location(models.Model):
 
     class Meta:
         unique_together = ('slug', 'country')
+        ordering = ('country__name', 'name')
 
     def __unicode__(self):
         return "%s, %s" % (self.name, self.country)
@@ -175,17 +176,16 @@ class Country(models.Model):
 
     FLAG_UPLOAD_DIRECTORY = 'apps/photos/flags'
 
-    short_name = models.CharField(max_length=32)
-    long_name = models.CharField(max_length=64, blank=True)
+    name = models.CharField(max_length=32)
+    country_code = models.CharField(max_length=2)
     formal_name = models.CharField(max_length=128, blank=True)
-    country_code = models.CharField(max_length=2, blank=True)
     flag = models.ImageField(upload_to=FLAG_UPLOAD_DIRECTORY, blank=True)
 
     class Meta:
         verbose_name_plural = 'countries'
 
     def __unicode__(self):
-        return self.long_name or self.short_name
+        return self.name
 
 
 class Camera(models.Model):

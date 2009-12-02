@@ -44,9 +44,9 @@ class LocationAdmin(admin.ModelAdmin):
 
 
 class CountryAdmin(admin.ModelAdmin):
-    list_display = ('short_name', 'country_code', 'long_name', 'formal_name')
-    list_editable = ('country_code', 'long_name', 'formal_name')
-    search_fields = ('short_name', 'long_name', 'formal_name')
+    list_display = ('name', 'country_code', 'formal_name')
+    list_editable = ('country_code', 'formal_name')
+    search_fields = ('name', 'formal_name')
 
 
 class CameraAdmin(admin.ModelAdmin):
