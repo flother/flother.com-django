@@ -11,7 +11,7 @@ import Flickr.API
 
 from flother.apps.photos.models import Photo, FlickrPhoto, Camera, Point,\
     Location, Country
-from flother.utils.googlemaps import GoogleMaps
+from flother.utils import geonames
 
 
 class Command(NoArgsCommand):
@@ -23,7 +23,6 @@ class Command(NoArgsCommand):
         self.photographer = User.objects.get(id=1)
         self.api = Flickr.API.API(settings.FLICKR_API_KEY,
             secret=settings.FLICKR_API_SECRET)
-        self.gmaps = GoogleMaps(settings.GOOGLE_MAPS_API_KEY)
 
     def handle_noargs(self, **options):
         verbosity = int(options.get('verbosity', 1))
@@ -111,22 +110,19 @@ class Command(NoArgsCommand):
                 created = True
             if created:
                 # Create location and country.
-                place = self.gmaps.latlng_to_address(float(point.latitude),
-                    float(point.longitude))
-                places = place.split(',')
-                if len(places) >= 2:
-                    country, created = Country.objects.get_or_create(
-                        short_name=places[-1].strip())
-                    if len(places) == 2:
-                        name = places[-2].strip()
-                    else:
-                        name = places[-3].strip()
-                    location, created = Location.objects.get_or_create(
-                        name=name, slug=slugify(name), country=country)
-                    location.country = country
-                    location.save()
-                    point.location = location
-                    point.save()
+                try:
+                    place = geonames.findNearbyPlaceName(float(point.latitude),
+                        float(point.longitude)).geoname[0]
+                except AttributeError:
+                    return None
+                country, created = Country.objects.get_or_create(
+                    short_name=place.countryName)
+                location, created = Location.objects.get_or_create(
+                    name=place.name, slug=slugify(place.name), country=country)
+                location.country = country
+                location.save()
+                point.location = location
+                point.save()
             return point
         return None
 
