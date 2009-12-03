@@ -65,7 +65,7 @@ class Photo(models.Model):
     @permalink
     def get_absolute_url(self):
         from flother.apps.photos.views import photo_detail
-        return (entry_detail, (self.taken_at.year, self.slug))
+        return (photo_detail, (self.taken_at.year, self.slug))
 
     def save(self, force_insert=False, force_update=False):
         super(Photo, self).save(force_insert, force_update)
