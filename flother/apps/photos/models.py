@@ -48,7 +48,7 @@ class Photo(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True,
         verbose_name='date uploaded')
     updated_at = models.DateTimeField(auto_now=True,
-        verbose_name='date updated', editable=False)
+        verbose_name='date updated')
     is_landscape = models.BooleanField(default=True)
     collections = models.ManyToManyField('Collection', blank=True, null=True)
     people = models.ManyToManyField('Person', blank=True, null=True)
@@ -138,11 +138,21 @@ class Photo(models.Model):
 class Collection(models.Model):
     title = models.CharField(max_length=64)
     slug = models.SlugField(unique=True)
-    description = models.TextField()
+    description = models.TextField(blank=True)
     description_html = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        pass
+        get_latest_by = 'created_at'
+        ordering = ('-created_at',)
 
     def __unicode__(self):
         return self.title
+
+    def number_of_photos(self):
+        return self.photo_set.count()
 
 
 class Point(models.Model):
@@ -156,7 +166,10 @@ class Point(models.Model):
         ordering = ('location', 'longitude', 'latitude')
 
     def __unicode__(self):
-        return "%s (%2.5f, %2.5f)" % (self.location, self.longitude, self.latitude)
+        return unicode(self.location)
+
+    def number_of_photos(self):
+        return self.photo_set.count()
 
 
 class Location(models.Model):
@@ -171,45 +184,66 @@ class Location(models.Model):
     def __unicode__(self):
         return "%s, %s" % (self.name, self.country)
 
+    def number_of_photos(self):
+        return Photo.objects.filter(point__location=self).count()
+
 
 class Country(models.Model):
 
     FLAG_UPLOAD_DIRECTORY = 'apps/photos/flags'
 
     name = models.CharField(max_length=32)
-    country_code = models.CharField(max_length=2)
+    country_code = models.CharField(max_length=2, unique=True)
     formal_name = models.CharField(max_length=128, blank=True)
     flag = models.ImageField(upload_to=FLAG_UPLOAD_DIRECTORY, blank=True)
 
     class Meta:
+        ordering = ('name',)
         verbose_name_plural = 'countries'
 
     def __unicode__(self):
         return self.name
 
+    def number_of_photos(self):
+        return Photo.objects.filter(point__location__country=self).count()
+
 
 class Camera(models.Model):
+
+    ICON_UPLOAD_DIRECTORY = 'apps/photos/cameras'
+
     name = models.CharField(max_length=64)
     slug = models.SlugField(unique=True)
-    description = models.TextField()
+    icon = models.ImageField(upload_to=ICON_UPLOAD_DIRECTORY, blank=True)
+    description = models.TextField(blank=True)
     description_html = models.TextField(blank=True)
+
+    class Meta:
+        ordering = ('name',)
 
     def __unicode__(self):
         return self.name
+
+    def number_of_photos(self):
+        return self.photo_set.count()
 
 
 class Person(models.Model):
     name = models.CharField(max_length=64)
     slug = models.SlugField(unique=True)
-    description = models.TextField()
+    description = models.TextField(blank=True)
     description_html = models.TextField(blank=True)
-    url = models.URLField(blank=True, verify_exists=True)
+    url = models.URLField(blank=True, verify_exists=True, verbose_name='URL')
 
     class Meta:
         verbose_name_plural = 'people'
+        ordering = ('name',)
 
     def __unicode__(self):
         return self.name
+
+    def number_of_photos(self):
+        return self.photo_set.count()
 
 
 class FlickrPhoto(models.Model):
