@@ -13,9 +13,10 @@ from flother.utils.image import create_thumbnail
 
 class Photo(models.Model):
 
-    MEDIUM_SIZE = [940, 626]
-    LISTING_SIZE = (293, 195)
-    THUMBNAIL_SIZE = (80, 80)
+    MEDIUM_LANDSCAPE_SIZE = [606, 404]
+    MEDIUM_PORTRAIT_SIZE = [606, 909]
+    LISTING_SIZE = (300, 200)
+    THUMBNAIL_SIZE = (128, 128)
     ORIGINAL_UPLOAD_DIRECTORY = 'apps/photos/originals'
     MEDIUM_UPLOAD_DIRECTORY = 'apps/photos/medium'
     LISTING_UPLOAD_DIRECTORY = 'apps/photos/listing'
@@ -71,9 +72,9 @@ class Photo(models.Model):
         super(Photo, self).save(force_insert, force_update)
 
         self._set_orientation()
-        medium_size = Photo.MEDIUM_SIZE
+        medium_size = Photo.MEDIUM_LANDSCAPE_SIZE
         if not self.is_landscape:
-            medium_size.reverse()
+            medium_size = Photo.MEDIUM_PORTRAIT_SIZE
         image_basename = '%s.jpg' % hashlib.sha1(str(self.id)).hexdigest()
         im = Image.open(self.original.path)
         # Workaround for a problem in the PIL JPEG library:
@@ -129,7 +130,7 @@ class Photo(models.Model):
         im = Image.open(fp)
         im.load()
         fp.close()
-        if (im.size[1] / im.size[0]):
+        if (im.size[1] / float(im.size[0])) > 1:
             self.is_landscape = False
         else:
             self.is_landscape = True
