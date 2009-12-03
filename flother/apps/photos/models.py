@@ -136,20 +136,33 @@ class Photo(models.Model):
 
 
 class Collection(models.Model):
+
+    KEY_PHOTO_UPLOAD_DIRECTORY = 'apps/photos/collections'
+    KEY_PHOTO_SIZE = (293, 195)
+
     title = models.CharField(max_length=64)
     slug = models.SlugField(unique=True)
+    key_photo = models.ImageField(upload_to=KEY_PHOTO_UPLOAD_DIRECTORY)
     description = models.TextField(blank=True)
     description_html = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        pass
         get_latest_by = 'created_at'
         ordering = ('-created_at',)
 
     def __unicode__(self):
         return self.title
+
+    def save(self, force_insert=False, force_update=False):
+        super(Collection, self).save(force_insert, force_update)
+        im = Image.open(self.key_photo.path)
+        if not im.size == Collection.KEY_PHOTO_SIZE:
+            image = create_thumbnail(im, Collection.KEY_PHOTO_SIZE)
+            image.save(self.key_photo.path, format="JPEG", quality=85,
+                optimize=True)
+        super(Collection, self).save(force_insert, force_update)
 
     def number_of_photos(self):
         return self.photo_set.count()
