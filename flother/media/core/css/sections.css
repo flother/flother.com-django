@@ -103,6 +103,13 @@
 #entry p.oldillustration img {
 	vertical-align: bottom;
 }
+#entry img.photo {
+	border: 7px solid #fff;
+	border-bottom-width: 1.4em;
+	border-top-width: .7em;
+	display: block;
+	margin: 1.4em 0;
+}
 #entry blockquote.pullquote {
 	color: #333;
 	float: right;
