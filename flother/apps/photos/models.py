@@ -52,7 +52,6 @@ class Photo(models.Model):
         verbose_name='date updated')
     is_landscape = models.BooleanField(default=True)
     collections = models.ManyToManyField('Collection', blank=True, null=True)
-    people = models.ManyToManyField('Person', blank=True, null=True)
     point = models.ForeignKey('Point', blank=True, null=True)
     camera = models.ForeignKey('Camera', blank=True, null=True)
 
@@ -233,24 +232,6 @@ class Camera(models.Model):
     description_html = models.TextField(blank=True)
 
     class Meta:
-        ordering = ('name',)
-
-    def __unicode__(self):
-        return self.name
-
-    def number_of_photos(self):
-        return self.photo_set.count()
-
-
-class Person(models.Model):
-    name = models.CharField(max_length=64)
-    slug = models.SlugField(unique=True)
-    description = models.TextField(blank=True)
-    description_html = models.TextField(blank=True)
-    url = models.URLField(blank=True, verify_exists=True, verbose_name='URL')
-
-    class Meta:
-        verbose_name_plural = 'people'
         ordering = ('name',)
 
     def __unicode__(self):

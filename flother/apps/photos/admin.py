@@ -100,21 +100,9 @@ class CameraAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 
-class PersonAdmin(admin.ModelAdmin):
-
-    """Django model admin for ``flother.apps.photos.models.Person``."""
-
-    exclude = ('description_html',)
-    list_display = ('name', 'number_of_photos')
-    list_select_related = True
-    prepopulated_fields = {'slug': ('name',)}
-    search_fields = ('name',)
-
-
 admin.site.register(models.Photo, PhotoAdmin)
 admin.site.register(models.Collection, CollectionAdmin)
 admin.site.register(models.Point, PointAdmin)
 admin.site.register(models.Location, LocationAdmin)
 admin.site.register(models.Country, CountryAdmin)
 admin.site.register(models.Camera, CameraAdmin)
-admin.site.register(models.Person, PersonAdmin)
