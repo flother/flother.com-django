@@ -173,6 +173,11 @@ pre {
 
 /* Miscellaneous inline elements.
    -------------------------------------------------------------------------- */
+abbr[title] {
+	cursor: help;
+	font-size: .85em;
+	letter-spacing: .1em;
+}
 code {
 	background: #eee;
 	color: #666;
