@@ -22,14 +22,14 @@ class PhotoAdmin(admin.ModelAdmin):
         }),
         ('Relationships', {
             'fields': (
-                'collections', 'people'
+                'collections',
             ),
             'classes': (
                 'collapse',
             )
         }),
     )
-    filter_horizontal = ('collections', 'people')
+    filter_horizontal = ('collections',)
     list_display = ('thumbnail_html', 'title', 'photographer', 'taken_at',
         'location', 'status')
     list_display_links = ('thumbnail_html', 'title')
