@@ -15,7 +15,7 @@ from flother.utils.image import create_thumbnail
 class Photo(models.Model):
 
     MEDIUM_LANDSCAPE_SIZE = [606, 404]
-    MEDIUM_PORTRAIT_SIZE = [606, 909]
+    MEDIUM_PORTRAIT_SIZE = [404, 606]
     LISTING_SIZE = (300, 200)
     THUMBNAIL_SIZE = (128, 128)
     ORIGINAL_UPLOAD_DIRECTORY = 'apps/photos/originals'
@@ -89,8 +89,12 @@ class Photo(models.Model):
             'thumbnail': {'field': self.thumbnail, 'size': Photo.THUMBNAIL_SIZE,
                 'upload_directory': Photo.THUMBNAIL_UPLOAD_DIRECTORY},
         }
-        for preset in image_presets.values():
-            image = create_thumbnail(im, preset['size'])
+        for preset_name, preset in image_presets.items():
+            if preset_name == 'medium':
+                image = im
+                image.thumbnail(preset['size'], Image.ANTIALIAS)
+            else:
+                image = create_thumbnail(im, preset['size'])
             image.save(os.path.join(settings.MEDIA_ROOT,
                 preset['upload_directory'], image_basename), format="JPEG",
                 quality=85, optimize=True)
