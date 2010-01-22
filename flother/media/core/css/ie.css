@@ -33,6 +33,11 @@ button {
 #nav {
 	top: 2px;
 }
+#navsearch form {
+	margin-top: 21px;
+	padding-bottom: 25px;
+}
+
 
 /* IE 6 only.
    -------------------------------------------------------------------------- */
@@ -42,6 +47,14 @@ button {
 }
 * html #nav li a {
 	line-height: 74px;
+}
+* html #navsearch form {
+	margin-top: 23px;
+	padding-bottom: 24px;
+	width: 160px;
+}
+* html #navsearch input {
+	height: 22px;
 }
 * html #footer #whoisthis {
 	height: 185px;

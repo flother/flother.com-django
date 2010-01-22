@@ -20,8 +20,14 @@
 			<ul id="nav">
 				<li id="navblog"><a href="{% url blog_entry_index %}">Blog</a></li>
 				<li id="navabout"><a href="{% url about %}">About</a></li>
-				<li id="navsearch"><a href="{% url search_search_results %}">Search</a></li>
 				<li id="navcontact"><a href="{% url contact_send_message %}">Contact</a></li>
+				<li id="navsearch">
+					<form action="{% url search_search_results %}">
+						<fieldset>
+							<input name="q" title="Search this site" type="text" /><button title="Search this site" type="submit">Search</button>
+						</fieldset>
+					</form>
+				</li>
 			</ul>
 		</div>
 		{% block page %}

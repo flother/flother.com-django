@@ -62,8 +62,59 @@ body {
 	color: #3779b2;
 }
 body.blog #nav li#navblog a, body.contact #nav li#navcontact a,
-body.search #nav li#navsearch a, body.about #nav li#navabout a {
+body.search #nav li#navsearch form, body.about #nav li#navabout a {
 	background-image: url(../img/navli.png);
+	background-position: center bottom;
+	background-repeat: no-repeat;
+}
+
+/* Search form in navigation.
+   -------------------------------------------------------------------------- */
+#navsearch form {
+	height: 27px;
+	margin: 23px 0;
+	padding: 0 0 23px;
+}
+#navsearch fieldset {
+	margin: 0;
+	padding: 0;
+	}
+#navsearch input {
+	background: #fff;
+	border: 0;
+	border-radius: 6px 0 0 6px;
+	border-right: 0;
+	font: 1.2em/1.4 "Helvetica Neue", Arial, Helvetica, sans-serif;
+	margin: 0;
+	min-height: 22px;
+	outline: 0;
+	padding: 2px 8px;
+	vertical-align: top;
+	width: 112px;
+	-moz-border-radius: 6px 0 0 6px;
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+}
+#navsearch button {
+	background: #fff url(../img/search_button.png) no-repeat 8px 6px;
+	border-radius: 0 6px 6px 0;
+	border: 0;
+	cursor: pointer;
+	height: 27px;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	text-indent: -9999px;
+	width: 32px;
+	-moz-border-radius: 0 6px 6px 0;
+	-webkit-border-top-right-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+}
+#navsearch button:hover {
+	background-position: 8px -42px;
+}
+#navsearch button:active {
+	background-position: 9px -41px;
 }
 
 /* Columns.
