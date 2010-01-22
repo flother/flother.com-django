@@ -8,6 +8,7 @@ from django.db.models import permalink
 from django.utils.html import escape
 from PIL import Image, ImageFile
 
+from flother.apps.places.models import Point
 from flother.utils.image import create_thumbnail
 
 
@@ -52,7 +53,7 @@ class Photo(models.Model):
         verbose_name='date updated')
     is_landscape = models.BooleanField(default=True)
     collections = models.ManyToManyField('Collection', blank=True, null=True)
-    point = models.ForeignKey('Point', blank=True, null=True)
+    point = models.ForeignKey(Point, blank=True, null=True)
     camera = models.ForeignKey('Camera', blank=True, null=True)
 
     class Meta:
@@ -166,59 +167,6 @@ class Collection(models.Model):
 
     def number_of_photos(self):
         return self.photo_set.count()
-
-
-class Point(models.Model):
-    longitude = models.DecimalField(max_digits=8, decimal_places=5)
-    latitude = models.DecimalField(max_digits=8, decimal_places=5)
-    accuracy = models.SmallIntegerField(blank=True, null=True)
-    location = models.ForeignKey('Location')
-
-    class Meta:
-        unique_together = ('longitude', 'latitude', 'accuracy')
-        ordering = ('location', 'longitude', 'latitude')
-
-    def __unicode__(self):
-        return unicode(self.location)
-
-    def number_of_photos(self):
-        return self.photo_set.count()
-
-
-class Location(models.Model):
-    name = models.CharField(max_length=64)
-    slug = models.SlugField()
-    country = models.ForeignKey('Country')
-
-    class Meta:
-        unique_together = ('slug', 'country')
-        ordering = ('country__name', 'name')
-
-    def __unicode__(self):
-        return "%s, %s" % (self.name, self.country)
-
-    def number_of_photos(self):
-        return Photo.objects.filter(point__location=self).count()
-
-
-class Country(models.Model):
-
-    FLAG_UPLOAD_DIRECTORY = 'apps/photos/flags'
-
-    name = models.CharField(max_length=32)
-    country_code = models.CharField(max_length=2, unique=True)
-    formal_name = models.CharField(max_length=128, blank=True)
-    flag = models.ImageField(upload_to=FLAG_UPLOAD_DIRECTORY, blank=True)
-
-    class Meta:
-        ordering = ('name',)
-        verbose_name_plural = 'countries'
-
-    def __unicode__(self):
-        return self.name
-
-    def number_of_photos(self):
-        return Photo.objects.filter(point__location__country=self).count()
 
 
 class Camera(models.Model):

@@ -9,8 +9,8 @@ from django.core.management.base import NoArgsCommand
 from django.utils import simplejson
 import Flickr.API
 
-from flother.apps.photos.models import Photo, FlickrPhoto, Camera, Point,\
-    Location, Country
+from flother.apps.photos.models import Photo, FlickrPhoto, Camera
+from flother.apps.places.models import Point, Location, Country
 from flother.utils import geonames
 
 
