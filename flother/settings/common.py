@@ -37,7 +37,7 @@ COMPRESS_CSS = {
     },
 }
 COMPRESS_JS = {}
-CSSTIDY_ARGUMENTS = '--remove_last_\;=true --lowercase_s=true --sort_properties=true --template=highest'
+CSSTIDY_ARGUMENTS = '--preserve_css=true --remove_last_\;=true --lowercase_s=true --sort_properties=true --template=highest'
 
 STATIC_GENERATOR_URLS = (
     r'^/(blog|about)',
