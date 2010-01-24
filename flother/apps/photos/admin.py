@@ -40,6 +40,10 @@ class PhotoAdmin(admin.ModelAdmin):
         'focal_length', 'iso_speed')
 
     def queryset(self, request):
+        """
+        Return the queryset to use in the admin list view.  Superusers
+        can see all photos, other users can see only their own photos.
+        """
         if request.user.is_superuser:
             return models.Photo.objects.all()
         return models.Photo.objects.filter(photographer=request.user)

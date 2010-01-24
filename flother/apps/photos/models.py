@@ -14,6 +14,8 @@ from flother.utils.image import create_thumbnail
 
 class Photo(models.Model):
 
+    """A photograph in various sizes along with its metadata."""
+
     MEDIUM_LANDSCAPE_SIZE = [606, 404]
     MEDIUM_PORTRAIT_SIZE = [404, 606]
     LISTING_SIZE = (300, 200)
@@ -65,10 +67,17 @@ class Photo(models.Model):
 
     @permalink
     def get_absolute_url(self):
+        """Return the canonical URL for a photo."""
         from flother.apps.photos.views import photo_detail
         return (photo_detail, (self.taken_at.year, self.slug))
 
     def save(self, force_insert=False, force_update=False):
+        """
+        Save the photo.  Overrides the model's default ``save`` method
+        to save the original photo in various dimensions.  Each size is
+        used in different parts of the site.  The original photo is also
+        kept.
+        """
         super(Photo, self).save(force_insert, force_update)
 
         self._set_orientation()
@@ -108,13 +117,19 @@ class Photo(models.Model):
         super(Photo, self).save(force_insert, force_update)
 
     def is_published(self):
+        """
+        Returns a boolean denoting whether the photo is publicly
+        available.
+        """
         return self.status == self.PUBLISHED_STATUS
 
     def get_previous_published_photo(self):
+        """Return the previously published photo by date."""
         return self.get_previous_by_taken_at(status=self.PUBLISHED_STATUS,
             taken_at__lte=datetime.datetime.now)
 
     def get_next_published_photo(self):
+        """Return the next published photo by date."""
         return self.get_next_by_taken_at(status=self.PUBLISHED_STATUS,
             taken_at__lte=datetime.datetime.now)
 
@@ -127,9 +142,14 @@ class Photo(models.Model):
     thumbnail_html.allow_tags = True
 
     def location(self):
+        """Return the linked ``Location`` for this photo."""
         return self.point.location
 
     def _set_orientation(self):
+        """
+        Set a boolean denoting whther this photo is landscape or
+        portrait.
+        """
         fp = open(self.original.path, 'rb')
         im = Image.open(fp)
         im.load()
@@ -141,6 +161,8 @@ class Photo(models.Model):
 
 
 class Collection(models.Model):
+
+    """A collection, or set, of photos."""
 
     KEY_PHOTO_UPLOAD_DIRECTORY = 'apps/photos/collections'
     KEY_PHOTO_SIZE = (293, 195)
@@ -161,6 +183,11 @@ class Collection(models.Model):
         return self.title
 
     def save(self, force_insert=False, force_update=False):
+        """
+        Save the collection.  Overrides the model's default ``save``
+        method to save the key photo for the collection at the correct
+        size.
+        """
         super(Collection, self).save(force_insert, force_update)
         im = Image.open(self.key_photo.path)
         if not im.size == Collection.KEY_PHOTO_SIZE:
@@ -170,10 +197,13 @@ class Collection(models.Model):
         super(Collection, self).save(force_insert, force_update)
 
     def number_of_photos(self):
+        """Returns the number of photos linked to this collection."""
         return self.photo_set.count()
 
 
 class Camera(models.Model):
+
+    """A photographic camera used to take the photos on the site."""
 
     ICON_UPLOAD_DIRECTORY = 'apps/photos/cameras'
 
@@ -190,9 +220,17 @@ class Camera(models.Model):
         return self.name
 
     def number_of_photos(self):
+        """Returns the number of photos linked to this camera."""
         return self.photo_set.count()
 
 
 class FlickrPhoto(models.Model):
+
+    """
+    A private model used to track which photos have been imported to the
+    site from Flickr.  This model is only for use by the
+    ``import_from_flickr`` management command.
+    """
+
     photo = models.ForeignKey(Photo, blank=True, null=True)
     flickr_id = models.TextField(max_length=128, db_index=True)
