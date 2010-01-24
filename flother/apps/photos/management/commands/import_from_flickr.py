@@ -1,5 +1,6 @@
 import datetime
 import os
+import unicodedata
 import urllib2
 
 from django.conf import settings
@@ -61,7 +62,7 @@ class Command(NoArgsCommand):
                             args={'photo_id': photo_data['id']}).read())
 
                     # Add all the metadata to this ``Photo`` model.
-                    photo.title = photo_info['photo']['title']['_content']
+                    photo.title = photo_info['photo']['title']['_content'][:128]
                     photo.slug = slugify(photo.title[:50])
                     photo.original = self._save_photo(
                         self._get_photo_data(photo_info), '%s.%s' % (
@@ -69,16 +70,16 @@ class Command(NoArgsCommand):
                         photo_info['photo']['originalformat']))
                     photo.description = photo_info['photo']['description']['_content']
                     photo.photographer = self.photographer
-                    photo.exposure = self._get_exif(photo_exif, 'Exposure')
-                    photo.aperture = self._get_exif(photo_exif, 'Aperture')
-                    photo.focal_length = self._get_exif(photo_exif, 'Focal Length')
-                    photo.iso_speed = self._get_exif(photo_exif, 'ISO Speed')
+                    photo.exposure = self._get_exif(photo_exif, 'Exposure')[:64]
+                    photo.aperture = self._get_exif(photo_exif, 'Aperture')[:64]
+                    photo.focal_length = self._get_exif(photo_exif, 'Focal Length')[:64]
+                    photo.iso_speed = self._get_exif(photo_exif, 'ISO Speed')[:64]
                     photo.taken_at = self._convert_time(photo_info['photo']['dates']['taken'])
                     photo.uploaded_at = self._convert_time(photo_info['photo']['dateuploaded'])
                     photo.point = self._get_or_create_point(photo_data)
                     # Create a ``Camera`` model for the camera used to
                     # take this photo if it doesnt exist already.
-                    camera = self._get_exif(photo_exif, 'Model')
+                    camera = self._get_exif(photo_exif, 'Model')[:64]
                     if camera:
                         photo.camera, camera_created = Camera.objects.get_or_create(
                             name=camera, slug=slugify(camera[:50]))
@@ -87,7 +88,8 @@ class Command(NoArgsCommand):
                     if not flickr_photo.photo:
                         flickr_photo.photo = photo
                         flickr_photo.save()
-                    print photo.title
+                    print unicodedata.normalize('NFKD', unicode(photo.title)).encode(
+                        'ascii', 'ignore')
 
     def call(self, method, args={}, sign=False):
         args.update(self.default_args)
