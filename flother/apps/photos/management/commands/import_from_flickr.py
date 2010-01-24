@@ -25,11 +25,18 @@ class Command(NoArgsCommand):
             secret=settings.FLICKR_API_SECRET)
 
     def handle_noargs(self, **options):
+        """
+        Import photos from a Flickr account and store them and their
+        metadata in this site's database.
+        """
         verbosity = int(options.get('verbosity', 1))
         page = 0
         last_page = 1
         new_photo_on_this_page = True
         while page < last_page and (new_photo_on_this_page or page == 1):
+            # Loop through all the pages in the API results from Flickr.
+            # The script will stop before the end if a page has no new
+            # photos.
             new_photo_on_this_page = False
             page = page + 1
             photos_json = self.call(method='flickr.people.getPublicPhotos',
@@ -37,18 +44,23 @@ class Command(NoArgsCommand):
             photos = simplejson.loads(photos_json)
             last_page = photos['photos']['pages']
             for photo_data in photos['photos']['photo']:
+                # Does the photo exist?
                 flickr_photo, created = FlickrPhoto.objects.select_related().get_or_create(
                     flickr_id=photo_data['id'])
                 if created:
+                    # It's a new photo!  Let's grab all the metadata.
                     photo_info = simplejson.loads(self.call(
                         method='flickr.photos.getInfo',
                         args={'photo_id': photo_data['id']}).read())
                     photo = Photo()
+                    # Because we've found at least one new photo on this
+                    # page of results, we'll check the next page too.
                     new_photo_on_this_page = True
                     photo_exif = simplejson.loads(self.call(
                             method='flickr.photos.getExif',
                             args={'photo_id': photo_data['id']}).read())
 
+                    # Add all the metadata to this ``Photo`` model.
                     photo.title = photo_info['photo']['title']['_content']
                     photo.slug = slugify(photo.title)
                     photo.original = self._save_photo(
@@ -64,6 +76,8 @@ class Command(NoArgsCommand):
                     photo.taken_at = self._convert_time(photo_info['photo']['dates']['taken'])
                     photo.uploaded_at = self._convert_time(photo_info['photo']['dateuploaded'])
                     photo.point = self._get_or_create_point(photo_data)
+                    # Create a ``Camera`` model for the camera used to
+                    # take this photo if it doesnt exist already.
                     camera = self._get_exif(photo_exif, 'Model')
                     if camera:
                         photo.camera, camera_created = Camera.objects.get_or_create(
@@ -80,6 +94,10 @@ class Command(NoArgsCommand):
         return self.api.execute_method(method=method, args=args, sign=sign)
 
     def _convert_time(self, time):
+        """
+        Convert the date/time string returned by Flickr into a
+        ``datetime`` object.
+        """
         try:
             converted_time = int(time)
         except ValueError:
@@ -88,12 +106,21 @@ class Command(NoArgsCommand):
         return converted_time
 
     def _get_exif(self, photo_info, exif_name):
+        """
+        Return the data stored in an EXIF field, or a blank string if it
+        doesn't exist.
+        """
         for exif in photo_info['photo']['exif']:
             if exif['label'] == exif_name:
                 return exif['raw']['_content']
         return ''
 
     def _get_or_create_point(self, photo_data):
+        """
+        Create a ``Point`` model object for use with a newly-imported
+        photo.  Creating a point will also create ``Location`` and
+        ``Country`` objects as required, and link the ``Point`` to both.
+        """
         latlon = simplejson.loads(self.call(
             method='flickr.photos.geo.getLocation',
             args={'photo_id': photo_data['id']}).read())
@@ -128,18 +155,21 @@ class Command(NoArgsCommand):
         return None
 
     def _get_photo_url(self, photo_info):
+        """Return the Flickr URL for a photo."""
         return "http://farm%s.static.flickr.com/%s/%s_%s_o.%s" % (
             photo_info['photo']['farm'], photo_info['photo']['server'],
             photo_info['photo']['id'], photo_info['photo']['originalsecret'],
             photo_info['photo']['originalformat'])
 
     def _get_photo_data(self, photo_info):
+        """Return the raw image (JPEG, GIF, PNG) data from a Flickr."""
         url = self._get_photo_url(photo_info)
         response = urllib2.urlopen(url)
         data = response.read()
         return data
 
     def _save_photo(self, photo_data, basename):
+        """Save the raw photo data taken from Flickr as a file on disk."""
         filename = os.path.join(settings.MEDIA_ROOT,
             Photo.ORIGINAL_UPLOAD_DIRECTORY, basename)
         fh = open(filename, 'w')
