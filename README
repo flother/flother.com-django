@@ -5,10 +5,10 @@ Flother is the personal web site for Matt Riggott.  It's been through many
 iterations but now it runs on Python 2.5 and Django 1.1 and is in active
 development.  This is the complete source code, released under the GPL v3.0.
 
-It includes four apps that offer a blog, a contact form, file uploads,
-and Google-powered search.  (See "Features" below for more information.)  It's
-fairly specific to my needs but you may find it useful either as a base for your
-own site or to help you learn Django.
+It includes six apps that offer a blog, a photo library, geographical locations,
+a contact form, file uploads, and Google-powered search.  (See "Features" below
+for more information.)  It's fairly specific to my needs but you may find it
+useful either as a base for your own site or to help you learn Django.
 
 You can see the code in action at http://www.flother.com/.  For more
 information, contact me: http://www.flother.com/contact/.
@@ -17,17 +17,21 @@ information, contact me: http://www.flother.com/contact/.
 Features
 ==========
 
-There are four main apps within the project. The largest is a blog with
+There are six main apps within the project. The largest is a blog with
 Akismet-moderated comments.  Entries are formatted using Markdown and can be
 public, private, or draft.  Draft entries can be previewed on the site by admin
 users.  Comments can be enabled entry by entry (i.e. one entry can have comments
 while another doesn't) and use Gravatar for author photos.
 
-Next comes a contact form that emails site admins each time a message is sent.
+Next are the two tightly-coupled apps photos and places.  Both are currently in
+active development and will see a full geocoded photo library with an option to
+import from Flickr.
+
+Fourth comes a contact form that emails site admins each time a message is sent.
 Akismet is used to check whether or not messages are spam — if they are, no
 email is sent.  Messages are stored in the database.
 
-Third, file uploads.  Files of any type can be uploaded and stored via the
+Fifth, file uploads.  Files of any type can be uploaded and stored via the
 admin.  Thumbnails of images are created and displayed in the admin.  A
 Javascript-based interface for using files in blog entries is provided.
 
@@ -40,7 +44,6 @@ Future work
 
     * Google sitemap for blog
     * Print style sheet
-    * Photos app that allows (but isn't restricted to) importing from Flickr
     * Home page that aggregates site content
 
 
@@ -53,6 +56,7 @@ Markdown and Smartypants on your Python path.
     * Python 2.5 (http://www.python.org/)
     * Markdown (http://www.freewisdom.org/projects/python-markdown/)
     * Smartypants (http://web.chad.org/projects/smartypants.py/)
+    * G. Raphaelli's Flickr API package (http://pypi.python.org/pypi/Flickr.API)
 
 The following third-party libraries are included within the Git repository as
 submodules:
