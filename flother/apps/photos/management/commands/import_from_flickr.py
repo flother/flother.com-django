@@ -62,7 +62,7 @@ class Command(NoArgsCommand):
 
                     # Add all the metadata to this ``Photo`` model.
                     photo.title = photo_info['photo']['title']['_content']
-                    photo.slug = slugify(photo.title)
+                    photo.slug = slugify(photo.title[:50])
                     photo.original = self._save_photo(
                         self._get_photo_data(photo_info), '%s.%s' % (
                         photo_info['photo']['id'],
@@ -81,7 +81,7 @@ class Command(NoArgsCommand):
                     camera = self._get_exif(photo_exif, 'Model')
                     if camera:
                         photo.camera, camera_created = Camera.objects.get_or_create(
-                            name=camera, slug=slugify(camera))
+                            name=camera, slug=slugify(camera[:50]))
                     photo.save()
                     new_photo_on_this_page = True
                     if not flickr_photo.photo:
@@ -146,7 +146,8 @@ class Command(NoArgsCommand):
                 country, created = Country.objects.get_or_create(
                     name=place.countryName, country_code=place.countryCode)
                 location, created = Location.objects.get_or_create(
-                    name=place.name, slug=slugify(place.name), country=country)
+                    name=place.name, slug=slugify(place.name[:50]),
+                    country=country)
                 location.country = country
                 location.save()
                 point.location = location
