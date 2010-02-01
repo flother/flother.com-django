@@ -8,3 +8,6 @@ flother/apps/places/media/*
 flother/sqlite3.db
 flother/settings/development.py
 flother/settings/live.py
+flother/media/core/css/hashgrid.css
+flother/media/core/img/grid.png
+flother/media/core/js/hashgrid.js
