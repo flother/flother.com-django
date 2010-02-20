@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load comments gravatar typogrify %}
+{% load comments blogutils typogrify %}
 
 {% block headtitle %}{{ entry.title|smartypants }}{% endblock %}
 {% block pagetitle %}{{ entry.title|smartypants|widont }}{% endblock %}
