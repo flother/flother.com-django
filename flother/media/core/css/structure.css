@@ -52,20 +52,21 @@ body {
 #nav li a {
 	background: no-repeat center bottom;
 	border-bottom: 0;
-	color: #333;
+	color: #9a9a9a;
 	float: left;
 	font-size: 1.2em;
 	height: 100%;
 	line-height: 72px;
 }
 #nav li a:hover {
-	color: #3779b2;
+	color: #333;
 }
 body.blog #nav li#navblog a, body.contact #nav li#navcontact a,
 body.search #nav li#navsearch form, body.about #nav li#navabout a {
 	background-image: url(../img/navli.png);
 	background-position: center bottom;
 	background-repeat: no-repeat;
+	color: #333;
 }
 
 /* Search form in navigation.
