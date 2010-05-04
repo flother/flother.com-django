@@ -154,7 +154,7 @@ body.search #nav li#navsearch form, body.about #nav li#navabout a {
 	padding: 1.4em 0;
 }
 #footer #whoisthis {
-	background: url(../img/uk_map.png) no-repeat;
+	background: url(../img/iceland_map.png) no-repeat left center;
 	border: 0;
 	float: left;
 	min-height: 185px;
