@@ -50,18 +50,13 @@ Future work
 Requirements
 ==============
 
-You'll need to use at least Python 2.5 and you'll need to include
-Markdown and Smartypants on your Python path.
+The blog requires Python 2.5 and Django 1.1 and depends on the following
+packages:
 
-    * Python 2.5 (http://www.python.org/)
+    * Python Imaging Library (http://www.pythonware.com/products/pil/)
     * Markdown (http://www.freewisdom.org/projects/python-markdown/)
     * Smartypants (http://web.chad.org/projects/smartypants.py/)
-    * G. Raphaelli's Flickr API package (http://pypi.python.org/pypi/Flickr.API)
-
-The following third-party libraries are included within the Git repository as
-submodules:
-
-    * Django 1.1 (http://www.djangoproject.com/)
+    * G. Raphaelli's Flickr.API (http://pypi.python.org/pypi/Flickr.API)
     * South (http://south.aeracode.org/)
     * Django Compress (http://code.google.com/p/django-compress/)
     * StaticGenerator (http://github.com/flother/staticgenerator)
@@ -69,12 +64,10 @@ submodules:
     * Participation Graphs (http://github.com/flother/participationgraphs)
 
 Note that StaticGenerator is a fork of Jared Kuolt's original, to allow
-Nginx to up pre-compressed version of the cache.
+Nginx to server up pre-compressed version of the cache.
 
-Additionally, the Django Debug Toolbar is included as a Git submodule but
-isn't included in INSTALLED_APPS by default.
-
-    * Django Debug Toolbar (http://github.com/robhudson/django-debug-toolbar)
+All these dependencies are listed in a PIP requirements file, requirements.txt,
+in the root directory of the repository.
 
 
 Installation
