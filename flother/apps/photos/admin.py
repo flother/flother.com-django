@@ -53,7 +53,7 @@ class CollectionAdmin(admin.ModelAdmin):
 
     """Django model admin for ``flother.apps.photos.models.Collection``."""
 
-    exclude = ('description_html', 'created_at', 'updated_at')
+    exclude = ('description_html',)
     list_display = ('title', 'number_of_photos')
     list_select_related = True
     prepopulated_fields = {'slug': ('title',)}
