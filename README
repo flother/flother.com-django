@@ -73,4 +73,56 @@ in the root directory of the repository.
 Installation
 ==============
 
-TODO.
+1. Clone the read-only repo
+
+     git clone git://github.com/flother/flother.git
+
+2. Install the dependencies via PIP.  (If you use virtualenv you'll want to
+   create a virtual environment and activate it first.)
+
+     pip install -r requirements.txt
+
+   If you don't use PIP you should wonder what you've been missing all this
+   time, read up on it, and install it.
+
+     http://www.b-list.org/weblog/2008/dec/15/pip/
+
+3. Create a Bash script so you can run the site locally.  In the directory
+   flother/flother, create a file called manage.sh and paste in the following
+   three lines:
+
+     #!/bin/bash
+     export PYTHONPATH=..:$PYTHONPATH
+     django-admin.py $@ --settings=flother.settings.development
+
+4. You'll notice that the settings file Django's using in that script,
+   flother.settings.development, doesn't exist.  The settings file that does
+   come with the code, flother.settings.common, is a base settings file
+   containing the shared settings you'll need to run the code.
+
+   You should create a settings file to use in development that first imports
+   the common settings and then sets its own.  Create a file in the
+   flother/flother/settings directory called development.py and paste in the
+   example code from this gist:
+
+     http://gist.github.com/434537
+
+   Note you'll need to add your Akismet API key (to test comments for spam) and
+   your Flickr API key (to download your photos to the app) to these settings.
+   URLs to discover both are included as comments.
+
+5. Create your local database and superuser.
+
+     cd flother/flother
+     bash manage.sh syncdb
+     bash manage.sh migrate
+
+6. Run the server and head over to the admin.
+
+     http://localhost:8000/admin/
+
+   Note that the front-end won't work until you've created your first blog post.
+   Once you've done that you're ready to rock and roll.
+
+     http://localhost:8000/blog/
+
