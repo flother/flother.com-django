@@ -4,6 +4,7 @@ html {
 	background: #e6e3dc url(../img/bg.png);
 	color: #333;
 	font: 14px/1.4 "Helvetica Neue", Arial, Helvetica, sans-serif;
+	text-rendering: optimizelegibility;
 }
 body {
 	margin: 0 auto;
