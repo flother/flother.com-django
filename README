@@ -132,3 +132,47 @@ Installation
 
      http://localhost:8000/blog/
 
+
+Management commands
+=====================
+
+There are three management commands in the project; each one is summarised
+below.  For more information read through the code as it's fairly well
+commented.
+
+django-admin.py publishnewentries
+
+    Because the site can be heavily cached (if you use the Static
+    Generator-created content you can serve the blog static HTML files), any
+    entry published in the future will only actually appear once the cache is
+    flushed, not once its publishing date has passed.  To ensure the entry
+    appears as expected, this command will check for entries whose
+    ``published_at`` field is within the last hour.  If there are any, the cache
+    will be cleared.
+
+    This command should be run as an hourly cron job.
+
+django-admin.py import_from_flickr
+
+    Imports public photos from a Flickr account (based on settings.FLICKR_NSID)
+    and stores them and their metadata in the database.
+
+    This command should be run as regularly if you want to download your photos
+    from Flickr.
+
+django-admin.py import_user_timeline
+
+    Imports messages from Twitter for one particular user.  The Twitter username
+    is defined as ``TWITTER_USERNAME`` in the project's settings and is mapped
+    to a database user using the ``TWITTER_USER_MAPPING`` setting, e.g.:
+
+        TWITTER_USERNAME = "riggbot"
+        TWITTER_USER_MAPPING = {
+            "riggbot": "matt",
+        }
+
+    The value for ``TWITTER_USER_MAPPING["riggbot"]``, ``matt``, is the username
+    for the database user you want to assign the Twitter messages to.
+
+    This command should be run as regularly if you want to download your
+    messages from Twitter.
