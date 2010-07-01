@@ -5,10 +5,11 @@ Flother is the personal web site for Matt Riggott.  It's been through many
 iterations but now it runs on Python 2.5 and Django 1.1 and is in active
 development.  This is the complete source code, released under the GPL v3.0.
 
-It includes six apps that offer a blog, a photo library, geographical locations,
-a contact form, file uploads, and Google-powered search.  (See "Features" below
-for more information.)  It's fairly specific to my needs but you may find it
-useful either as a base for your own site or to help you learn Django.
+It includes seven apps that offer a blog, a photo library, geographical
+locations, a contact form, file uploads, a Google-powered search, and a copy of
+a Twitter user's status messages.  (See "Features" below for more information.)
+It's fairly specific to my needs but you may find it useful either as a base for
+your own site or to help you learn Django.
 
 You can see the code in action at http://www.flother.com/.  For more
 information, contact me: http://www.flother.com/contact/.
@@ -17,7 +18,7 @@ information, contact me: http://www.flother.com/contact/.
 Features
 ==========
 
-There are six main apps within the project. The largest is a blog with
+There are seven main apps within the project. The largest is a blog with
 Akismet-moderated comments.  Entries are formatted using Markdown and can be
 public, private, or draft.  Draft entries can be previewed on the site by admin
 users.  Comments can be enabled entry by entry (i.e. one entry can have comments
@@ -34,6 +35,10 @@ email is sent.  Messages are stored in the database.
 Fifth, file uploads.  Files of any type can be uploaded and stored via the
 admin.  Thumbnails of images are created and displayed in the admin.  A
 Javascript-based interface for using files in blog entries is provided.
+
+Sixth is a very simple app that stores a copy of a single Twitter user's
+messages.  A management command is included that should be used periodically
+to save new messages from Twitter.
 
 And finally, site search.  Google's AJAX API is used (server-side) to perform a
 site-wide search and return results on the site itself.
@@ -62,6 +67,7 @@ packages:
     * StaticGenerator (http://github.com/flother/staticgenerator)
     * Typogrify (http://code.google.com/p/typogrify/)
     * Participation Graphs (http://github.com/flother/participationgraphs)
+    * Python Twitter (http://code.google.com/p/python-twitter/)
 
 Note that StaticGenerator is a fork of Jared Kuolt's original, to allow
 Nginx to server up pre-compressed version of the cache.
