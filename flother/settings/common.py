@@ -88,7 +88,6 @@ INSTALLED_APPS = (
     'flother.apps.comments',
     'flother.apps.photos',
     'flother.apps.places',
-    'flother.apps.statuses',
     'flother.apps.files',
     'flother.apps.contact',
     'flother.apps.search',
