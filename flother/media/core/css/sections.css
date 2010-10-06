@@ -252,15 +252,6 @@
 	display: block;
 }
 
-/* Contact
-   -------------------------------------------------------------------------- */
-#contact #supplement {
-	background: url(../img/bluebird.png) no-repeat 0 2.8em;
-}
-#twitterme {
-	padding-left: 44px;
-}
-
 /* Search results.
    -------------------------------------------------------------------------- */
 #search #content input {

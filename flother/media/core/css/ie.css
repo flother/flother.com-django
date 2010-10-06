@@ -74,9 +74,6 @@ button {
 * html #entry #comments li div {
 	overflow: hidden;
 }
-* html #contact #supplement {
-	background-image: url(../img/bluebird.gif);
-}
 * html #mandatorynotice {
 	bottom: 4.2em;
 }
