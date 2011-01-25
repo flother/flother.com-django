@@ -1,10 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
+<!DOCTYPE html>
+<html lang="en-gb">
 	<head{% block headattrs %}{% endblock %}>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta charset="utf-8">
 		<title>{% block headtitle %}Untitled{% endblock %} — Flother</title>
 		<meta name="viewport" content="width=960" />
-		<meta http-equiv="imagetoolbar" content="false" />
+		<!--[if IE]><meta http-equiv="imagetoolbar" content="false" /><![endif]-->
 		{% load compressed typogrify %}{% compressed_css 'flother' %}
 		<!--[if lte IE 7]><link href="{{ MEDIA_URL }}core/css/ie.css" media="screen" rel="stylesheet" type="text/css"><![endif]-->
 		<meta name="Author" content="Matt Riggott" />
