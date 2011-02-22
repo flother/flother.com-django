@@ -138,9 +138,6 @@ textarea:focus {
 	border-color: #999;
 	outline: 0;
 }
-#field_ham_trap {
-	display: none;
-}
 button {
 	background: #999;
 	border: 0;

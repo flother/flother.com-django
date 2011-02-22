@@ -13,7 +13,7 @@ def send_message(request):
     """
     On a get request, show a form to allow visitors to send me a
     message.  On a post request, save the message in the database and
-    send me an email.
+    send me an email if Akismet doesn't consider the message to be spam.
     """
     if request.method == 'POST':
         form = MessageForm(request.POST)
@@ -21,7 +21,7 @@ def send_message(request):
             message = Message(sender_name=form.cleaned_data['sender_name'],
                 sender_email=form.cleaned_data['sender_email'],
                 body=form.cleaned_data['body'])
-            if form.cleaned_data['ham_trap']:
+            if form.is_spam():
                 message.is_spam = True
             else:
                 message_body = "%s (%s) said:\n\n%s\n" % (
