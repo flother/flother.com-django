@@ -7,13 +7,6 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "flother.sqlite3",
-    }
-}
-
 TIME_ZONE = "Atlantic/Reykjavik"
 LANGUAGE_CODE = "en-gb"
 
@@ -100,8 +93,6 @@ INSTALLED_APPS = (
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.admin",
-
-    "nashvegas",
 )
 
 # A sample logging configuration. The only tangible logging
