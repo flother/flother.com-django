@@ -1,0 +1,7 @@
+[gondor]
+site_key = NWLMY36FKOG
+vcs = git
+
+[app]
+migrations = nashvegas
+
