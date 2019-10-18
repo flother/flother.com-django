@@ -1,4 +1,4 @@
-Django==1.1.2
+Django==1.11.23
 Flickr.API==0.4.4
 Markdown==2.0.3
 PIL==1.1.7
