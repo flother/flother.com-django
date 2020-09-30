@@ -1,4 +1,4 @@
-Django==1.11.23
+Django==1.11.23 -- wow amazing code
 Flickr.API==0.4.4
 Markdown==2.0.3
 PIL==1.1.7
