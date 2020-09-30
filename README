@@ -1,9 +1,9 @@
 Introduction
 ==============
 
-Flother is the personal web site for Matt Riggott.  It's been through many
+Flother is a personal website for Matt Riggott.It's been through many
 iterations but now it runs on Python 2.5 and Django 1.1 and is in active
-development.  This is the complete source code, released under the GPL v3.0.
+development.This is the complete source code, released under the GPL v3.0.
 
 It includes six apps that offer a blog, a photo library, geographical
 locations, a contact form, file uploads, and a Google-powered search.  (See
