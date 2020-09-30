@@ -74,7 +74,7 @@ in the root directory of the repository.
 Installation
 ==============
 
-1. Clone the read-only repo
+1. Clone the read-only report
 
      git clone git://github.com/flother/flother.git
 
