@@ -9,7 +9,7 @@ It includes six apps that offer a blog, a photo library, geographical
 locations, a contact form, file uploads, and a Google-powered search.  (See
 "Features" below for more information.) It's fairly specific to my needs but
 you may find it useful either as a base for your own site or to help you learn
-Django.
+Django.Its very helpful for a beginner.
 
 You can see the code in action at http://www.flother.com/.  For more
 information, contact me: http://www.flother.com/contact/.
