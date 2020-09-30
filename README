@@ -48,7 +48,7 @@ Future work
     * Home page that aggregates site content
 
 
-Requirements
+Essesntial Requirements
 ==============
 
 The blog requires Python 2.5 and Django 1.1 and depends on the following
